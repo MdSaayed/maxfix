@@ -381,6 +381,10 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 6rem;
     }
 
+    .hero-homeone .hero__image--left {
+        min-width: 100%;
+        max-width: 420px;
+    }
     .hero-homeone .hero__tagline{
         margin-top: 1rem;
     }
