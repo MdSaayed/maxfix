@@ -300,16 +300,15 @@ h1, h2, h3, h4, h5, h6 {
 ============================= */
 
 
-@media (max-width:17730px) {
-   
-}
-
-@media (max-width:1250px) {
+@media (max-width:1730px) {
      /* Hero Home One */
     .hero-homeone .hero__content-area{
         flex-wrap: wrap;
     }
+}
 
+@media (max-width:1250px) {
+     /* Hero Home One */
     .hero-homeone .hero__tagline, .hero-homeone .hero__bottom{
         margin-left: 0;
     }
