@@ -332,6 +332,14 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 @media (max-width:992px) {
+    /* Container */
+    .container{
+        padding-left: 40px;
+        padding-top: 3.75rem;
+        padding-right: 40px;
+        padding-bottom: 3.75rem;
+    }
+
     /* Header Home One */
 
     .header__container {
@@ -360,6 +368,14 @@ h1, h2, h3, h4, h5, h6 {
  
 }
 @media (max-width:768px) {
+    /* Container */
+    .container{
+        padding-left: 20px;
+        padding-top: 5rem;
+        padding-right: 20px;
+        padding-bottom: 5rem;
+    }
+
     /* Hero Home One */
     .hero-homeone .hero__title {
         font-size: 6rem;
