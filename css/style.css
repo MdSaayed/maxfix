@@ -573,6 +573,104 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =============================
+* 6. Responsive
+============================= */
+
+.fact {
+  background-color: var(--color-secondary);
+  position: relative;
+}
+
+.fact__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 2rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.fact__item {
+  border-left: 2px solid var(--color-primary);
+  padding: 7.5rem 30px;
+  position: relative;
+}
+
+.fact__item:last-child {
+  border-right: 2px solid var(--color-primary);
+}
+
+.fact__item::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  position: absolute;
+  left: -6px;
+}
+
+.fact__item:nth-child(even){
+  padding-top: 15rem;
+}
+
+.fact__item:nth-child(odd)::before {
+  top: 50px;
+}
+
+.fact__item:nth-child(even)::before {
+  top: 100px;
+}
+
+.fact__year,
+.fact__number {
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.fact__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: var(--color-primary);
+}
+
+.fact__subtitle {
+  font-size: 18px;
+  color: var(--color-primary);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.fact__avatars,
+.fact__icons {
+  display: flex;
+  margin-top: 2.5rem;
+}
+
+.fact__avatar,
+.fact__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--bg-white);
+}
+
+.fact__icon{
+  border-radius: 10px;
+}
+
+.fact__avatar:not(:first-child),
+.fact__icon:not(:first-child) {
+  margin-left: -20px;
+}
+
+
+/* =============================
 * 30. Responsive
 ============================= */
 
@@ -649,6 +747,11 @@ h1, h2, h3, h4, h5, h6 {
     gap: 3.5rem;
     flex-wrap: wrap;
   }
+
+  /* Fact */
+  .fact__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width:768px) {
@@ -705,5 +808,10 @@ h1, h2, h3, h4, h5, h6 {
   .about--homeone .about__hand {
     right: -120px;
     bottom: -180px;
+  }
+
+   /* Fact */
+  .fact__container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
