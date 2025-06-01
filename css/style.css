@@ -13,7 +13,8 @@ CSS INDEX
 1. Basic & Reset Styles
 2. Header Area
 3. Hero Home One
-4. Hero Area
+4. Keywords
+5. About / Home One
 
 ------------------------------------------------------------------*/
 
@@ -92,6 +93,28 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 7.5rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.subtitle-wrap{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.subtitle{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--bg-white);
+  display: inline-block;
+}
+
+.title{
+  font-size: 3.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--bg-white);
 }
 
 
@@ -174,10 +197,10 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* =============================
-* 2. Hero Home One
+* 3. Hero Home One
 ============================= */
 
-.hero.hero-homeone .hero__container{
+.hero-homeone .hero__container{
   display: grid;
   align-items: center;
   position: relative;
@@ -303,7 +326,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =============================
-* 30. Keywords
+* 4. Keywords
 ============================= */
 
 .keywords {
@@ -339,6 +362,217 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* =============================
+* 5. About / Home One
+============================= */
+.about--homeone{
+  position: relative;
+  overflow: hidden;
+}
+
+.about--homeone .about__subtitle-wrap {
+    width: 400px;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 25px;
+}
+
+.about--homeone .about__content-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3rem;
+  color: var(--bg-white);
+  margin-top: 7.5rem;
+}
+
+.about--homeone .about__col--left{
+  max-width: 850px;
+}
+
+.about--homeone .about__testimonial-wrap {
+  display: flex;
+  gap: 7.5rem;
+  max-width: 965px;
+  margin-bottom: 7.25rem;
+}
+
+.about--homeone .about__desc{
+  max-width: 424px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #999;
+}
+
+.about--homeone .about__image-wrap{
+  width: 100%;
+  max-height: 910px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.about--homeone .about__col--right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 600px;
+}
+
+.about--homeone .about__image-wrap--right{
+  max-width: 600px;
+  max-height: 690px;
+  overflow: hidden;
+}
+
+
+.about--homeone .about__image{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.about--homeone .about__link {
+  color: #f9e506;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.about--homeone .about__description {
+  color: #aaa;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.about--homeone .about__testimonial {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about__testimonial-avatar-wrap{
+  min-width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.about--homeone .about__testimonial-avatar {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.about--homeone .about__testimonial-rating {
+  font-weight: bold;
+  color: #f9e506;
+}
+
+.about--homeone .about__testimonial-quote {
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.6;
+  color: #999;
+  margin-top: 10px;
+}
+
+.about--homeone .about__testimonial-name {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-top: 10px;
+  color: var(--bg-white);
+}
+
+.about--homeone .about__images {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+}
+
+.about--homeone .about__image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.about--homeone .about__button-wrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px -2px rgba(255, 251, 31, 0.15) inset;
+}
+
+.about--homeone .about__button-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  transform: translate(-30px, 0) scale(1);
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.about--homeone .about__button-wrapper:hover::after {
+  transform: translate(-30px, 0) scale(15);
+}
+
+.about--homeone .about__button-wrapper:hover .about__button {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.about--homeone .about__button-wrapper i {
+  transition: fill 0.3s ease;
+}
+
+.about--homeone .about__button-wrapper:hover i {
+  color: var(--color-primary);
+}
+
+.about--homeone .about__button {
+  display: flex !important;
+  align-items: end;
+  gap: 10px;
+  color: var(--bg-white);
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.about--homeone .about__button i {
+  margin-bottom: 3px !important;
+  transform: rotate(-45deg);
+}
+
+.about--homeone .about__hand {
+  position: absolute;
+  width: 322px !important;
+  height: 335px;
+  right: -40px;
+  bottom: -100px;
+  width: 60px;
+}
+
+/* =============================
 * 30. Responsive
 ============================= */
 
@@ -359,6 +593,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 8rem;
   }
 
+  .hero__video-icon-wrap{
+    width: 130px;
+    height: 130px;
+  }
+
   .hero-homeone .hero__bottom {
     gap: 3rem;
   }
@@ -371,6 +610,11 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 3.75rem;
     padding-right: 40px;
     padding-bottom: 3.75rem;
+  }
+
+  /* Title */
+  .title{
+    font-size: 2.5rem;
   }
 
   /* Header Home One */
@@ -395,8 +639,17 @@ h1, h2, h3, h4, h5, h6 {
   .hero-homeone .hero__bottom {
     flex-wrap: wrap;
   }
-}
 
+  /* About / Home One */
+  .about--homeone .about__subtitle-wrap {
+    width: 300px;
+  }
+
+  .about--homeone .about__testimonial-wrap {
+    gap: 3.5rem;
+    flex-wrap: wrap;
+  }
+}
 
 @media (max-width:768px) {
   /* Container */
@@ -407,7 +660,12 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 5rem;
   }
 
-    /* Header Home One */
+  /* Title */
+  .title{
+    font-size: 2rem;
+  }
+
+  /* Header Home One */
   .header__container {
     padding-right: 0;
     padding-top: 0;
@@ -435,5 +693,17 @@ h1, h2, h3, h4, h5, h6 {
   }
   .hero-homeone .hero__tagline{
     margin-top: 1rem;
+  }
+
+  /* About / Home One */
+  .about--homeone .about__subtitle-wrap {
+    float: none;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .about--homeone .about__hand {
+    right: -120px;
+    bottom: -180px;
   }
 }
