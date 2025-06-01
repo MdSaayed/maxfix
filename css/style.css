@@ -614,11 +614,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fact__item:nth-child(odd)::before {
-  top: 50px;
+  top: 130px;
 }
 
 .fact__item:nth-child(even)::before {
-  top: 100px;
+  top: 250px;
 }
 
 .fact__year,
