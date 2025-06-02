@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       content.style.opacity = "1";
       content.style.height = "auto";
       content.style.padding = "2rem";
-      content.style.marginBottom = "2rem"; // 👇 for margin animation
+      content.style.marginBottom = "2rem";  
     }
 
     icon.addEventListener("click", function () {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
         content.style.opacity = "0";
         content.style.height = "0";
         content.style.padding = "0 2rem";
-        content.style.marginBottom = "0"; // 👈 Animate margin
+        content.style.marginBottom = "0"; 
 
         setTimeout(() => {
           item.classList.remove("services__item--active");
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         content.style.visibility = "visible";
         content.style.height = "auto";
         content.style.padding = "2rem";
-        content.style.marginBottom = "2rem"; // 👈 Animate margin
+        content.style.marginBottom = "2rem";  
 
         void content.offsetWidth;
 

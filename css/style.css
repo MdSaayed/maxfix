@@ -15,6 +15,9 @@ CSS INDEX
 3. Hero Home One
 4. Keywords
 5. About / Home One
+6. Fact
+7. Services / Home One
+8. Process / Home One
 
 ------------------------------------------------------------------*/
 
@@ -126,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Button Arrow */
-.btn-arrow{
+.btn-arrow,.btn-arrow__black{
   display: inline-block;
   text-decoration: none;
   position: relative;
@@ -147,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-.btn-arrow::after{
+.btn-arrow::after,.btn-arrow__black::after{
   content: "\f061"; 
   font-family: "Font Awesome 6 Free";  
   font-weight: 800;  
@@ -167,10 +170,19 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.5s ease;
 }
 
-.btn-arrow:hover::after{
+.btn-arrow:hover::after, .btn-arrow__black:hover{
   transform: rotate(0);
 }
 
+.btn-arrow__black .btn-arrow__text{
+  background-color: var(--color-primary);
+  color: var(--bg-white);
+}
+
+.btn-arrow__black::after{
+ background-color: var(--color-primary);
+ color: var(--bg-white);
+}
 
 
 
@@ -765,7 +777,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 12px;
   width: 100%;
 }
- 
 
 span.services__item-index {
   font-size: 20px;
@@ -780,10 +791,11 @@ span.services__item-index {
 .services--homeone .services__item-title{
   font-size: 5rem;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
   color: var(--bg-white);
 }
 
+/* Services Toggle */
 .services--homeone .services__item-toggle-wrap {
   display: flex;
   align-items: center;
@@ -805,7 +817,7 @@ span.services__item-index {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease ;
 }
 
  .services__item--active .services__item-toggle-icon {
@@ -828,26 +840,7 @@ span.services__item-index {
   background-size: cover;
 }
 
-/* Services Item Content */
-/* .services--homeone .services__item-content {
-  display: flex;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.5s ease, opacity 0.5s ease, height 0.5s ease, padding 0.5s ease;
-  opacity: 0;
-  height: 0;
-  padding: 0 2rem;  
-  overflow: hidden;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-  border-radius: 10px;
-  background-color: var(--bg-dark);
-  margin-left: 30%;
-  visibility: hidden;
-} */
-
-
+/* Services Content */
 .services--homeone .services__item-content {
   display: flex;
   transform: scaleY(0);
@@ -879,9 +872,6 @@ span.services__item-index {
   padding: 2rem;
   visibility: visible;
 }
-
-
-
 
 .services--homeone .services__item-text{
   max-width: 450px;
@@ -939,6 +929,108 @@ span.services__item-index {
 }
 
 /* =============================
+* 8. Process / Home One
+============================= */
+
+.process{
+  background-color: var(--bg-white);
+}
+
+.process__content-area {
+  display: grid;
+  grid-template-columns: 35fr 65fr; 
+  gap: 5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.process__intro {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.process__subtitle {
+  color: var(--color-primary);
+}
+
+.process__title {
+  color: var(--color-primary);
+}
+
+.process__btn {
+  margin-top: 3rem;
+}
+ 
+/* Process Step */
+.process__steps {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  row-gap: 7rem;
+}
+
+.process__step {
+  padding: 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(0, 0, 0, 0.10);
+  position: relative;
+}
+
+.process__step-label {
+  writing-mode: vertical-rl;
+  position: absolute;
+  transform: rotate(180deg);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-primary);
+  left: 20px;
+  bottom: 0;
+}
+
+.process__step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.process__step-side-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #111;
+}
+
+.process__step-image{
+  width: 100%;
+  height: 100%;
+  max-width: 316px;
+  max-height: 320px;
+}
+
+.process__step-image img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.process__step-desc {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #565656;
+  max-width: 242px;
+  padding-left: 45px;
+  margin-top: 7rem;
+  text-align: left;
+}
+
+
+/* =============================
 * 30. Responsive
 ============================= */
 
@@ -954,6 +1046,13 @@ span.services__item-index {
   .services--homeone .services__item-text,.services--homeone .services__item-tags {
     width: 100%;
     max-width: 100%;
+  }
+}
+
+@media (max-width:1600px) {
+  .process__content-area{
+    grid-template-columns: 1fr;
+    gap: 7rem;
   }
 }
 
@@ -1067,6 +1166,12 @@ span.services__item-index {
   .services--homeone .services__item-content{
     margin-left: 20%;
   }
+
+  /* Process */
+  .process__steps {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
 }
 
 @media (max-width:768px) {
@@ -1138,7 +1243,7 @@ span.services__item-index {
 
   /* Services / Home One */
   .services--homeone .services__item-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .services--homeone .services__item-toggle-wrap {
@@ -1153,5 +1258,15 @@ span.services__item-index {
 
   .services--homeone .services__item-content{
     margin-left: 0;
+  }
+
+ 
+}
+
+@media (max-width:600px) {
+   /* Process */
+  .process__steps {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
