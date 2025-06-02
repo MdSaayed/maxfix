@@ -784,20 +784,37 @@ span.services__item-index {
   color: var(--bg-white);
 }
 
-.services--homeone .services__item-toggle-wrap{
-  display: grid;
-  place-items: center;
-  background-color: var(--color-secondary);
-  border-radius: 50%;
-  height:60px;
+.services--homeone .services__item-toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 60px;
+  min-width: 60px;
   width: 60px;
-  padding: 1rem;
+  height: 60px;
 }
 
-.services--homeone .services__item-toggle-icon{
- 
-  font-size: 2rem;
-  color: var(--color-primary);
+.services--homeone .services__item-toggle-icon {
+  font-size: 1.5rem; 
+  color: var(--bg-white);
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+ .services__item--active .services__item-toggle-icon {
+  background-color: var(--color-secondary) !important;
+  color: var(--color-primary) !important;
+}
+
+.services__item-toggle-icon.rotate {
+  transform: rotate(180deg);
 }
 
 .services--homeone .services__desc {
@@ -812,16 +829,59 @@ span.services__item-index {
 }
 
 /* Services Item Content */
-.services--homeone .services__item-content{
+/* .services--homeone .services__item-content {
   display: flex;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s ease, opacity 0.5s ease, height 0.5s ease, padding 0.5s ease;
+  opacity: 0;
+  height: 0;
+  padding: 0 2rem;  
+  overflow: hidden;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
-  padding: 2rem;
   border-radius: 10px;
   background-color: var(--bg-dark);
   margin-left: 30%;
+  visibility: hidden;
+} */
+
+
+.services--homeone .services__item-content {
+  display: flex;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease,
+    height 0.5s ease,
+    padding 0.5s ease,
+    margin-bottom 0.5s ease;
+  opacity: 0;
+  height: 0;
+  padding: 0 2rem;
+  margin-bottom: 0;
+  overflow: hidden;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border-radius: 10px;
+  background-color: var(--bg-dark);
+  margin-left: 30%;
+  visibility: hidden;
 }
+
+.services--homeone .services__item--active .services__item-content {
+  transform: scaleY(1);
+  opacity: 1;
+  height: auto;
+  padding: 2rem;
+  visibility: visible;
+}
+
+
+
 
 .services--homeone .services__item-text{
   max-width: 450px;
@@ -932,9 +992,7 @@ span.services__item-index {
   }
 
   .services--homeone .services__item-toggle-wrap {
-    height: 54px;
-    width: 54px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 12px;
   }
 
@@ -1087,7 +1145,6 @@ span.services__item-index {
     height: 40px;
     width: 40px;
     font-size: 10px;
-    padding: 5px;
   }
 
   .services--homeone .services__item-header {
