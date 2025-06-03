@@ -1455,6 +1455,16 @@ span.services__item-index {
 }
 
 @media (max-width:600px) {
+  .btn-circle__wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .btn-circle__wrapper a {
+    width: 70%;
+    font-size: 14px;
+  }
+
    /* Process */
   .process__steps {
     display: grid;
@@ -1464,5 +1474,10 @@ span.services__item-index {
   /* Recent Work / Home One */
   .recent-works__title{
     font-size: 3rem;
+  }
+
+  .work-card__button{
+    width: 90px;
+    height: 90px;
   }
 }
