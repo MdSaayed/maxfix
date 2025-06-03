@@ -1165,6 +1165,80 @@ span.services__item-index {
   margin-top: 3.75em;
 }
  
+/* =============================
+* 30. Brand logos
+============================= */
+.brand-logos {
+  background-color: var(--bg-dark);
+  text-align: center;
+}
+
+.brand-logos__title {
+  color: var(--bg-white);
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 5rem;
+  line-height: 1.3;
+}
+
+.brand-logos__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+}
+
+.brand-logos__item {
+  width: 100%;
+  height: 150px;
+  padding: 3rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.brand-logos__item:hover {
+  transform: translateY(-5px);
+}
+
+.brand-logos__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Position top logos in cols 1, 3, 5 */
+.brand-logos__item:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+.brand-logos__item:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1;
+}
+.brand-logos__item:nth-child(3) {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+/* Position bottom logos in cols 2, 4, 6 */
+.brand-logos__item:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+.brand-logos__item:nth-child(5) {
+  grid-column: 4;
+  grid-row: 2;
+}
+.brand-logos__item:nth-child(6) {
+  grid-column: 6;
+  grid-row: 2;
+}
+
+ 
+ 
+
 
 
 /* =============================
@@ -1252,6 +1326,18 @@ span.services__item-index {
   .work-card__tags{
     display: none;
   }
+
+  /* Brand Logos / Home One */
+  .brand-logos__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .brand-logos__item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .brand-logos__item:nth-child(2) { grid-column: 3; grid-row: 1; }
+  .brand-logos__item:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .brand-logos__item:nth-child(4) { grid-column: 4; grid-row: 2; }
+  .brand-logos__item:nth-child(5) { grid-column: 1; grid-row: 3; }
+  .brand-logos__item:nth-child(6) { grid-column: 3; grid-row: 3; }
 }
 
 @media (max-width:992px) {
@@ -1346,6 +1432,21 @@ span.services__item-index {
 
   .work-card__year {
     padding: 4px 16px;
+  }
+
+  
+  /* Brand Logos / Home One */
+  .brand-logos__title{
+    font-size: 1.5;
+  }
+
+  .brand-logos__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .brand-logos__item {
+    grid-column: auto !important;
+    grid-row: auto !important;
   }
 }
 
@@ -1452,6 +1553,16 @@ span.services__item-index {
   .work-card__content {
     margin-top: 1rem;
   }
+
+  /* Brand Logos / Home One */
+  .brand-logos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brand-logos__item {
+    height: 100px;
+    padding: 2rem;
+  }
 }
 
 @media (max-width:600px) {
@@ -1472,6 +1583,10 @@ span.services__item-index {
   }
 
   /* Recent Work / Home One */
+  .brand-logos__title{
+    margin-bottom: 3rem;
+  }
+
   .recent-works__title{
     font-size: 3rem;
   }
