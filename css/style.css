@@ -1329,6 +1329,7 @@ span.services__item-index {
 /* Last card - shifted down */
 .testimonial-card:last-child {
   transform: translateY(-150px);
+  transition: 0.6s ease;
 }
 
 /* Responsive Typography */
@@ -1355,6 +1356,142 @@ span.services__item-index {
   .testimonial-card:last-child {
     transform: none;
     height: auto;
+  }
+}
+
+
+/* =============================
+* 30. Faq
+============================= */
+
+.faq{
+  background-color: var(--bg-dark);
+}
+
+.faq__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.faq__sidebar {
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3.75rem 2rem;
+  flex: 1 1 300px;
+  border-radius: 10px;
+}
+
+.faq__title {
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.faq__subtitle {
+  margin-top: 2rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.faq__button {
+  margin-top: 2.2rem;
+}
+
+.faq__button-icon {
+  margin-left: 0.5rem;
+}
+
+.faq__content {
+  flex: 2 1 600px;
+}
+
+.faq__item {
+  border-bottom: 1px solid #333;
+  padding: 2rem 0;
+  overflow: hidden;
+  transition: padding 0.6s ease;
+}
+
+.faq__item--active{
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  padding: 2rem;
+  border-bottom: none;
+}
+
+.faq__answer {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  margin-top: 0;  
+  transition: height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.faq__item--active .faq__answer {
+  height: auto;  
+  opacity: 1;
+  margin-top: 2rem;  
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #999;
+  -webkit-text-stroke-color: var(--border-color);
+}
+
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq__number {
+  font-weight: bold;
+  color: #fff;
+  min-width: 50px;
+}
+
+.faq__question-text {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--bg-white);
+  -webkit-text-stroke-color: var(--border-color);
+}
+
+.faq__toggle {
+  background: var(--bg-white);
+  color: var(--color-primary);
+  font-size: 1rem;
+  border: none;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.faq__item--active .faq__toggle{
+  background-color: var(--color-secondary);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq__container {
+    flex-direction: column;
+  }
+
+  .faq__sidebar,
+  .faq__content {
+    flex: 1 1 100%;
   }
 }
 

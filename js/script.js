@@ -74,3 +74,61 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+const cards = document.querySelectorAll('.testimonial-card');
+const cardList = document.querySelector('.testimonials__list');
+
+cards.forEach((card, index) => {
+  const isLastCard = index === cards.length - 1;
+
+  card.addEventListener('mouseenter', () => {
+    cardList.style.marginTop = '-7.5rem';
+
+    if (isLastCard) {
+      card.style.transform = 'translateY(0)';
+    }
+
+    cardList.style.transition = 'margin-top 0.6s ease';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    cardList.style.marginTop = '0';
+    cardList.style.transition = 'margin-top 0.6s ease';
+
+    if (isLastCard) {
+      card.style.transform = 'translateY(-150px)';
+    }
+  });
+});
+
+
+// Faq 
+  document.querySelectorAll('.faq__toggle').forEach(toggle => {
+    toggle.addEventListener('click', function () {
+      const item = this.closest('.faq__item');
+      const answer = item.querySelector('.faq__answer');
+      const isActive = item.classList.contains('faq__item--active');
+
+      // Collapse all items first
+      document.querySelectorAll('.faq__item').forEach(i => {
+        const a = i.querySelector('.faq__answer');
+        a.style.height = '0px';
+        i.classList.remove('faq__item--active');
+      });
+
+      if (!isActive) {
+        item.classList.add('faq__item--active');
+        answer.style.height = answer.scrollHeight + 'px';
+
+        answer.addEventListener('transitionend', () => {
+          if (item.classList.contains('faq__item--active')) {
+            answer.style.height = 'auto';
+          }
+        }, { once: true });
+      }
+    });
+  });
+
+
+
+
