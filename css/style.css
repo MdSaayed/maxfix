@@ -1532,6 +1532,90 @@ span.services__item-index {
 * 30. Responsive
 ============================= */
 
+.blog__title-wrap{
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog__title{
+  color: var(--color-primary);
+}
+
+.blog__subtitle{
+  color: var(--bg-dark);
+}
+
+.blog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 7.5rem;
+}
+
+.blog__item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.blog__item:hover {
+  transform: translateY(-5px);
+}
+
+.blog__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.blog__icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.blog__content {
+  padding: 20px;
+}
+
+.blog__meta {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.blog__heading {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.blog__excerpt {
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* =============================
+* 30. Responsive
+============================= */
+
 @media (max-width:1730px) {
   /* Hero Home One */
   .hero-homeone .hero__content-area{
