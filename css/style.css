@@ -1484,9 +1484,19 @@ span.services__item-index {
 
 
 /* Responsive Design */
+@media (max-width: 992px) {
+.faq__question-text {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .faq__container {
     flex-direction: column;
+  }
+
+  .faq__question-text {
+    font-size: 1.2rem;
   }
 
   .faq__sidebar,
