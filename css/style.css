@@ -1053,7 +1053,6 @@ span.services__item-index {
   display: inline-block;
 }
 
-
 .recent-works__grid {
   display: grid;
   gap: 1.875rem;
@@ -1168,6 +1167,7 @@ span.services__item-index {
 /* =============================
 * 30. Brand logos
 ============================= */
+
 .brand-logos {
   background-color: var(--bg-dark);
   text-align: center;
@@ -1213,10 +1213,12 @@ span.services__item-index {
   grid-column: 1;
   grid-row: 1;
 }
+
 .brand-logos__item:nth-child(2) {
   grid-column: 3;
   grid-row: 1;
 }
+
 .brand-logos__item:nth-child(3) {
   grid-column: 5;
   grid-row: 1;
@@ -1227,10 +1229,12 @@ span.services__item-index {
   grid-column: 2;
   grid-row: 2;
 }
+
 .brand-logos__item:nth-child(5) {
   grid-column: 4;
   grid-row: 2;
 }
+
 .brand-logos__item:nth-child(6) {
   grid-column: 6;
   grid-row: 2;
@@ -1238,67 +1242,27 @@ span.services__item-index {
 
 /* =============================
 * 30. Testimonials
-
 ============================= */
 
-/* Section styles */
 .testimonials {
   background-color: var(--color-primary);
 }
 
-.testimonials__top {
-  text-align: center;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.testimonials__label {
-  color: #fefefe;
-  font-size: 14px;
-  margin-bottom: 10px;
-  display: inline-flex;
+.testimonials__title-wrap{
+  display: flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 500;
-}
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 15rem;
 
-.testimonials__icon {
-  color: #f9f900;
 }
-
-.testimonials__title {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.testimonials__button {
-  display: inline-block;
-  background: #fff;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background 0.3s;
-}
-
-.testimonials__button:hover {
-  background: #f9f900;
-  color: #000;
-}
-
-.testimonials__button-icon {
-  margin-left: 6px;
-}
-
+ 
 /* Cards grid */
 .testimonials__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   align-items: end;
-  margin-top: 7.5rem;
 }
 
 /* Testimonial Card */
@@ -1310,13 +1274,13 @@ span.services__item-index {
   flex-direction: column;
   min-height: 320px;
   border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: height 0.6s ease;
 }
 
-.testimonial-card__quote {
-  font-size: 48px;
-  color: #f9f900;
-  line-height: 1;
-  margin-bottom: 20px;
+.testimonial-card:hover .testimonial-card__img-wrap{
+  transform: scaleY(1);
+  max-height: 130px;
 }
 
 .testimonial-card__text {
@@ -1327,7 +1291,6 @@ span.services__item-index {
   margin: 5.6rem 0;
 }
  
-
 .testimonial-card__name {
   font-size: 1.5rem;
   font-weight: 600;
@@ -1344,12 +1307,7 @@ span.services__item-index {
   margin-top: 8px;
 }
 
-/* Second Card - taller */
-/* .testimonial-card--tall {
-  height: calc(100% + 150px);
-} */
-
-.testimonial-card__footer--stacked {
+.testimonial-card__footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1357,7 +1315,9 @@ span.services__item-index {
 
 .testimonial-card__img-wrap {
   max-width: 130px;
-  max-height: 130px;
+  max-height: 0;
+  transform: scaleY(0);
+  transition: transform 0.6s ease, max-height 0.6s ease;
 }
 
 .testimonial-card__image {
@@ -1367,22 +1327,32 @@ span.services__item-index {
 }
 
 /* Last card - shifted down */
-.testimonial-card--shift-down {
+.testimonial-card:last-child {
   transform: translateY(-150px);
 }
 
 /* Responsive Typography */
-@media (max-width: 768px) {
-  .testimonials__title {
-    font-size: 32px;
+@media (max-width: 992px) {
+  .testimonials__list {
+    grid-template-columns: repeat(2,1fr);
   }
 
+  .testimonial-card{
+    padding: 1.8rem;
+  }
+
+  .testimonial-card:last-child {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
   .testimonials__list {
     grid-template-columns: 1fr;
   }
 
-  .testimonial-card--tall,
-  .testimonial-card--shift-down {
+  .testimonial-card,
+  .testimonial-card:last-child {
     transform: none;
     height: auto;
   }
@@ -1423,6 +1393,7 @@ span.services__item-index {
   margin-bottom: 4rem;
 }
 }
+
 @media (max-width:1250px) {
   /* TItle */
   .title {
@@ -1692,6 +1663,8 @@ span.services__item-index {
   /* Recent Work / Home One */
   .recent-works__title{
     font-size: 4rem;
+    background: linear-gradient(160deg, #FFFA00, #fff, #fff, #FFFA00);
+    -webkit-background-clip: text;
   }
 
   .work-card{
