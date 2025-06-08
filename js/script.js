@@ -130,5 +130,30 @@ cards.forEach((card, index) => {
   });
 
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollBtn = document.querySelector(".footer__scroll-top");
+
+    scrollBtn.addEventListener("click", function () {
+      const duration = 1000; // duration in ms (adjust this to control speed)
+      const start = window.pageYOffset;
+      const startTime = performance.now();
+
+      function scrollStep(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1); // between 0 and 1
+        const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+
+        window.scrollTo(0, start * (1 - ease));
+
+        if (progress < 1) {
+          requestAnimationFrame(scrollStep);
+        }
+      }
+
+      requestAnimationFrame(scrollStep);
+    });
+  });
+
+
 
 
