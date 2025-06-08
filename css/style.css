@@ -255,6 +255,7 @@ h1, h2, h3, h4, h5, h6 {
 ============================= */
 
 .header {
+  position: relative;
   background: transparent;
   padding: 0;
   border-bottom: 1px solid var(--border-color);
@@ -333,16 +334,31 @@ h1, h2, h3, h4, h5, h6 {
 * 3. Hero Home One
 ============================= */
 
+.hero-homeone {
+  position: relative;
+  z-index: 0;
+}
+
+.hero-homeone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../img/hero/home-1-hero-bg.png') center center / cover no-repeat;
+  z-index: -2;
+}
+
 .hero-homeone .hero__container{
+  position: relative;
   display: grid;
   align-items: center;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  z-index: -1;
+  z-index: 1;
 }
 
 .hero-homeone .hero__content-area{
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
   gap: 3.75rem;
