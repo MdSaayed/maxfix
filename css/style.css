@@ -2054,6 +2054,22 @@ span.services__item-index {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .fact__item{
+    padding: 3.5rem;
+  }
+
+  .fact__item:nth-child(even) {
+    padding-top: 7rem;
+  }
+
+  .fact__year, .fact__number{
+    font-size: 3rem;
+  }
+
+  .fact__item:last-child {
+    border-right: none;
+}
+
   /* Services / Home One */
   .services--homeone .services__item-title {
     font-size: 3rem;
