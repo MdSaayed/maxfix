@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+// Testimonials
 const cards = document.querySelectorAll('.testimonial-card');
 const cardList = document.querySelector('.testimonials__list');
 
@@ -130,6 +130,7 @@ cards.forEach((card, index) => {
   });
 
 
+  // Back to Top Smooth Animation
   document.addEventListener("DOMContentLoaded", function () {
     const scrollBtn = document.querySelector(".footer__scroll-top");
 
@@ -153,17 +154,5 @@ cards.forEach((card, index) => {
       requestAnimationFrame(scrollStep);
     });
   });
-
-//  new Swiper('.keywords-swiper', {
-//     slidesPerView: 'auto',
-//     spaceBetween: 25,
-//     loop: true,
-//     speed: 2000,  
-//     allowTouchMove:false,
-//     autoplay: {
-//       delay: 1,
-//       disableOnInteraction: false,
-//     },
-//   });
 
 
