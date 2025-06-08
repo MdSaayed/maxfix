@@ -466,34 +466,55 @@ h1, h2, h3, h4, h5, h6 {
 .keywords {
   background-color: var(--color-secondary);
   overflow: hidden;
+  white-space: nowrap;
 }
 
-.keywords__container{
-  padding: 30px 0;
+.keywords__container {
+  padding: 30px 0 !important;
 }
 
 .keywords__wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.keywords__item {
+.keywords__track {
+  display: flex;
+  width: fit-content;
+  animation: scroll 20s linear infinite;
+}
+
+.keywords__group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.keywords__item,
+.keywords__separator {
+  display: inline-block;
   font-weight: 600;
   font-size: 1.3rem;
   line-height: 34px;
   color: var(--color-primary);
   text-transform: uppercase;
+  margin: 0 0.75rem;
+  white-space: nowrap;
 }
 
 .keywords__separator {
   font-size: 20px;
   font-weight: bold;
-  color: var(--color-primary);
 }
 
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 /* =============================
 * 5. About / Home One

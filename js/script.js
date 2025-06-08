@@ -154,6 +154,16 @@ cards.forEach((card, index) => {
     });
   });
 
-
+//  new Swiper('.keywords-swiper', {
+//     slidesPerView: 'auto',
+//     spaceBetween: 25,
+//     loop: true,
+//     speed: 2000,  
+//     allowTouchMove:false,
+//     autoplay: {
+//       delay: 1,
+//       disableOnInteraction: false,
+//     },
+//   });
 
 
