@@ -1651,6 +1651,41 @@ span.services__item-index {
   grid-row: 2;
 }
 
+/* Brands / Home Two */
+.brands {
+  text-align: center;
+  background-color: var(--bg-white);
+}
+
+.brands__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 3.75rem;
+  color: var(--color-primary);
+}
+.brands__list {
+  display: flex;
+  flex-wrap: wrap;
+  border-right: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.brands__item {
+  padding: 2rem;
+  flex: 1 1 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--color-primary);
+  border-left: 1px solid var(--color-primary);
+}
+.brands__image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* =============================
 * 30. Testimonials
 ============================= */
