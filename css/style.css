@@ -249,6 +249,36 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(-45deg);
 }
 
+/* Button With Bluet */
+.btn__bluet{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 2rem;
+  border-radius: 32px;
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  background-color: var(--color-secondary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn__bluet .bluet {
+    font-weight: 600;
+    height: 8px;
+    width: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+.btn__bluet .btn-text {
+    width: auto;
+    height: auto;
+    color: var(--color-primary);
+    padding-left: 10px;
+}
 
 /* =============================
 * 2. Header Area
@@ -382,7 +412,7 @@ h1, h2, h3, h4, h5, h6 {
 .header--home-two  .menu-btn{
   display: flex;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 12px 2rem;
   border-radius: 32px;
   position: relative;
   font-size: 1rem;
@@ -699,7 +729,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 12px 2rem;
   border-radius: 32px;
   position: relative;
   font-size: 1rem;
@@ -1994,8 +2024,129 @@ span.services__item-index {
   color: #565656;
 }
 
-/* Below 1350px — show 2 columns */
+/* =============================
+* 30. Portfolio
+============================= */
 
+.portfolio__container{
+  padding-bottom: 0 !important;
+}
+
+.portfolio__container-custom{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+}
+
+.portfolio--home-two .portfolio__title{
+  text-indent: 0 !important;
+  max-width: 860px;
+  margin-bottom: 7.5rem;
+}
+
+.portfolio--home-two .portfolio__year{
+  text-align: end;
+  display: block;
+}
+
+.portfolio__grid{
+  margin-top: 7.5rem;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.portfolio__item{
+  padding: 4rem;
+  border: 1px solid var(--border-color);
+}
+
+.portfolio__thumb-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio__thumb{
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio__tag {
+  position: absolute;
+  top: 50%;
+  left: -100px;
+  transform: rotate(-90deg) translateY(calc(-50% - 28px));
+  transform-origin: center;
+  background: var(--bg-white);
+  color: var(--color-primary);
+  padding: 14px 16px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: .5;
+}
+
+.portfolio__content-wrap{
+  position: relative;
+  margin-top: 2rem;
+}
+
+.portfolio__item-title-wrap{
+  display: flex; 
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.portfolio__index{
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--bg-white);
+}
+
+.portfolio__item-title{
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--bg-white);
+}
+
+.portfolio__year-tag {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  border: 1px solid var(--bg-white);
+  padding: 5px 16px;
+  border-radius: 32px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(-30deg);
+  width: fit-content;
+  display: flex; align-items: center;
+}
+
+.portfolio__year-tag span{
+  display: block;
+}
+
+.portfolio__year-tag-text{
+  padding-left: 10px;
+}
+
+.portfolio__btn-wrap{
+  display: flex;
+  justify-content: center;
+  margin-top: 3.75rem;
+}
+
+.portfolio__btn{
+  background-color: var(--bg-white) !important;
+  color: var(--color-primary) !important;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 
 /* =============================
 * 30. Footer
@@ -2242,6 +2393,11 @@ span.services__item-index {
 
   .recent-works__title-wrap {
     margin-bottom: 4rem;
+  }
+
+  /* Portfolio / Home Two */
+  .portfolio__grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2671,6 +2827,19 @@ span.services__item-index {
     margin-top: 1rem;
   }
 
+  /* Portfolio / Home Two */
+  .portfolio__item {
+    padding: 2rem;
+  }
+
+  .portfolio__item-title{
+    font-size: 1.5rem;
+  }
+
+  .portfolio__tag{
+    display: none;
+  }
+
   /* Brand Logos / Home One */
   .brand-logos__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2758,6 +2927,13 @@ span.services__item-index {
     height: 45px;
     width: 45px;
     font-size: 1.2rem;
+  }
+
+  /* Portfolio / Home Two */
+  .portfolio__year-tag{
+    position: unset;
+    transform: none;
+    margin-top: 10px;
   }
 
    /* Process */
