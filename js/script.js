@@ -130,29 +130,45 @@ cards.forEach((card, index) => {
   });
 
 
-  // Back to Top Smooth Animation
-  document.addEventListener("DOMContentLoaded", function () {
-    const scrollBtn = document.querySelector(".footer__scroll-top");
+// Back to Top Smooth Animation
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollBtn = document.querySelector(".footer__scroll-top");
 
-    scrollBtn.addEventListener("click", function () {
-      const duration = 1000; // duration in ms (adjust this to control speed)
-      const start = window.pageYOffset;
-      const startTime = performance.now();
+  scrollBtn.addEventListener("click", function () {
+    const duration = 1000; // duration in ms (adjust this to control speed)
+    const start = window.pageYOffset;
+    const startTime = performance.now();
 
-      function scrollStep(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1); // between 0 and 1
-        const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+    function scrollStep(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); // between 0 and 1
+      const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
 
-        window.scrollTo(0, start * (1 - ease));
+      window.scrollTo(0, start * (1 - ease));
 
-        if (progress < 1) {
-          requestAnimationFrame(scrollStep);
-        }
+      if (progress < 1) {
+        requestAnimationFrame(scrollStep);
       }
+    }
 
-      requestAnimationFrame(scrollStep);
+    requestAnimationFrame(scrollStep);
+  });
+});
+
+
+// Pricing 
+const toggleBtns = document.querySelectorAll('.pricing__toggle-btn');
+const prices = document.querySelectorAll('.pricing__price');
+
+toggleBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    toggleBtns.forEach(b => b.classList.remove('pricing__toggle-btn--active'));
+    btn.classList.add('pricing__toggle-btn--active');
+
+    const period = btn.dataset.period;
+
+    prices.forEach(price => {
+      price.textContent = `$${parseFloat(price.dataset[period]).toFixed(2)}`;
     });
   });
-
-
+});

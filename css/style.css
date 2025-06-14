@@ -2342,7 +2342,7 @@ span.services__item-index {
 
 
 /* =============================
-* 30. Tean
+* 30. Team
 ============================= */
 
 .team__content{
@@ -2512,6 +2512,146 @@ span.services__item-index {
 }
 .team__social:hover i{
   color: var(--bg-white);
+}
+
+/* =============================
+* 30. Pricing
+============================= */
+
+.pricing {
+  background: var(--bg-white);
+  text-align: center;
+}
+
+.pricing__title {
+  color: var(--color-primary);
+  text-indent: 0 !important;
+  font-weight: 600;
+  margin-bottom: 3.75rem;
+}
+
+.pricing__toggle {
+  display: inline-flex;
+  border: 1px solid var(--color-primary);
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 3.75rem;
+  padding: 8px;
+  border: 1px solid  rgba(0, 0, 0, 0.10);
+}
+
+.pricing__toggle-btn {
+  padding: 8px 25px;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pricing__toggle-btn--active {
+  background-color: var(--color-primary);
+  color: var(--bg-white);
+  border-radius: 30px;
+}
+
+.pricing__cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  row-gap: 20px;
+  justify-content: center;
+  background-color: #F1F1F1;
+  padding: 3.75rem;
+}
+
+.pricing__card {
+  padding: 3.75rem 2.8rem;
+  border-radius: 10px;
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+.pricing__card--featured {
+  background-color: var(--bg-white);
+}
+
+.pricing__plan-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  color: var(--color-primary);
+}
+
+.pricing__price {
+  text-indent: 0 !important;
+  font-weight: 600;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid  rgba(0, 0, 0, 0.10);
+  color: var(--color-primary);
+}
+
+.pricing__subtitle {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #565656;
+  margin-bottom: 20px;
+  margin-top: 1.5rem;
+}
+
+.pricing__btn {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  padding: 12px 20px;
+  background-color: transparent;
+  color: var(--color-primary);
+  background-color: var(--bg-white);
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  margin: 2.5rem 0;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.pricing__btn:hover {
+  background-color:var(--color-primary);
+  color: var(--bg-white);
+}
+
+.pricing__btn--featured {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 1px solid #000;
+}
+
+.pricing__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #565656;
+}
+
+.pricing__feature {
+  padding-left: 20px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.pricing__feature::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: #000;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .pricing__cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 
@@ -2845,15 +2985,26 @@ span.services__item-index {
   .portfolio__grid {
     grid-template-columns: 1fr;
   }
+
+  /* Pricing */
+  .pricing__card{
+    padding: 2.5rem 2rem ;
+  }
 }
 
 @media (max-width: 1350px) {
+  /* Blog */
   .blog__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .blog__item:last-child {
     grid-column: span 2; 
+  }
+
+  /* Pricing */
+  .pricing__cards{
+    grid-template-columns: repeat(2,1fr);
   }
 }
 
@@ -3171,6 +3322,11 @@ span.services__item-index {
     font-size: 1.5rem;
   }
 
+  /* Pricing */
+  .pricing__cards {
+    padding: 3.75rem 1rem;
+  }
+
   /* Footer */
   .footer__email.title{
     margin: 4rem 0;
@@ -3404,6 +3560,11 @@ span.services__item-index {
 
   /* Team */
   .team__container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pricing */
+  .pricing__cards{
     grid-template-columns: 1fr;
   }
 
