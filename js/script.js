@@ -73,6 +73,59 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Testimonials Two
+ document.addEventListener("DOMContentLoaded", function () {
+  const toggleIcons = document.querySelectorAll(".testimonials__item-toggle-icon");
+
+  toggleIcons.forEach((icon) => {
+    const item = icon.closest(".testimonials__item");
+    const content = item.querySelector(".testimonials__item-content");
+
+    // ✅ Fix default state if item is active on load
+    if (item.classList.contains("testimonials__item--active")) {
+      icon.classList.add("rotate");
+
+      content.style.visibility = "visible";
+      content.style.transform = "scaleY(1)";
+      content.style.opacity = "1";
+      content.style.height = "auto";
+      content.style.padding = "2rem";
+      content.style.marginBottom = "2rem";
+    }
+
+    icon.addEventListener("click", function () {
+      const isActive = item.classList.contains("testimonials__item--active");
+
+      icon.classList.toggle("rotate");
+
+      if (isActive) {
+        content.style.transform = "scaleY(0)";
+        content.style.opacity = "0";
+        content.style.height = "0";
+        content.style.padding = "0 2rem";
+        content.style.marginBottom = "0";
+
+        setTimeout(() => {
+          item.classList.remove("testimonials__item--active");
+          content.style.visibility = "hidden";
+        }, 500);
+      } else {
+        item.classList.add("testimonials__item--active");
+        content.style.visibility = "visible";
+        content.style.height = "auto";
+        content.style.padding = "2rem";
+        content.style.marginBottom = "2rem";
+
+        // Force reflow before transition
+        void content.offsetWidth;
+
+        content.style.transform = "scaleY(1)";
+        content.style.opacity = "1";
+      }
+    });
+  });
+});
+
 
 // Testimonials
 const cards = document.querySelectorAll('.testimonial-card');
