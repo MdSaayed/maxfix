@@ -4119,7 +4119,16 @@ span.testimonials__item-index {
 }
 
 @media (max-width:430px) {
+  /* Hero / Home Two */
   .hero--home-two .hero__title{
     font-size: 3rem;
+  }
+
+  /* Services Two */
+  .services--two .services__tabs{
+    gap: 1.5rem;
+  }
+  .services--two .services__tab{
+    font-size: 2rem;
   }
 }
