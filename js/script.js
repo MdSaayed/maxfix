@@ -225,3 +225,22 @@ toggleBtns.forEach(btn => {
     });
   });
 });
+
+
+ document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".services__tab");
+    const contents = document.querySelectorAll(".services__content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Remove active from all tabs and contents
+        tabs.forEach(t => t.classList.remove("active"));
+        contents.forEach(c => c.classList.remove("active"));
+
+        // Add active to clicked tab and corresponding content
+        tab.classList.add("active");
+        const target = tab.getAttribute("data-tab");
+        document.querySelector(`.services__content[data-content="${target}"]`).classList.add("active");
+      });
+    });
+});
