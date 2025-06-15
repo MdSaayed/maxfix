@@ -136,24 +136,40 @@ cards.forEach((card, index) => {
 
   card.addEventListener('mouseenter', () => {
     cardList.style.marginTop = '-7.5rem';
+    cardList.style.transition = 'margin-top 0.6s ease';
 
     if (isLastCard) {
       card.style.transform = 'translateY(0)';
     }
-
-    cardList.style.transition = 'margin-top 0.6s ease';
   });
 
   card.addEventListener('mouseleave', () => {
     cardList.style.marginTop = '0';
     cardList.style.transition = 'margin-top 0.6s ease';
 
-    if (isLastCard) {
+    if (isLastCard && window.innerWidth >= 1190) {
+      card.style.transform = 'translateY(-150px)';
+    } else if (isLastCard) {
+      card.style.transform = 'translateY(0)';
+    }
+  });
+
+  // Handle initial transform on load
+  if (isLastCard && window.innerWidth >= 1190) {
       card.style.transform = 'translateY(-150px)';
     }
   });
-});
 
+// Handle screen resizing
+  window.addEventListener('resize', () => {
+  const lastCard = cards[cards.length - 1];
+
+  if (window.innerWidth >= 1190) {
+    lastCard.style.transform = 'translateY(-150px)';
+  } else {
+    lastCard.style.transform = 'translateY(0)';
+  } 
+});
 
 // Faq 
   document.querySelectorAll('.faq__toggle').forEach(toggle => {
