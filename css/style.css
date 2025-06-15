@@ -672,7 +672,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero__container-custom{
   position: relative;
-  min-height: 700px;
+  max-height: 700px;
 }
 
 .hero--home-two .hero__photo-wrap{
@@ -995,14 +995,14 @@ h1, h2, h3, h4, h5, h6 {
   gap: 2rem;
 }
 
-.about--home-two .about__item-area{
+.about__item-area{
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.about--home-two .about__item{
+.about__item{
   width: 650px;
   display: flex;
   flex-wrap: wrap;
@@ -1012,31 +1012,31 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid #222222;
 }
 
-.about--home-two .about__item-wrap{
+.about__item-wrap{
   display: flex;
   width: 100%;
 }
 
-.about--home-two .about__item-wrap:nth-child(1){
+.about__item-wrap:nth-child(1){
   justify-content: start;
 }
 
-.about--home-two .about__item-wrap:nth-child(2){
+.about__item-wrap:nth-child(2){
   justify-content: center;
 }
 
-.about--home-two .about__item-wrap:nth-child(3){
+.about__item-wrap:nth-child(3){
   justify-content: end;
 }
 
-.about--home-two .about__item-title {
+.about__item-title {
   font-weight: 700;
   font-size: 2.2rem;
   line-height: 1.5;
   color: #222222;
 }
 
-.about--home-two .about__item-text {
+.about__item-text {
   font-size: 18px;
   color: #222222;
   max-width: 400px;
@@ -2978,6 +2978,194 @@ span.testimonials__item-index {
 }
 
 /* =============================
+* 30. Hero / About
+============================= */
+.hero__container-custom{
+  padding: 0 !important;
+}
+
+.hero--about .hero__title{
+  text-indent: 400px;
+}
+
+.hero--about .hero__actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  column-gap: 4rem;
+  row-gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 7.5rem;
+}
+
+.hero--about .hero__desc{
+  max-width: 436px;
+}
+
+.hero--about .hero__btn--image{
+  max-width: 150px;
+  height: 150px;
+}
+
+.hero--about .hero__btn-img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.hero--about .hero__img-wrap{
+  max-width: 100%;
+  max-height: 700px;
+}
+
+.hero--about .hero__img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+/* =============================
+* 30. About / About Page
+============================= */
+.about__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  column-gap: 3rem;
+}
+
+.about__title-wrap{
+  max-width: 1250px;
+}
+
+.about--about-page .about__images{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+  margin: 7.5rem 0;
+}
+
+.about--about-page .about__image-wrap{
+  max-width: 100% !important;
+  max-width: 580px;
+}
+
+.about--about-page .about__image-wrap img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.about--about-page .about__item-title {
+  color: var(--bg-white);
+}
+
+.about--about-page .about__item-text {
+  color: #999999;
+}
+
+.about--about-page .about__rating{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 3.75rem;
+}
+
+.about__avatars{
+  display: flex;
+  align-items: center;
+}
+
+.about--about-page .avatar:not(:first-child) {
+  margin-left: -20px;
+}
+
+.about--about-page .about__rating-text{
+  margin-top: 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+}
+
+/* =============================
+* 30. Why Choose
+============================= */
+
+.why-choose__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 6rem;
+}
+
+.why-choose__content {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.why-choose__list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+}
+
+.why-choose__item {
+  padding: 3.75rem 6rem;
+}
+
+.why-choose__item:not(:last-child){
+  border-bottom:  1px solid var(--border-color);
+}
+
+.why-choose__item-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--bg-white);
+  position: relative;
+}
+
+.why-choose__item-title::before{
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-secondary);
+  transform: translate(-130%, 0);
+}
+
+.why-choose__item-text {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #999999;
+  margin-top: 1.5rem;
+}
+
+.why-choose__image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.why-choose__image img {
+  width: 100%;
+  max-height: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* =============================
 * 30. Footer
 ============================= */
  
@@ -3298,6 +3486,11 @@ span.testimonials__item-index {
   .pricing__card{
     padding: 2.5rem 2rem ;
   }
+
+  /* Why Choose */
+  .why-choose__content {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1350px) {
@@ -3470,6 +3663,11 @@ span.testimonials__item-index {
     font-size: 1.5rem;
   }
 
+  /* Hero / About */
+  .hero--about .hero__title{
+    text-indent: 300px;
+  }
+
   /* Footer */
   .footer__contact{
     grid-template-columns: 1fr;
@@ -3537,7 +3735,7 @@ span.testimonials__item-index {
   }
 
   .hero__container-custom{
-    min-height: 600px;
+    max-height: 600px;
   }
 
   /* About / Home One */
@@ -3711,6 +3909,23 @@ span.testimonials__item-index {
     padding: 3.75rem 1rem;
   }
 
+  /* Hero / About */
+  .hero--about .hero__title{
+    text-indent: 200px;
+  }
+
+  /* About / About page */
+  .about--about-page .about__images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin: 4.5rem 0;
+  }
+
+  /* Why Choose */
+  .why-choose__item {
+    padding: 2.5rem 4rem;
+  }
+
   /* Footer */
   .footer__email.title{
     margin: 4rem 0;
@@ -3794,7 +4009,7 @@ span.testimonials__item-index {
   }
 
   .hero__container-custom{
-    min-height: 500px;
+    max-height: 500px;
   }
 
   .hero--home-two .hero__card {
@@ -3851,6 +4066,10 @@ span.testimonials__item-index {
   }
 
   /* Service Two */
+  .services--two .services__title{
+    margin: 4.5rem 0;
+  }
+
   .services__box{
     padding: 6rem 2rem;
   }
@@ -3880,6 +4099,14 @@ span.testimonials__item-index {
   }
 
   /* Portfolio / Home Two */
+  .portfolio--home-two .portfolio__title{
+    margin-bottom: 4.5rem;
+  }
+
+  .portfolio__grid{
+    margin-top: 4.5rem;
+  }
+
   .portfolio__item {
     padding: 2rem;
   }
@@ -3916,6 +4143,10 @@ span.testimonials__item-index {
   /* Testimonials Two */
   .testimonials--two .testimonials__item-title {
     font-size: 2rem;
+  }
+
+  .testimonials--two .testimonials__list{
+    margin-top: 4.5rem;
   }
 
   .testimonials--two .testimonials__item-toggle-wrap {
@@ -3986,6 +4217,26 @@ span.testimonials__item-index {
   /* Pricing */
   .pricing__cards{
     grid-template-columns: 1fr;
+  }
+
+  /* Hero / About */
+  .hero--about .hero__title{
+    text-indent: 0;
+  }
+
+  .hero--about .hero__actions{
+    margin-top: 4.5rem;
+  }
+
+  /* About / About Page */
+  .about--about-page .about__images{
+    grid-template-columns: 1fr;
+  }
+
+  /* Why Choose */
+  /* Why Choose */
+  .why-choose__item {
+    padding-right: 1rem;
   }
 
   /* Footer */
