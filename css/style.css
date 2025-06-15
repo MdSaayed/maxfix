@@ -594,6 +594,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero--home-two .hero__container-custom{
   padding: 0;
+  min-height: 700px;
 }
 
 .hero--home-two .hero__title-wrap {
@@ -3035,8 +3036,8 @@ span.testimonials__item-index {
   column-gap: 3rem;
 }
 
-.about__title-wrap{
-  max-width: 1250px;
+.about--about-page .about__title-wrap{
+  max-width: 1130px;
 }
 
 .about--about-page .about__images{
@@ -3068,6 +3069,7 @@ span.testimonials__item-index {
 .about--about-page .about__rating{
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
   align-items: center;
   margin-top: 3.75rem;
 }
@@ -3147,6 +3149,7 @@ span.testimonials__item-index {
   font-weight: 400;
   color: #999999;
   margin-top: 1.5rem;
+  max-width: 850px;
 }
 
 .why-choose__image {
@@ -3163,6 +3166,102 @@ span.testimonials__item-index {
   height: 100%;
   object-fit: cover;
 }
+
+/* =============================
+* 30. Awards
+============================= */
+
+.awards__title {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.awards__table {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--bg-white);
+  margin-top: 7.5rem;
+}
+
+.awards__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px 1fr 2fr 80px;
+  align-items: center;
+  border-bottom: 1px solid var(--bg-white);
+  padding:2rem 0;
+  cursor: pointer;
+}
+
+.awards__col {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  z-index: 1;
+}
+
+.awards__row:hover .awards__col {
+  color: var(--color-secondary);
+}
+
+.awards__image {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  z-index: 2;
+}
+
+.awards__image {
+  max-width: 290px;
+  max-height: 370px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.awards__image img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.awards__row:hover .awards__image {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .awards__image img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .awards__row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .awards__image {
+    position: static;
+    transform: none;
+    display: none;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .awards__row:hover .awards__image {
+    display: block;
+  }
+
+  .awards__image img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 
 /* =============================
 * 30. Footer
@@ -3733,8 +3832,8 @@ span.testimonials__item-index {
     font-size: 5rem;
   }
 
-  .hero__container-custom{
-    max-height: 600px;
+  .hero--home-two .hero__container-custom{
+    min-height: 600px;
   }
 
   /* About / Home One */
@@ -3925,6 +4024,10 @@ span.testimonials__item-index {
     padding: 2.5rem 4rem;
   }
 
+  .why-choose__item-title{
+    font-size: 1.8rem;
+  }
+
   /* Footer */
   .footer__email.title{
     margin: 4rem 0;
@@ -4003,12 +4106,12 @@ span.testimonials__item-index {
   }
 
   /* Hero / Home Two */
-  .hero--home-two .hero__image-wrap{
-    display: none;
+  .hero--home-two .hero__container-custom{
+    min-height: 500px;
   }
 
-  .hero__container-custom{
-    max-height: 500px;
+  .hero--home-two .hero__image-wrap{
+    display: none;
   }
 
   .hero--home-two .hero__card {
@@ -4233,9 +4336,16 @@ span.testimonials__item-index {
   }
 
   /* Why Choose */
-  /* Why Choose */
+  .why-choose__header{
+    margin-bottom: 5rem;
+  }
+
   .why-choose__item {
     padding-right: 1rem;
+  }
+
+  .why-choose__item-title{
+    font-size: 1.5rem;
   }
 
   /* Footer */
