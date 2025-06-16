@@ -592,11 +592,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--bg-white);
 }
 
-.hero--home-two .hero__container-custom{
-  padding: 0;
-  min-height: 700px;
-}
-
 .hero--home-two .hero__title-wrap {
  display: flex;
  align-items: center;
@@ -673,7 +668,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero__container-custom{
   position: relative;
-  max-height: 700px;
+  min-height: 700px;
 }
 
 .hero--home-two .hero__photo-wrap{
@@ -687,7 +682,7 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
 }
 
-.hero--home-two .hero__card {
+.hero--home-two .hero__card,.avatar-card {
   position: absolute;
   bottom: 20px;
   right: 75px;
@@ -697,12 +692,12 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 415px;
 }
 
-.hero--home-two .hero__avatars {
+.hero--home-two .hero__avatars, .avatars {
   display: flex;
   margin-bottom: 30px;
 }
 
-.hero--home-two .hero__avatar {
+.hero--home-two .hero__avatar, .avatar {
   width: 46px;
   height: 46px;
   border-radius: 50%;
@@ -710,11 +705,11 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--bg-white);
 }
 
-.hero__avatar:not(:first-child) {
+.hero__avatar:not(:first-child), .avatars.avatar:not(:first-child) {
   margin-left: -20px;
 }
 
-.hero--home-two .hero__stat {
+.hero--home-two .hero__stat, .avatar-stat {
   display: block;
   font-size: 3.75rem;
   font-weight: 400;
@@ -724,7 +719,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--bg-white);
 }
 
-.hero--home-two .hero__text {
+.hero--home-two .hero__text, .avatar-text {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
@@ -734,7 +729,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--bg-white);
 }
 
-.hero--home-two .hero__btn {
+.hero--home-two .hero__btn, .avatar-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -748,7 +743,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-.hero--home-two .hero__btn-icon{
+.hero--home-two .hero__btn-icon, .avatar-btn-icon{
   font-weight: 600;
   height: 8px;
   width: 8px;
@@ -756,7 +751,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 
-.hero--home-two .hero__btn-text{
+.hero--home-two .hero__btn-text, .avatar-btn-text{
   width: auto;
   height: auto;
   color: var(--color-primary);
@@ -3230,38 +3225,41 @@ span.testimonials__item-index {
   display: block;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .awards__image img {
-    width: 150px;
-  }
+/* =============================
+* 30. Hero / Portfolio
+============================= */
+
+.breadcrumb{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-@media (max-width: 768px) {
-  .awards__row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    padding: 1rem 0;
-  }
-
-  .awards__image {
-    position: static;
-    transform: none;
-    display: none;
-    margin-top: 1rem;
-    text-align: center;
-  }
-
-  .awards__row:hover .awards__image {
-    display: block;
-  }
-
-  .awards__image img {
-    width: 100%;
-    max-width: 300px;
-  }
+.breadcrumb-item{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--bg-white);
 }
 
+.breadcrumb-item--active{
+  color: var(--color-secondary);
+}
+
+.hero--portfolio .hero__title{
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.hero--portfolio .hero__container-custom{
+  min-height: 550px !important;
+}
+
+.hero--portfolio .avatar-card{
+  bottom: 0;
+}
 
 /* =============================
 * 30. Footer
@@ -3783,6 +3781,12 @@ span.testimonials__item-index {
   }
 }
 
+@media (max-width: 1024px) {
+  .awards__image img {
+    width: 150px;
+  }
+}
+
 @media (max-width:992px) {
   /* Container */
   .container{
@@ -4114,16 +4118,16 @@ span.testimonials__item-index {
     display: none;
   }
 
-  .hero--home-two .hero__card {
+  .hero--home-two .hero__card, .avatar-card {
       padding: 2rem;
       text-align: left;
   }
 
-  .hero--home-two .hero__stat {
+  .hero--home-two .hero__stat, .avatar-stat {
     font-size: 2rem;
   }
 
-  .hero--home-two .hero__card {
+  .hero--home-two .hero__card,.avatar-card {
     right: 20px;
   }
 
@@ -4346,6 +4350,30 @@ span.testimonials__item-index {
 
   .why-choose__item-title{
     font-size: 1.5rem;
+  }
+
+  /* Awards */
+  .awards__row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .awards__image {
+    position: static;
+    transform: none;
+    display: none;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .awards__row:hover .awards__image {
+    display: block;
+  }
+
+  .awards__image img {
+    width: 100%;
+    max-width: 300px;
   }
 
   /* Footer */
