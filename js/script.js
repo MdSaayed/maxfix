@@ -260,3 +260,30 @@ toggleBtns.forEach(btn => {
       });
     });
 });
+
+
+// Recent Work Filters
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll(".recent-work__filters li");
+  const cards = document.querySelectorAll(".work-card");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
+
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove("filter-active"));
+      button.classList.add("filter-active");
+
+      // Filter cards
+      cards.forEach(card => {
+        const categories = card.getAttribute("data-category").split(" ");
+        if (filter === "all" || categories.includes(filter)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+});
