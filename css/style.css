@@ -700,7 +700,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero--home-two .hero__avatar, .avatar {
   width: 46px;
   height: 46px;
-  border-radius: 50%;
+  border-radius: 3px;
   object-fit: cover;
   border: 1px solid var(--bg-white);
 }
@@ -1376,22 +1376,6 @@ span.services__item-index {
   z-index: 0;
 }
 
-
-/* 
-.services--two .services__box::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-secondary);
-  background-blend-mode: multiply;
-  z-index: 0;
-  border-radius: 10px;
-  opacity: 0.6;
-} */
-
 .services--two .services__tabs {
   display: flex;
   flex-direction: column;
@@ -1499,7 +1483,7 @@ span.services__item-index {
   }
 }
 
-
+ 
 /* =============================
 * 8. Process / Home One
 ============================= */
@@ -3132,6 +3116,11 @@ span.testimonials__item-index {
   color: var(--bg-white);
 }
 
+/* Team Member Page */
+.team--member-page .team__container{
+  padding-top: 0 !important;
+}
+
 /* =============================
 * 30. Pricing
 ============================= */
@@ -3585,6 +3574,207 @@ span.testimonials__item-index {
   width: 100px;
   height: 100px;
   object-fit: contain;
+}
+
+
+/* =============================
+* 30. Hero / Services Details 
+============================= */
+
+.hero--services-details .hero__container{
+  padding-bottom: 0 !important;
+}
+
+.hero--services-details .hero__title {
+  text-align: center;
+}
+
+.hero--services-details .hero__tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.hero--services-details .hero__tag {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--bg-white);
+  padding-left: 20px;
+  position: relative;
+}
+
+.hero--services-details .hero__tag:not(:first-child)::before {
+  position: absolute;
+  content: "//";
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.hero--services-details .hero__slider {
+  margin-top: 7.5rem;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero--services-details .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.hero--services-details .hero__slider .swiper-slide img {
+  max-width: 100%;
+  min-height: 400px;
+  display: block;
+  background-size: cover;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
+  content: none;
+}
+
+.hero__slider-button-prev,
+.hero__slider-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: var(--bg-white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero__slider-button-prev {
+  left: 10px;
+}
+
+.hero__slider-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev i, .swiper-button-next i{
+  font-size: 1.3rem;
+  color: var(--color-primary);
+}
+
+/* =============================
+* 30. Services Details
+============================= */
+
+.service-details__container {
+  max-width: 920px;
+  padding-top: 3.75rem !important;
+}
+
+.service-details__title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+ 
+.service-details__title:not(:first-child){
+  margin-top: 3.75rem;
+}
+
+.service-details__desc,
+.service-details__list {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #999;
+}
+
+.service-details__list {
+  list-style: decimal;
+  padding-left: 15px;
+}
+
+.service-details__list-item {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding-left: 1em;
+}
+
+/* =============================
+* 30. Slider / Services Details
+============================= */
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  padding-bottom: 100px;
+}
+
+.slider__track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider__slide {
+  min-width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  clip-path: path("M0,0 C100,0 100,100 200,100 C300,100 300,0 400,0 C500,0 500,100 600,100 C700,100 700,0 800,0 L800,500 L0,500 Z");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider__play-button {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider__nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+}
+
+.slider__nav-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.slider__nav-btn--next {
+  background: yellow;
+  color: black;
 }
 
 
@@ -4374,6 +4564,27 @@ span.testimonials__item-index {
     gap: 10px;
   }
 
+  /* Services Details */
+  .service-details__title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+    
+  .service-details__title:not(:first-child){
+    margin-top: 2.5rem;
+  }
+
+  .service-details__desc,
+  .service-details__list {
+    font-size: 16px;
+  }
+
+  .hero--services-details .hero__slider{
+    margin-top: 3.5rem;
+  }
+
   /* Footer */
   .footer__email.title{
     margin: 4rem 0;
@@ -4865,6 +5076,21 @@ span.testimonials__item-index {
     width: 80px;
     height: 80px;
     object-fit: contain;
+  }
+
+  /* Services Details */
+  .hero--services-details .hero__slider .swiper-slide img {
+    min-height: 350px;
+  }
+
+  .hero__slider-button-prev, .hero__slider-button-next{
+    top: 50%;
+    height: 40px;
+    width: 40px;
+  }
+
+  .swiper-button-prev i, .swiper-button-next i{
+    font-size: 16px;
   }
 
   /* Footer */

@@ -287,3 +287,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+// Services Details Slider
+ const serviceSlider = new Swiper('.hero__slider', {
+    loop: true,
+    navigation: {
+      nextEl: '.hero__slider-button-next',
+      prevEl: '.hero__slider-button-prev',
+    },
+  });
