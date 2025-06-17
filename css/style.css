@@ -1338,6 +1338,11 @@ span.services__item-index {
   background-size: cover;
 }
 
+/* Services Page */
+.services--services-page .services__container{
+  padding-top: 0 !important;
+}
+
 /* Services Two */
 .services--two .services__text{
   text-indent: 0 !important;
@@ -3549,6 +3554,41 @@ span.testimonials__item-index {
 }
 
 /* =============================
+* 30. Video Area
+============================= */
+
+.video-area__container{
+  padding: 0 !important;
+}
+
+.video-area__thumb-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.video-area__thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.video-area__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+}
+
+.video-area__play-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+
+/* =============================
 * 30. Footer
 ============================= */
  
@@ -4818,6 +4858,13 @@ span.testimonials__item-index {
 
   .portfolio-details__image-group img:nth-child(1) {
     grid-column: auto;
+  }
+
+  /* Video Area */
+  .video-area__play-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
   }
 
   /* Footer */
