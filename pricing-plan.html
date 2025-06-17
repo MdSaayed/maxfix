@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="./css/all.min.css">
+    <!-- Swiper CSS -->
+    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <!-- Custom Theme CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -51,9 +53,9 @@
             <div class="breadcrumb">
                 <span class="breadcrumb-item">Home</span>
                 <span class="breadcrumb-separator">//</span>
-                <span class="breadcrumb-item breadcrumb-item--active">Portfolio</span>
+                <span class="breadcrumb-item breadcrumb-item--active">Pricing plans</span>
             </div>
-            <h1 class="hero__title title-lg">Creative Showcase</h1>
+            <h1 class="hero__title title-lg">Flexible Pricing</h1>
         </div>
 
         <div class="hero__container-custom container" data-bg-img="./img/portfolio/portfolio-hero.png">
@@ -129,176 +131,174 @@
     </section>
     <!-- keywords End Here -->
 
-    <section class="recent-works">
-        <div class="recent-work__container container">
+    <!-- Pricing Start Here -->
+    <section class="pricing">
+        <div class="pricing__container container">
+            <h2 class="pricing__title title">Choose the perfect plan for your digital growth and lasting success </h2>
 
-            <div class="recent-work__filters">
-                <ul class="recent-work__filter-list">
-                    <li class="recent-work__filter-item filter-active" data-filter="all">All</li>
-                    <li class="recent-work__filter-item" data-filter="web">Web design</li>
-                    <li class="recent-work__filter-item" data-filter="branding">Branding</li>
-                    <li class="recent-work__filter-item" data-filter="development">Development</li>
-                    <li class="recent-work__filter-item" data-filter="support">Support</li>
-                </ul>
-            </div>
-            
-            <div class="recent-works__grid">
-                <!-- Work Card -->
-                <div class="work-card" data-category="branding development">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-1.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Digital Product Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2025</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="work-card" data-category="branding development">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-2.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Laptop Mockup Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2024</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="work-card" data-category="web">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-3.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Graphic Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2024</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="work-card" data-category="branding development">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-4.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Geometric Shape Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2024</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="work-card" data-category="branding">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-5.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Mobile Apps Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2023</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="work-card" data-category="support">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-6.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Product Packaging Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2023</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="work-card" data-category="support">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-11.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Book Cover Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2025</span>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="work-card" data-category="web">
-                    <div class="work-card__image-wrapper">
-                        <img src="./img/portfolio/portfolio-12.png" alt="Digital Product Design" class="work-card__image">
-                        <div class="work-card__button">View</div>
-                        <div class="work-card__tags">
-                            <span>Branding</span>
-                            <span> // Package_Design</span>
-                            <span> // Development</span>
-                        </div>
-                    </div>
-                    <div class="work-card__content">
-                        <h3 class="work-card__title">Graphic Design</h3>
-                        <div class="work-card__year-wrap">
-                            <span class="work-card__year">// 2025</span>
-                        </div>
-                        
-                    </div>
-                </div>
+            <div class="pricing__toggle">
+                <button class="pricing__toggle-btn pricing__toggle-btn--active" data-period="monthly">Monthly</button>
+                <button class="pricing__toggle-btn" data-period="yearly">Yearly</button>
             </div>
 
+            <div class="pricing__cards">
+                <!-- Starter Package -->
+                <div class="pricing__card">
+                    <h3 class="pricing__plan-title">Starter Package</h3>
+                    <p class="pricing__price title" data-monthly="300" data-yearly="250">$300.00</p>
+                    <p class="pricing__subtitle">
+                    Perfect for growing businesses & brands looking to scale, stand out, and succeed in the digital world.
+                    </p>
+                    <a href="#" class="pricing__btn">Choose Your Plan</a>
+                    <ul class="pricing__features">
+                    <li class="pricing__feature">Up to 5 Pages (Home, About, Services, Blog)</li>
+                    <li class="pricing__feature">Advanced UI/UX Design</li>
+                    <li class="pricing__feature">Mobile & Tablet Responsive</li>
+                    <li class="pricing__feature">SEO-Optimized Website</li>
+                    <li class="pricing__feature">Basic CMS Integration (WordPress/Webflow)</li>
+                    </ul>
+                </div>
+
+                <!-- Professional Package -->
+                <div class="pricing__card pricing__card--featured">
+                    <h3 class="pricing__plan-title">Professional Package</h3>
+                    <p class="pricing__price title" data-monthly="600" data-yearly="500">$600.00</p>
+                    <p class="pricing__subtitle">
+                    Perfect for growing businesses & brands looking to scale, stand out, and succeed in the digital world.
+                    </p>
+                    <a href="#" class="pricing__btn pricing__btn--featured">Choose Your Plan</a>
+                    <ul class="pricing__features">
+                    <li class="pricing__feature">Up to 5 Pages (Home, About, Services, Blog)</li>
+                    <li class="pricing__feature">Advanced UI/UX Design</li>
+                    <li class="pricing__feature">Mobile & Tablet Responsive</li>
+                    <li class="pricing__feature">SEO-Optimized Website</li>
+                    <li class="pricing__feature">Basic CMS Integration (WordPress/Webflow)</li>
+                    </ul>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="pricing__card">
+                    <h3 class="pricing__plan-title">Premium Package</h3>
+                    <p class="pricing__price title" data-monthly="900" data-yearly="750">$900.00</p>
+                    <p class="pricing__subtitle">
+                    Perfect for growing businesses & brands looking to scale, stand out, and succeed in the digital world.
+                    </p>
+                    <a href="#" class="pricing__btn">Choose Your Plan</a>
+                    <ul class="pricing__features">
+                    <li class="pricing__feature">Up to 5 Pages (Home, About, Services, Blog)</li>
+                    <li class="pricing__feature">Advanced UI/UX Design</li>
+                    <li class="pricing__feature">Mobile & Tablet Responsive</li>
+                    <li class="pricing__feature">SEO-Optimized Website</li>
+                    <li class="pricing__feature">Basic CMS Integration (WordPress/Webflow)</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
+    <!-- Pricing End Here -->
+
+    <!-- Faq Start Here -->
+    <section class="faq">
+        <div class="faq__container container">
+            <div class="faq__sidebar">
+                <h2 class="faq__title title-lg">FAQ</h2>
+                <div class="faq__sidebar-text-wrap">
+                    <p class="faq__subtitle">Having Another Question?</p>
+                    <a href="#" class="faq__button process__btn btn-arrow btn-arrow__black">
+                        <span class="faq__button-text btn-arrow__text">Get In Touch</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="faq__content">
+                <div class="faq__item faq__item--active">
+                    <div class="faq__question">
+                        <span class="faq__number">001.</span>
+                        <div class="faq__question-inner">
+                            <h3 class="faq__question-text">What services does your digital agency offer?</h3>
+                            <button class="faq__toggle">
+                                <i class="fa-solid fa-arrow-down faq__toggle-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        <p>
+                            We provide a full suite of digital services including branding, website design and development, digital marketing (SEO, PPC, social media), content creation, and performance analytics — all tailored to grow your brand online. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__question">
+                        <span class="faq__number">002.</span>
+                        <div class="faq__question-inner">
+                            <h3 class="faq__question-text">How do you customize your strategies for each client?</h3>
+                            <button class="faq__toggle">
+                                <i class="fa-solid fa-arrow-down faq__toggle-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        <p>
+                            We provide a full suite of digital services including branding, website design and development, digital marketing (SEO, PPC, social media), content creation, and performance analytics — all tailored to grow your brand online. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__question">
+                        <span class="faq__number">003.</span>
+                        <div class="faq__question-inner">
+                            <h3 class="faq__question-text">How long does it take to see results from digital marketing?</h3>
+                            <button class="faq__toggle">
+                                <i class="fa-solid fa-arrow-down faq__toggle-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        <p>
+                            We provide a full suite of digital services including branding, website design and development, digital marketing (SEO, PPC, social media), content creation, and performance analytics — all tailored to grow your brand online. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__question">
+                        <span class="faq__number">004.</span>
+                        <div class="faq__question-inner">
+                            <h3 class="faq__question-text">Can you work with businesses outside our location?</h3>
+                            <button class="faq__toggle">
+                                <i class="fa-solid fa-arrow-down faq__toggle-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        <p>
+                            We provide a full suite of digital services including branding, website design and development, digital marketing (SEO, PPC, social media), content creation, and performance analytics — all tailored to grow your brand online. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq__item">
+                    <div class="faq__question">
+                        <span class="faq__number">005.</span>
+                        <div class="faq__question-inner">
+                            <h3 class="faq__question-text">What makes your agency different from others?</h3>
+                            <button class="faq__toggle">
+                                <i class="fa-solid fa-arrow-down faq__toggle-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        <p>
+                            We provide a full suite of digital services including branding, website design and development, digital marketing (SEO, PPC, social media), content creation, and performance analytics — all tailored to grow your brand online. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Faq End Here -->
 
     <!-- Footer Start Here -->
     <footer class="footer footer--one">
@@ -366,6 +366,8 @@
     </footer>
     <!-- Footer End Here -->
 
+    <!-- Swiper JS -->
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Custom Theme JS -->
     <script src="./js/script.js"></script>
 </body>
