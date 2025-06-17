@@ -2783,6 +2783,10 @@ span.testimonials__item-index {
 }
 
 .insights__articles{
+  
+}
+
+.insights__articles{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   margin-top: 5rem;
