@@ -290,10 +290,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Services Details Slider
- const serviceSlider = new Swiper('.hero__slider', {
-    loop: true,
-    navigation: {
-      nextEl: '.hero__slider-button-next',
-      prevEl: '.hero__slider-button-prev',
-    },
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector('.hero__slider')) {
+    const serviceSlider = new Swiper('.hero__slider', {
+      loop: true,
+      navigation: {
+        nextEl: '.hero__slider-button-next',
+        prevEl: '.hero__slider-button-prev',
+      },
+    });
+  }
+});
+
+
+// Menu
+ const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobile = document.getElementById('closeMobile');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('mobile-menu--open');
+    });
+
+    closeMobile.addEventListener('click', () => {
+      mobileMenu.classList.remove('mobile-menu--open');
+    });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.mobile-menu__list .menu-item-has-children > a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const parent = link.parentElement;
+        parent.classList.toggle('open');
+      });
+    });

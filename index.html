@@ -13,28 +13,40 @@
 <body>
 
     <!-- Header Start Here -->
-     <header id="header" class="header header--home-one">
+    <header id="header" class="header header--home-one">
         <div class="container header__container">
+            <!-- Logo -->
             <div class="header__logo">
                 <a href="index.html" class="logo">
                     <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" />
                 </a>
             </div>
-            <nav class="header__nav nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="index2.html" class="nav__link nav__link--active">Home 2</a></li>
-                    <li class="nav__item"><a href="./about-us.html" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Works</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Pages</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Insight</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
-                </ul>
-            </nav>
+
+            <!-- Main Menu -->
+            <ul class="menu">
+                <li class="menu-item"><a href="#">Home</a></li>
+                <li class="menu-item"><a href="#">About</a></li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#">Services</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="#">Design</a></li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="#">Development</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="#">Design</a></li>
+                                <li class="menu-item"><a href="#">Development</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item"><a href="#">Portfolio</a></li>
+                <li class="menu-item"><a href="#">Contact</a></li>
+            </ul>
+
+            <!-- Menu Button -->
             <div class="header__menu-btn">
-                <button class="menu-btn">
-                    <span class="menu-btn__text">Menu</span>
+                <button class="menu-btn" id="menuToggle">
+                    <span class="menu-btn__text">MENU</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="8" viewBox="0 0 50 8" fill="none">
                     <line y1="0.73333" x2="50" y2="0.73333" stroke="black"/>
                     <line y1="6.93333" x2="50" y2="6.93333" stroke="black"/>
@@ -44,6 +56,31 @@
         </div>
     </header>
     <!-- Header End Here -->
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu__header">
+        <div class="main-nav__logo">
+            <a href="index.html" class="logo">
+                <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" />
+            </a>
+        </div>
+        <div class="mobile-menu__close" id="closeMobile">✕</div>
+      </div>
+      <ul class="mobile-menu__list">
+        <li class="menu-item"><a href="#">Home</a></li>
+        <li class="menu-item"><a href="#">About</a></li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Services</a>
+          <ul class="sub-menu">
+            <li class="menu-item"><a href="#">Design</a></li>
+            <li class="menu-item"><a href="#">Development</a></li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="#">Portfolio</a></li>
+        <li class="menu-item"><a href="#">Contact</a></li>
+      </ul>
+    </div>
     
     <!-- Hero Start Here -->
     <section class="hero hero-home-one" >
