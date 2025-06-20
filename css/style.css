@@ -2760,10 +2760,6 @@ span.testimonials__item-index {
 }
 
 .insights__articles{
-  
-}
-
-.insights__articles{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   margin-top: 5rem;
@@ -4419,7 +4415,7 @@ span.testimonials__item-index {
   }
 
   /* Hero / Home Two */
-  .about__image {
+  .about--home-two .about__image {
     z-index: 1;
     opacity: 0.4;
   }
@@ -5109,6 +5105,11 @@ span.testimonials__item-index {
     margin: 4.5rem 0;
   }
 
+  /* Testimonial One */
+  .about--home-one .about__testimonial {
+    flex-wrap: wrap;
+  }
+
   .services__box{
     padding: 6rem 2rem;
   }
@@ -5585,6 +5586,8 @@ span.testimonials__item-index {
     font-size: 2rem;
   }
 }
+
+
 .menu {
   list-style: none;
   display: flex;
@@ -5611,6 +5614,14 @@ span.testimonials__item-index {
   text-transform: uppercase;
   transition: color 0.3s ease;
 }
+
+/* Active Menu Color */
+.main-menu .current-menu-item > a,
+.main-menu .current-menu-parent > a,
+.main-menu .current-menu-ancestor > a {
+  color: var(--color-secondary);
+}
+
 
 .main-menu .sub-menu .menu-item a {
     font-size: 14px;
@@ -5778,6 +5789,7 @@ span.testimonials__item-index {
   flex-direction: column;
   display: flex;
   padding-left: 0;
+  display: none;
 }
 
 .mobile-menu__list .menu-item:not(:first-child) {
@@ -5824,13 +5836,32 @@ span.testimonials__item-index {
   max-height: 1000px;  
 }
 
+/* Contact Info */
+.mobile-menu__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 3.5rem;
+}
+
+.mobile-menu__contact-link{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--bg-white);
+  font-size: 18px;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
 @media (max-width: 992px) {
   .menu{
     display: none;
   }
 
-  .menu-toggle {
-    display: flex;
+  .mobile-menu__list{
+    display: block;
   }
 
   .mobile-menu .menu-item-has-children > a::after:not(:empty) {
