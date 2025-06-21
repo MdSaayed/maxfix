@@ -313,7 +313,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-.header--home-one .header__container{
+.header--one .header__container{
   padding-right: 0;
 }
 
@@ -352,7 +352,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Header / Home Two */
-.header--home-two.header {
+.header--two.header {
   margin-top: 1.8rem;
   border-bottom:0;
   z-index: 9999 !important;
@@ -372,12 +372,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-.header--home-two .nav__link--active{
+.header--two .nav__link--active{
   color:var(--color-secondary);
   position: relative;
   padding-left: 20px;
 }
-.header--home-two .nav__link--active::before{
+
+.header--two .nav__link--active::before{
   content: "";
   position: absolute;
   top: 50%;
@@ -389,13 +390,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 
-.header--home-two .header__menu-btn{
+.header--two .header__menu-btn{
   width: auto;
   height: auto;
   color: var(--color-primary);
 }
 
-.header--home-two  .menu-btn{
+.header--two  .menu-btn{
   display: flex;
   align-items: center;
   padding: 12px 2rem;
@@ -410,12 +411,22 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
 }
 
-.header--home-two .menu-btn__icon{
+.header--two .menu-btn__icon{
   font-weight: 600;
   height: 8px;
   width: 8px;
   background-color: var(--color-primary);
   border-radius: 50%;
+}
+
+.header__toggle-wrap{
+  display: none;
+  place-items: center;
+  background-color: var(--color-secondary);
+  height: 60px;
+  padding: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 /* =============================
@@ -4497,6 +4508,11 @@ span.testimonials__item-index {
     font-size: 4.5rem;
   }
 
+  /* Header Area */
+  .header--two .header__menu-btn{
+    display: none;
+  }
+
   /* Hero Home One */
   .hero-home-one .hero__tagline, .hero-home-one .hero__bottom{
     margin-left: 0;
@@ -4692,8 +4708,12 @@ span.testimonials__item-index {
   }
 
   /* Header / Home Two */
-  .header--home-two .header__container{
+  .header--two .header__container{
     padding-right: 40px;
+  }
+
+  .header--two .header__toggle-wrap{
+    display: grid;
   }
 
   /* Hero Home One */
@@ -5013,7 +5033,7 @@ span.testimonials__item-index {
   }
 
   /* Header / Home Two */
-  .header--home-two .header__container{
+  .header--two .header__container{
     padding-right: 20px;
   }
 
