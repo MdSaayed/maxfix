@@ -1320,6 +1320,8 @@ span.services__item-index {
 .services__item-image-wrap{
   max-width: 263px;
   max-height: 286px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .services--home-one .services__item-image{
