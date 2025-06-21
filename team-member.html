@@ -15,37 +15,111 @@
 <body>
 
     <!-- Header Start Here -->
-     <header id="header" class="header header--one">
-        <div class="container header__container">
-            <div class="header__logo">
-                <a href="index.html" class="logo">
-                    <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" />
-                </a>
-            </div>
-            <nav class="header__nav nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="index2.html" class="nav__link nav__link--active">Home 2</a></li>
-                    <li class="nav__item"><a href="./about-us.html" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Services</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Works</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Pages</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Insight</a></li>
-                    <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+    <header id="header" class="header header--two">
+        <div class="header__container container">
+            <div class="header__content-area">
+                <div class="header__logo">
+                    <a href="index.html" class="logo">
+                        <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" />
+                    </a>
+                </div>
+
+                <ul class="menu main-menu">
+                    <li class="menu-item"><a href="/">Home</a></li>
+                    <li class="menu-item"><a href="about-us.html">About</a></li>
+                    <li class="menu-item"><a href="services.html">Services</a></li>
+                    <li class="menu-item menu-item-has-children">
+                        <a href="#">Pages</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item"><a href="index2.html">Home 2</a></li>
+                            <li class="menu-item"><a href="blog.html">Blog</a></li>
+                            <li class="menu-item"><a href="blog-details.html">Blog Details</a></li>
+                            <li class="menu-item"><a href="portfolio.html">Portfolio</a></li>
+                            <li class="menu-item"><a href="portfolio-details.html">Portfolio Details</a></li>
+                            <li class="menu-item"><a href="services-details.html">Services Details</a></li>
+                            <li class="menu-item"><a href="faq.html">Faq</a></li>
+                            <li class="menu-item"><a href="pricing-plan.html">Pricing Plan</a></li>
+                            <li class="menu-item current-menu-item"><a href="team-member.html">Team Member</a></li>
+                            <li class="menu-item"><a href="404.html">404</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="contact.html">Contact</a></li>
                 </ul>
-            </nav>
-            <div class="header__menu-btn">
-                <button class="menu-btn">
-                    <span class="menu-btn__text">Menu</span>
+                
+                <div class="header__menu-btn">
+                    <a class="menu-btn">
+                        <span class="menu-btn__icon"></span> 
+                        <span class="menu-btn__text">GET IN TOUCH</span>
+                    </a>
+                </div>
+
+                <div class="header__toggle-wrap" id="menuToggle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="8" viewBox="0 0 50 8" fill="none">
-                    <line y1="0.73333" x2="50" y2="0.73333" stroke="black"/>
-                    <line y1="6.93333" x2="50" y2="6.93333" stroke="black"/>
+                        <line y1="0.73333" x2="50" y2="0.73333" stroke="black"/>
+                        <line y1="6.93333" x2="50" y2="6.93333" stroke="black"/>
                     </svg>
-                </button>
+                </div>
             </div>
         </div>
     </header>
     <!-- Header End Here -->
+
+    <!-- Mobile Offcanvas Start Here -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu__header">
+        <div class="main-nav__logo">
+            <a href="/" class="logo">
+                <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" />
+            </a>
+        </div>
+        <div class="mobile-menu__close" id="closeMobile">✕</div>
+      </div>
+
+      <ul class="mobile-menu__list">
+        <li class="menu-item"><a href="/">Home</a></li>
+        <li class="menu-item"><a href="about-us.html">About</a></li>
+        <li class="menu-item"><a href="services.html">Services</a></li>
+        <li class="menu-item menu-item-has-children">
+          <a href="#">Pages</a>
+          <ul class="sub-menu">
+            <li class="menu-item"><a href="index2.html">Home 2</a></li>
+            <li class="menu-item"><a href="blog.html">Blog</a></li>
+            <li class="menu-item"><a href="blog-details.html">Blog Details</a></li>
+            <li class="menu-item"><a href="portfolio.html">Portfolio</a></li>
+            <li class="menu-item"><a href="portfolio-details.html">Portfolio Details</a></li>
+            <li class="menu-item"><a href="services-details.html">Services Details</a></li>
+            <li class="menu-item"><a href="faq.html">Faq</a></li>
+            <li class="menu-item"><a href="pricing-plan.html">Pricing Plan</a></li>
+            <li class="menu-item"><a href="404.html">404</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Contact Info: always visible -->
+       <div class="mobile-menu__contact">
+          <a href="#" class="mobile-menu__contact-link">
+            <span class="icon-wrap">
+                <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <span>Dhaka, Bangladesh</span>
+          </a>
+          <a href="mailto:hello@cruvagency.com" class="mobile-menu__contact-link">
+            <span class="icon-wrap">
+                <i class="fa-solid fa-envelope"></i>
+            </span>
+            <span>hello@maxfix.com</span>
+          </a>
+          <a href="tel:5055550125" class="mobile-menu__contact-link">
+            <span class="icon-wrap">
+                <i class="fa-solid fa-phone"></i>
+            </span>
+            <span>(505) 555-0125</span>
+          </a>
+      </div>
+    </div>
+    <!-- Mobile Offcanvas End Here -->
 
     <!-- Hero Start Here -->
     <section class="hero hero--portfolio" data-bg-img="./img/shape/portfolio-hero-bg.jpg">

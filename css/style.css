@@ -372,13 +372,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-.header--two .nav__link--active{
+.header--two .current-menu-item{
   color:var(--color-secondary);
   position: relative;
   padding-left: 20px;
 }
 
-.header--two .nav__link--active::before{
+.header--two .current-menu-item::before{
   content: "";
   position: absolute;
   top: 50%;
@@ -965,26 +965,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* About / Home Tow */
-.about--home-two {
+.about--two {
   background-color: var(--bg-white);
 }
 
-.about--home-two .about__container{
+.about--two .about__container{
   position: relative;
 }
 
-.about--home-two .about__title-wrap {
+.about--two .about__title-wrap {
   max-width: 1400px;
   text-align: left;
   margin-bottom: 3.5rem;
 }
 
-.about--home-two .about__title {
+.about--two .about__title {
   text-indent: 0 !important;
   color: var(--color-primary);
 }
 
-.about--home-two .about__content {
+.about--two .about__content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1040,7 +1040,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 320px;
 }
 
-.about--home-two .about__image {
+.about--two .about__image {
   flex: 1 1 35%;
   display: flex;
   justify-content: center;
@@ -2081,6 +2081,21 @@ span.testimonials__item-index {
   visibility: visible;
 }
 
+.testimonials--two .testimonials__item-img-wrap{
+  max-width: 222px;
+  min-height: 267px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.testimonials--two .testimonials__item-image{
+  width: 100%;
+  height: 267px;
+  object-fit: cover;
+}
+
 .testimonials--two .testimonials__item-text{
   max-width: 450px;
   display: flex;
@@ -2420,13 +2435,13 @@ span.testimonials__item-index {
   padding-top: 0 !important;
 }
 
-.portfolio--home-two .portfolio__title{
+.portfolio--two .portfolio__title{
   text-indent: 0 !important;
   max-width: 860px;
   margin-bottom: 7.5rem;
 }
 
-.portfolio--home-two .portfolio__year{
+.portfolio--two .portfolio__year{
   text-align: end;
   display: block;
 }
@@ -2467,10 +2482,10 @@ span.testimonials__item-index {
 
 .portfolio__tag {
   position: absolute;
-  top: 50%;
-  left: -100px;
-  transform: rotate(-90deg) translateY(calc(-50% - 28px));
-  transform-origin: center;
+  top: 88%;
+  left: 12%;
+  transform: rotate(-90deg) translateY(calc(-50% - 12%));
+  transform-origin: left;
   background: var(--bg-white);
   color: var(--color-primary);
   padding: 14px 16px;
@@ -2505,7 +2520,7 @@ span.testimonials__item-index {
   color: var(--bg-white);
 }
 
-.portfolio--home-two .portfolio__year{
+.portfolio--two .portfolio__year{
   -webkit-text-fill-color: transparent;
   background: linear-gradient(45deg,var(--bg-white) 45%, var(--color-secondary) 50%, var(--bg-white) 100%);
   -webkit-background-clip: text;
@@ -4428,7 +4443,7 @@ span.testimonials__item-index {
   }
 
   /* Hero / Home Two */
-  .about--home-two .about__image {
+  .about--two .about__image {
     z-index: 1;
     opacity: 0.4;
   }
@@ -5187,7 +5202,7 @@ span.testimonials__item-index {
   }
     
   /* Portfolio / Home Two */
-  .portfolio--home-two .portfolio__title{
+  .portfolio--two .portfolio__title{
     margin-bottom: 4.5rem;
   }
 
@@ -5606,6 +5621,15 @@ span.testimonials__item-index {
   }
   .services--two .services__tab{
     font-size: 2rem;
+  }
+
+  /* Testimonials Two */
+  .testimonials--two .testimonials__item-img-wrap{
+    min-height: 220px;
+  }
+
+  .testimonials--two .testimonials__item-image{
+    height: 220px;
   }
 }
 

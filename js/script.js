@@ -16,15 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
- document.addEventListener("DOMContentLoaded", function () {
+// Services
+document.addEventListener("DOMContentLoaded", function () {
   const toggleIcons = document.querySelectorAll(".services__item-toggle-icon");
 
   toggleIcons.forEach((icon) => {
     const item = icon.closest(".services__item");
     const content = item.querySelector(".services__item-content");
 
-    // ✅ Fix default icon if item is active on load
     if (item.classList.contains("services__item--active")) {
       icon.classList.remove("fa-plus");
       icon.classList.add("fa-minus");
@@ -41,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     icon.addEventListener("click", function () {
       const isActive = item.classList.contains("services__item--active");
 
-      // Toggle icon classes
       icon.classList.toggle("fa-plus", isActive);
       icon.classList.toggle("fa-minus", !isActive);
       icon.classList.toggle("rotate");
@@ -74,14 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Testimonials Two
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const toggleIcons = document.querySelectorAll(".testimonials__item-toggle-icon");
 
   toggleIcons.forEach((icon) => {
     const item = icon.closest(".testimonials__item");
     const content = item.querySelector(".testimonials__item-content");
 
-    // ✅ Fix default state if item is active on load
     if (item.classList.contains("testimonials__item--active")) {
       icon.classList.add("rotate");
 
@@ -154,11 +151,10 @@ cards.forEach((card, index) => {
     }
   });
 
-  // Handle initial transform on load
   if (isLastCard && window.innerWidth >= 1190) {
       card.style.transform = 'translateY(-150px)';
     }
-  });
+});
 
 // Handle screen resizing
   window.addEventListener('resize', () => {
@@ -172,46 +168,45 @@ cards.forEach((card, index) => {
 });
 
 // Faq 
-  document.querySelectorAll('.faq__toggle').forEach(toggle => {
-    toggle.addEventListener('click', function () {
-      const item = this.closest('.faq__item');
-      const answer = item.querySelector('.faq__answer');
-      const isActive = item.classList.contains('faq__item--active');
+document.querySelectorAll('.faq__toggle').forEach(toggle => {
+  toggle.addEventListener('click', function () {
+    const item = this.closest('.faq__item');
+    const answer = item.querySelector('.faq__answer');
+    const isActive = item.classList.contains('faq__item--active');
 
-      // Collapse all items first
-      document.querySelectorAll('.faq__item').forEach(i => {
-        const a = i.querySelector('.faq__answer');
-        a.style.height = '0px';
-        i.classList.remove('faq__item--active');
-      });
-
-      if (!isActive) {
-        item.classList.add('faq__item--active');
-        answer.style.height = answer.scrollHeight + 'px';
-
-        answer.addEventListener('transitionend', () => {
-          if (item.classList.contains('faq__item--active')) {
-            answer.style.height = 'auto';
-          }
-        }, { once: true });
-      }
+    // Collapse all items first
+    document.querySelectorAll('.faq__item').forEach(i => {
+      const a = i.querySelector('.faq__answer');
+      a.style.height = '0px';
+      i.classList.remove('faq__item--active');
     });
-  });
 
+    if (!isActive) {
+      item.classList.add('faq__item--active');
+      answer.style.height = answer.scrollHeight + 'px';
+
+      answer.addEventListener('transitionend', () => {
+        if (item.classList.contains('faq__item--active')) {
+          answer.style.height = 'auto';
+        }
+      }, { once: true });
+    }
+  });
+});
 
 // Back to Top Smooth Animation
 document.addEventListener("DOMContentLoaded", function () {
   const scrollBtn = document.querySelector(".footer__scroll-top");
 
   scrollBtn.addEventListener("click", function () {
-    const duration = 1000; // duration in ms (adjust this to control speed)
+    const duration = 1000;  
     const start = window.pageYOffset;
     const startTime = performance.now();
 
     function scrollStep(currentTime) {
       const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1); // between 0 and 1
-      const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      const progress = Math.min(elapsed / duration, 1);  
+      const ease = 1 - Math.pow(1 - progress, 3);  
 
       window.scrollTo(0, start * (1 - ease));
 
@@ -223,7 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(scrollStep);
   });
 });
-
 
 // Pricing 
 const toggleBtns = document.querySelectorAll('.pricing__toggle-btn');
@@ -242,25 +236,21 @@ toggleBtns.forEach(btn => {
   });
 });
 
-
  document.addEventListener("DOMContentLoaded", () => {
     const tabs = document.querySelectorAll(".services__tab");
     const contents = document.querySelectorAll(".services__content");
 
     tabs.forEach(tab => {
       tab.addEventListener("click", () => {
-        // Remove active from all tabs and contents
         tabs.forEach(t => t.classList.remove("active"));
         contents.forEach(c => c.classList.remove("active"));
 
-        // Add active to clicked tab and corresponding content
         tab.classList.add("active");
         const target = tab.getAttribute("data-tab");
         document.querySelector(`.services__content[data-content="${target}"]`).classList.add("active");
       });
     });
 });
-
 
 // Recent Work Filters
 document.addEventListener("DOMContentLoaded", function () {
@@ -288,7 +278,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 // Services Details Slider
 document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector('.hero__slider')) {
@@ -302,25 +291,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
 // Menu
- const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeMobile = document.getElementById('closeMobile');
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMobile = document.getElementById('closeMobile');
 
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.add('mobile-menu--open');
-    });
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.add('mobile-menu--open');
+});
 
-    closeMobile.addEventListener('click', () => {
-      mobileMenu.classList.remove('mobile-menu--open');
-    });
+closeMobile.addEventListener('click', () => {
+  mobileMenu.classList.remove('mobile-menu--open');
+});
 
-    // Mobile dropdown toggle
-    document.querySelectorAll('.mobile-menu__list .menu-item-has-children > a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const parent = link.parentElement;
-        parent.classList.toggle('open');
-      });
-    });
+// Mobile dropdown toggle
+document.querySelectorAll('.mobile-menu__list .menu-item-has-children > a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const parent = link.parentElement;
+    parent.classList.toggle('open');
+  });
+});
