@@ -1,6 +1,49 @@
+/*------------------------------------------------------------------
+Template Name: Maxfix – Digital Agency Portfolio HTML Template
+Template URL: [demo url]
+Description: Maxfix is a next-generation HTML template converted from a premium Figma design, crafted for digital agencies, design studios, digital marketing agencies, personal portfolios, and creative professionals. It includes 14+ well-structured pages based on a 1770px grid system, featuring 2+ beautifully designed home pages. The codebase is clean, customizable, and organized for seamless editing and scalability across various business and personal website needs.
+Author: UiBazar
+Author URL: https://themeforest.net/user/kitdokan
+Version: 1.0
+-------------------------------------------------------------------
+
+JS INDEX
+===================
+
+1. Preloader
+2. Dynamically set BG
+3. Services Toggle
+4. Testimonials One
+5. Testimonials Two
+6. Faq
+7. Back to Top
+8. Pricing Toggle Switch
+9. Services Tab
+10. Recent Work Filters
+11. Services Details Slider
+12. Desktop Menu
+13. Responsive Menu
+
+------------------------------------------------------------------*/
+
+
 "use strict";
 
-// Dynamically set background images
+/* =============================
+* 1. Preloader
+============================= */
+
+document.addEventListener('DOMContentLoaded', function () {
+  var preloader = document.querySelector(".preloader");
+
+  setTimeout(() => {
+    preloader.style.display = "none";
+  }, 700);
+});
+
+/* =============================
+* 2. Dynamically set BG
+============================= */
 document.addEventListener('DOMContentLoaded', function () {
     const bgDivs = document.querySelectorAll('[data-bg-img]');
     if (bgDivs.length > 0) {
@@ -16,7 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Services
+/* =============================
+* 3. Services Toggle
+============================= */
 document.addEventListener("DOMContentLoaded", function () {
   const toggleIcons = document.querySelectorAll(".services__item-toggle-icon");
 
@@ -71,7 +116,55 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Testimonials Two
+/* =============================
+* 4. Testimonials One
+============================= */
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll('.testimonial-card');
+  const cardList = document.querySelector('.testimonials__list');
+
+  cards.forEach((card, index) => {
+    const isLastCard = index === cards.length - 1;
+
+    card.addEventListener('mouseenter', () => {
+      cardList.style.marginTop = '-7.5rem';
+      cardList.style.transition = 'margin-top 0.6s ease';
+
+      if (isLastCard) {
+        card.style.transform = 'translateY(0)';
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      cardList.style.marginTop = '0';
+      cardList.style.transition = 'margin-top 0.6s ease';
+
+      if (isLastCard && window.innerWidth >= 1190) {
+        card.style.transform = 'translateY(-150px)';
+      } else if (isLastCard) {
+        card.style.transform = 'translateY(0)';
+      }
+    });
+
+    if (isLastCard && window.innerWidth >= 1190) {
+        card.style.transform = 'translateY(-150px)';
+      }
+  });
+
+  window.addEventListener('resize', () => {
+    const lastCard = cards[cards.length - 1];
+
+    if (window.innerWidth >= 1190) {
+      lastCard.style.transform = 'translateY(-150px)';
+    } else {
+      lastCard.style.transform = 'translateY(0)';
+    } 
+  });
+});
+
+/* =============================
+* 5. Testimonials Two
+============================= */
 document.addEventListener("DOMContentLoaded", function () {
   const toggleIcons = document.querySelectorAll(".testimonials__item-toggle-icon");
 
@@ -123,51 +216,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-// Testimonials
-const cards = document.querySelectorAll('.testimonial-card');
-const cardList = document.querySelector('.testimonials__list');
-
-cards.forEach((card, index) => {
-  const isLastCard = index === cards.length - 1;
-
-  card.addEventListener('mouseenter', () => {
-    cardList.style.marginTop = '-7.5rem';
-    cardList.style.transition = 'margin-top 0.6s ease';
-
-    if (isLastCard) {
-      card.style.transform = 'translateY(0)';
-    }
-  });
-
-  card.addEventListener('mouseleave', () => {
-    cardList.style.marginTop = '0';
-    cardList.style.transition = 'margin-top 0.6s ease';
-
-    if (isLastCard && window.innerWidth >= 1190) {
-      card.style.transform = 'translateY(-150px)';
-    } else if (isLastCard) {
-      card.style.transform = 'translateY(0)';
-    }
-  });
-
-  if (isLastCard && window.innerWidth >= 1190) {
-      card.style.transform = 'translateY(-150px)';
-    }
-});
-
-// Handle screen resizing
-  window.addEventListener('resize', () => {
-  const lastCard = cards[cards.length - 1];
-
-  if (window.innerWidth >= 1190) {
-    lastCard.style.transform = 'translateY(-150px)';
-  } else {
-    lastCard.style.transform = 'translateY(0)';
-  } 
-});
-
-// Faq 
+/* =============================
+* 6. Faq
+============================= */
 document.querySelectorAll('.faq__toggle').forEach(toggle => {
   toggle.addEventListener('click', function () {
     const item = this.closest('.faq__item');
@@ -194,7 +245,9 @@ document.querySelectorAll('.faq__toggle').forEach(toggle => {
   });
 });
 
-// Back to Top Smooth Animation
+/* =============================
+* 7. Back to Top
+============================= */
 document.addEventListener("DOMContentLoaded", function () {
   const scrollBtn = document.querySelector(".footer__scroll-top");
 
@@ -219,23 +272,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Pricing 
-const toggleBtns = document.querySelectorAll('.pricing__toggle-btn');
-const prices = document.querySelectorAll('.pricing__price');
+/* =============================
+* 8. Pricing Toggle Switch
+============================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtns = document.querySelectorAll('.pricing__toggle-btn');
+  const prices = document.querySelectorAll('.pricing__price');
 
-toggleBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    toggleBtns.forEach(b => b.classList.remove('pricing__toggle-btn--active'));
-    btn.classList.add('pricing__toggle-btn--active');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleBtns.forEach(b => b.classList.remove('pricing__toggle-btn--active'));
+      btn.classList.add('pricing__toggle-btn--active');
 
-    const period = btn.dataset.period;
+      const period = btn.dataset.period;
 
-    prices.forEach(price => {
-      price.textContent = `$${parseFloat(price.dataset[period]).toFixed(2)}`;
+      prices.forEach(price => {
+        price.textContent = `$${parseFloat(price.dataset[period]).toFixed(2)}`;
+      });
     });
   });
 });
 
+/* =============================
+* 9. Services Tab
+============================= */
  document.addEventListener("DOMContentLoaded", () => {
     const tabs = document.querySelectorAll(".services__tab");
     const contents = document.querySelectorAll(".services__content");
@@ -252,7 +312,9 @@ toggleBtns.forEach(btn => {
     });
 });
 
-// Recent Work Filters
+/* =============================
+* 10. Recent Work Filters
+============================= */
 document.addEventListener("DOMContentLoaded", function () {
   const filterButtons = document.querySelectorAll(".recent-work__filters li");
   const cards = document.querySelectorAll(".work-card");
@@ -278,7 +340,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Services Details Slider
+/* =============================
+* 11. Services Details Slider
+============================= */
 document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector('.hero__slider')) {
     const serviceSlider = new Swiper('.hero__slider', {
@@ -291,7 +355,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Menu
+/* =============================
+* 12. Desktop Menu
+============================= */
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeMobile = document.getElementById('closeMobile');
@@ -304,7 +370,9 @@ closeMobile.addEventListener('click', () => {
   mobileMenu.classList.remove('mobile-menu--open');
 });
 
-// Mobile dropdown toggle
+/* =============================
+* 13. Responsive Menu
+============================= */
 document.querySelectorAll('.mobile-menu__list .menu-item-has-children > a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
