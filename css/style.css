@@ -5050,12 +5050,20 @@ span.testimonials__item-index {
     padding-bottom: 0;
   }
 
-  /* Header / Home Two */
+  /* Header / Two */
   .header--two .header__container{
     padding-right: 20px;
   }
 
-  /* Hero Home One */
+  .header__content-area{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 96px;
+    padding: 1rem;
+  }
+
+  /* Hero / One */
   .hero-home-one .hero__header-group {
     gap: 2rem;
     margin-bottom: 2rem;
@@ -5078,7 +5086,7 @@ span.testimonials__item-index {
     margin-top: 1rem;
   }
 
-  /* Hero / Home Two */
+  /* Hero / Two */
   .hero--home-two .hero__container-custom{
     min-height: 500px;
   }
