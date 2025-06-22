@@ -390,6 +390,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 
+.header--two .sub-menu .current-menu-item::before{
+  content: none;
+}
+
 .header--two .header__menu-btn{
   width: auto;
   height: auto;
@@ -5662,10 +5666,10 @@ span.testimonials__item-index {
 }
 
 /* Active Menu Color */
-.main-menu .current-menu-item > a,
-.main-menu .current-menu-parent > a,
-.main-menu .current-menu-ancestor > a {
-  color: var(--color-secondary);
+.current-menu-item > a,
+.current-menu-parent > a,
+.current-menu-ancestor > a {
+  color: var(--color-secondary) !important;
 }
 
 
