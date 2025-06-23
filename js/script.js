@@ -23,6 +23,7 @@ JS INDEX
 11. Services Details Slider
 12. Desktop Menu
 13. Responsive Menu
+14. Video Area
 
 ------------------------------------------------------------------*/
 
@@ -380,5 +381,16 @@ document.querySelectorAll('.mobile-menu__list .menu-item-has-children > a').forE
     parent.classList.toggle('open');
   });
 });
+
+
+/* =============================
+* 14. Video Area
+============================= */
+const lightbox = GLightbox({
+    type: 'video',
+    source: 'youtube',  
+    autoplayVideos: true,
+  });
+
 
 
