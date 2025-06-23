@@ -44,13 +44,37 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollTrigger.create({
       trigger: target,
       start: "top 90%",
-      onEnter: () => gsap.fromTo(target, { ...vars.from }, { ...vars.to }),
-      onEnterBack: () => gsap.fromTo(target, { ...vars.from }, { ...vars.to }),
+      onEnter: () => gsap.fromTo(target, vars.from, vars.to),
+      onEnterBack: () => gsap.fromTo(target, vars.from, vars.to)
+    });
+  }
+
+  function animateGroupItems(selector, fromVars, toVars, delayEach = 0) {
+    document.querySelectorAll(selector).forEach((el, i) => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 90%",
+        onEnter: () =>
+          gsap.fromTo(el, fromVars, { ...toVars, delay: i * delayEach }),
+        onEnterBack: () =>
+          gsap.fromTo(el, fromVars, { ...toVars, delay: i * delayEach }),
+      });
+    });
+  }
+
+  function fadeUpRepeat(selector, delay = 0, yValue = 60, duration = 1.6, ease = "expo.out") {
+    ScrollTrigger.create({
+      trigger: selector,
+      start: "top 90%",
+      onEnter: () =>
+        gsap.fromTo(selector, { y: yValue, opacity: 0 }, { y: 0, opacity: 1, duration, ease, delay }),
+      onEnterBack: () =>
+        gsap.fromTo(selector, { y: yValue, opacity: 0 }, { y: 0, opacity: 1, duration, ease, delay }),
     });
   }
 
   // =============================
-  // 1. Hero Area
+  // 1. Header One Area
   // =============================
   function initHeroAnimations() {
     animateRepeatedly(".hero__image--left", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" });
@@ -98,41 +122,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // 2. About Area
+  // 2. About One Area
   // =============================
   function initAboutAnimations() {
     const ease = "expo.out";
     const duration = 2.2;
 
-    animateOnScroll(".about__subtitle-wrap", {
-      from: { y: -30, opacity: 0 },
-      to: { y: 0, opacity: 1, duration, ease }
-    });
-
-    animateOnScroll(".about__title", {
-      from: { y: 50, opacity: 0 },
-      to: { y: 0, opacity: 1, duration, ease }
-    });
-
-    animateOnScroll(".about__desc", {
-      from: { x: -100, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease }
-    });
-
-    animateOnScroll(".about__testimonial", {
-      from: { x: -60, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease }
-    });
-
-    animateOnScroll(".about__image--left", {
-      from: { x: -150, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease }
-    });
-
-    animateOnScroll(".about__image--right", {
-      from: { x: 150, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease }
-    });
+    animateOnScroll(".about__subtitle-wrap", { from: { y: -30, opacity: 0 }, to: { y: 0, opacity: 1, duration, ease } });
+    animateOnScroll(".about__title", { from: { y: 50, opacity: 0 }, to: { y: 0, opacity: 1, duration, ease } });
+    animateOnScroll(".about__desc", { from: { x: -100, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
+    animateOnScroll(".about__testimonial", { from: { x: -60, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
+    animateOnScroll(".about__image--left", { from: { x: -150, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
+    animateOnScroll(".about__image--right", { from: { x: 150, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
 
     animateOnScroll(".about__button", {
       from: { y: 40, scale: 0.8, opacity: 0 },
@@ -171,16 +172,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // 3. Fact Area
   // =============================
   function initFactAnimations() {
-    document.querySelectorAll(".fact__item").forEach((item, i) => {
-      animateRepeatedly(item,
-        { y: 80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 2, ease: "expo.out", delay: i * 0.1 }
-      );
-    });
+    animateGroupItems(".fact__item",
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 2, ease: "expo.out" },
+      0.1
+    );
   }
 
   // =============================
-  // 4. Services Area
+  // 4. Services One Area
   // =============================
   function initServicesAnimations() {
     const duration = 2.1;
@@ -188,62 +188,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     animateRepeatedly(".services__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
     animateRepeatedly(".services__title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
-    animateRepeatedly(".services__btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+
+    // fixed: prevent scaling down, just fade-in
+    animateRepeatedly(".services__btn", { opacity: 0 }, { opacity: 1, duration, ease });
+
     animateRepeatedly(".services__desc", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
     animateRepeatedly(".services__image", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
 
-    document.querySelectorAll(".services__item").forEach((item, i) => {
-      animateRepeatedly(item,
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration, ease, delay: i * 0.05 }
-      );
-    });
-  }
-
-  // =============================
-  // Initialize All Sections
-  // =============================
-  initHeroAnimations();
-  initAboutAnimations();
-  initFactAnimations();
-  initServicesAnimations();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  gsap.registerPlugin(ScrollTrigger);
-
-  // =============================
-  // Shared Helper Functions
-  // =============================
-  function animateRepeatedly(selector, fromVars, toVars) {
-    ScrollTrigger.create({
-      trigger: selector,
-      start: "top 90%",
-      onEnter: () => gsap.fromTo(selector, fromVars, toVars),
-      onEnterBack: () => gsap.fromTo(selector, fromVars, toVars)
-    });
-  }
-
-  function animateOnScroll(target, vars) {
-    ScrollTrigger.create({
-      trigger: target,
-      start: "top 90%",
-      onEnter: () => gsap.fromTo(target, { ...vars.from }, { ...vars.to }),
-      onEnterBack: () => gsap.fromTo(target, { ...vars.from }, { ...vars.to }),
-    });
-  }
-
-  function animateGroupItems(selector, fromVars, toVars, delayEach = 0) {
-    document.querySelectorAll(selector).forEach((el, i) => {
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 90%",
-        onEnter: () =>
-          gsap.fromTo(el, { ...fromVars }, { ...toVars, delay: i * delayEach }),
-        onEnterBack: () =>
-          gsap.fromTo(el, { ...fromVars }, { ...toVars, delay: i * delayEach }),
-      });
-    });
+    animateGroupItems(".services__item",
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease },
+      0.05
+    );
   }
 
   // =============================
@@ -257,245 +213,99 @@ document.addEventListener("DOMContentLoaded", function () {
     animateRepeatedly(".process__title", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
     animateRepeatedly(".process__btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
 
-    document.querySelectorAll(".process__step").forEach((step, i) => {
-      animateRepeatedly(step,
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration, ease, delay: i * 0.1 }
-      );
-    });
+    animateGroupItems(".process__step",
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease },
+      0.1
+    );
   }
 
   // =============================
   // 6. Recent Work Area
   // =============================
   function initRecentWorkAnimations() {
-    animateGroupItems(".recent-works__title-wrap",
-      { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "expo.out" }
-    );
-
-    animateGroupItems(".work-card",
-      { y: 80, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.8, ease: "power4.out" },
-      0.1
-    );
-
-    animateGroupItems(".recent-works__cta",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "expo.out" }
-    );
-  }
-
-  function initRecentWorkCursorEffect() {
-    document.querySelectorAll(".work-card__image-wrapper").forEach(wrapper => {
-      const button = wrapper.querySelector(".work-card__button");
-
-      wrapper.addEventListener("mousemove", (e) => {
-        const rect = wrapper.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        gsap.set(button, { x: x, y: y });
-      });
-
-      wrapper.addEventListener("mouseleave", () => {
-        gsap.set(button, { x: 0, y: 0 });
-      });
-    });
+    animateGroupItems(".recent-works__title-wrap", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "expo.out" });
+    animateGroupItems(".work-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1.8, ease: "power4.out" }, 0.1);
+    animateGroupItems(".recent-works__cta", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "expo.out" });
   }
 
   // =============================
   // 7. Brand Logos Area
   // =============================
   function initBrandLogoAnimations() {
-    // Animate title
-    animateRepeatedly(
-      ".brand-logos__title",
-      { y: -40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
+    animateRepeatedly(".brand-logos__title", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" });
 
-    // Animate logos with stagger
     ScrollTrigger.create({
       trigger: ".brand-logos__grid",
       start: "top 90%",
       onEnter: () => {
-        gsap.fromTo(".brand-logos__item",
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.6,
-            ease: "power4.out",
-            stagger: 0.2
-          }
-        );
+        gsap.fromTo(".brand-logos__item", { y: 60, opacity: 0 }, {
+          y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2
+        });
       },
       onEnterBack: () => {
-        gsap.fromTo(".brand-logos__item",
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.6,
-            ease: "power4.out",
-            stagger: 0.2
-          }
-        );
+        gsap.fromTo(".brand-logos__item", { y: 60, opacity: 0 }, {
+          y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2
+        });
       }
-    });
-  }
-
-  // =============================
-  // Initialize Sections
-  // =============================
-  initProcessAnimations();
-  initRecentWorkAnimations();
-  initRecentWorkCursorEffect();
-  initBrandLogoAnimations();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Shared helper for repeated fade-up animation
-  function fadeUpRepeat(selector, delay = 0, yValue = 60, duration = 1.6, ease = "expo.out") {
-    ScrollTrigger.create({
-      trigger: selector,
-      start: "top 90%",
-      onEnter: () =>
-        gsap.fromTo(
-          selector,
-          { y: yValue, opacity: 0 },
-          { y: 0, opacity: 1, duration, ease, delay }
-        ),
-      onEnterBack: () =>
-        gsap.fromTo(
-          selector,
-          { y: yValue, opacity: 0 },
-          { y: 0, opacity: 1, duration, ease, delay }
-        ),
     });
   }
 
   // =============================
   // 8. Testimonials One Area
   // =============================
-  gsap.fromTo(
-    [".testimonials__label", ".testimonials__title", ".testimonials__button"],
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1.6,
-      ease: "power4.out",
-      stagger: 0.25,
-      scrollTrigger: {
-        trigger: ".testimonials__title-wrap",
-        start: "top 90%",
-        toggleActions: "play none none reset",
-      },
-    }
-  );
-
-  document.querySelectorAll(".testimonial-card").forEach((card, index) => {
-    ScrollTrigger.create({
-      trigger: card,
-      start: "top 90%",
-      onEnter: () => {
-        gsap.fromTo(
-          card,
-          { scale: 0.8, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 1.6,
-            ease: "power4.out",
-            delay: index * 0.2
-          }
-        );
-      },
-      onEnterBack: () => {
-        gsap.fromTo(
-          card,
-          { scale: 0.8, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 1.6,
-            ease: "power4.out",
-            delay: index * 0.2
-          }
-        );
+  function initTestimonialAnimations() {
+    gsap.fromTo(
+      [".testimonials__label", ".testimonials__title", ".testimonials__button"],
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.6,
+        ease: "power4.out",
+        stagger: 0.25,
+        scrollTrigger: {
+          trigger: ".testimonials__title-wrap",
+          start: "top 90%",
+          toggleActions: "play none none reset"
+        }
       }
+    );
+
+    document.querySelectorAll(".testimonial-card").forEach((card, i) => {
+      animateRepeatedly(card,
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out", delay: i * 0.2 }
+      );
     });
-  });
-
-  // =============================
-  // 8. FAQ Area
-  // =============================
-  gsap.fromTo(
-    [".faq__title", ".faq__subtitle", ".faq__button"],
-    { y: 60, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1.6,
-      ease: "power4.out",
-      stagger: 0.25,
-      scrollTrigger: {
-        trigger: ".faq__sidebar",
-        start: "top 90%",
-        toggleActions: "play none none reset",
-      }
-    }
-  );
-
-  document.querySelectorAll(".faq__item").forEach((item, index) => {
-    ScrollTrigger.create({
-      trigger: item,
-      start: "top 95%",
-      onEnter: () => {
-        gsap.fromTo(
-          item,
-          { y: 70, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "power4.out",
-            delay: index * 0.1
-          }
-        );
-      },
-      onEnterBack: () => {
-        gsap.fromTo(
-          item,
-          { y: 80, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "power4.out",
-            delay: index * 0.1
-          }
-        );
-      }
-    });
-  });
+  }
 
   // =============================
   // 9. Blog Area
   // =============================
-  fadeUpRepeat(".blog__subtitle-wrap", 0);
-  fadeUpRepeat(".blog__heading", 0.1);
-  fadeUpRepeat(".blog__btn", 0.2);
+  function initBlogAnimations() {
+    fadeUpRepeat(".blog__subtitle-wrap", 0);
+    fadeUpRepeat(".blog__heading", 0.1);
+    fadeUpRepeat(".blog__btn", 0.2);
 
-  document.querySelectorAll(".blog__item").forEach((item, index) => {
-    fadeUpRepeat(item, index * 0.15);
-  });
+    document.querySelectorAll(".blog__item").forEach((item, index) => {
+      fadeUpRepeat(item, index * 0.15);
+    });
+  }
+
+  // =============================
+  // Initialize All Sections
+  // =============================
+  initHeroAnimations();
+  initAboutAnimations();
+  initFactAnimations();
+  initServicesAnimations();
+  initProcessAnimations();
+  initRecentWorkAnimations();
+  initBrandLogoAnimations();
+  initTestimonialAnimations();
+  initBlogAnimations();
 });
-
 
 
 
