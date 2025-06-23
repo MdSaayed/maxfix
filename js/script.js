@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setTimeout(() => {
     preloader.style.display = "none";
-  }, 700);
+  }, 0);
 });
 
 /* =============================
@@ -380,3 +380,5 @@ document.querySelectorAll('.mobile-menu__list .menu-item-has-children > a').forE
     parent.classList.toggle('open');
   });
 });
+
+
