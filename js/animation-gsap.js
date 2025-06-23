@@ -1,95 +1,92 @@
 
+
+
+// Hero One
 document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
-  const commonSettings = {
+  function animateRepeatedly(selector, fromVars, toVars) {
+    ScrollTrigger.create({
+      trigger: selector,
+      start: "top 90%",
+      onEnter: () => gsap.fromTo(selector, fromVars, toVars),
+      onEnterBack: () => gsap.fromTo(selector, fromVars, toVars)
+    });
+  }
+
+  // All animations using the new pattern
+  animateRepeatedly(".hero__image--left",
+    { x: -120, opacity: 0 },
+    { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+  );
+
+  animateRepeatedly(".hero__brand",
+    { y: -60, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+  );
+
+  animateRepeatedly(".hero__video-icon-wrap",
+    { scale: 0.4, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
+  );
+
+  animateRepeatedly(".hero__stats",
+    { x: 80, opacity: 0 },
+    { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+  );
+
+  animateRepeatedly(".hero__tagline",
+    { scale: 0.8, opacity: 0, transformOrigin: "left center" },
+    { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
+  );
+
+  animateRepeatedly(".hero__text",
+    { y: 60, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+  );
+
+  ScrollTrigger.create({
+    trigger: ".hero__arrow",
     start: "top 90%",
-    toggleActions: "play none none none"
-  };
-
-  gsap.from(".hero__image--left", {
-    scrollTrigger: { trigger: ".hero__image--left", ...commonSettings },
-    x: -120,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out"
-  });
-
-  gsap.from(".hero__brand", {
-    scrollTrigger: { trigger: ".hero__brand", ...commonSettings },
-    y: -60,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out"
-  });
-
-  gsap.from(".hero__video-icon-wrap", {
-    scrollTrigger: { trigger: ".hero__video-icon-wrap", ...commonSettings },
-    scale: 0.4,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out"
-  });
-
-  gsap.from(".hero__stats", {
-    scrollTrigger: { trigger: ".hero__stats", ...commonSettings },
-    x: 80,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out"
-  });
-
-  gsap.from(".hero__tagline", {
-    scrollTrigger: { trigger: ".hero__tagline", ...commonSettings },
-    scale: 0.8,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out",
-    transformOrigin: "left center"
-  });
-
-  gsap.from(".hero__text", {
-    scrollTrigger: { trigger: ".hero__text", ...commonSettings },
-    y: 60,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out"
-  });
-
-  gsap.from(".hero__arrow", {
-    scrollTrigger: { trigger: ".hero__arrow", ...commonSettings },
-    y: 20,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out",
-    onComplete: () => {
-      gsap.to(".hero__arrow", {
-        y: 30,
-        repeat: -1,
-        yoyo: true,
-        duration: 1.2,
-        ease: "sine.inOut"
+    onEnter: () => {
+      gsap.fromTo(".hero__arrow", { y: 20, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 1.6, ease: "power4.out",
+        onComplete: () => {
+          gsap.to(".hero__arrow", {
+            y: 30,
+            repeat: -1,
+            yoyo: true,
+            duration: 1.2,
+            ease: "sine.inOut"
+          });
+        }
+      });
+    },
+    onEnterBack: () => {
+      gsap.fromTo(".hero__arrow", { y: 20, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 1.6, ease: "power4.out",
+        onComplete: () => {
+          gsap.to(".hero__arrow", {
+            y: 30,
+            repeat: -1,
+            yoyo: true,
+            duration: 1.2,
+            ease: "sine.inOut"
+          });
+        }
       });
     }
   });
 
-  gsap.from(".hero__image--right", {
-    scrollTrigger: { trigger: ".hero__image--right", ...commonSettings },
-    x: 120,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out"
-  });
+  animateRepeatedly(".hero__image--right",
+    { x: 120, opacity: 0 },
+    { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+  );
 
-  gsap.from(".hero__line", {
-    scrollTrigger: { trigger: ".hero__line", ...commonSettings, start: "top 95%" },
-    scaleY: 0,
-    opacity: 0,
-    duration: 1.6,
-    ease: "power4.out",
-    transformOrigin: "top center",
-    stagger: 0.3
-  });
+  animateRepeatedly(".hero__line",
+    { scaleY: 0, opacity: 0, transformOrigin: "top center" },
+    { scaleY: 1, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.3 }
+  );
 });
 
 
@@ -175,3 +172,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Fact Area
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Helper function for repeatable scroll-based animation
+  function animateRepeatedly(selector, fromVars, toVars) {
+    ScrollTrigger.create({
+      trigger: selector,
+      start: "top 90%",
+      onEnter: () => gsap.fromTo(selector, fromVars, toVars),
+      onEnterBack: () => gsap.fromTo(selector, fromVars, toVars)
+    });
+  }
+
+  // Animate each fact__item individually with slight stagger
+  document.querySelectorAll(".fact__item").forEach((item, i) => {
+    animateRepeatedly(item, 
+      { y: 80, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 2, ease: "expo.out", delay: i * 0.1 }
+    );
+  });
+});
+
