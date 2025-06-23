@@ -196,3 +196,39 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+// Services One Area
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Helper for reusable scroll-triggered animation
+  function animateRepeatedly(selector, fromVars, toVars) {
+    ScrollTrigger.create({
+      trigger: selector,
+      start: "top 90%",
+      onEnter: () => gsap.fromTo(selector, fromVars, toVars),
+      onEnterBack: () => gsap.fromTo(selector, fromVars, toVars)
+    });
+  }
+
+  const duration = 2.1;
+  const ease = "expo.out";
+
+  // Title area animation
+  animateRepeatedly(".services__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+  animateRepeatedly(".services__title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+  animateRepeatedly(".services__btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+
+  // Content block animation
+  animateRepeatedly(".services__desc", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
+  animateRepeatedly(".services__image", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
+
+  // Services list items
+  document.querySelectorAll(".services__item").forEach((item, i) => {
+    animateRepeatedly(item, 
+      { y: 100, opacity: 0 }, 
+      { y: 0, opacity: 1, duration, ease, delay: i * 0.05 }
+    );
+  });
+});
+
