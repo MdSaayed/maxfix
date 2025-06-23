@@ -1680,6 +1680,7 @@ span.services__item-index {
   line-height: 1.5;
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 999;
 }
 
 .work-card:hover .work-card__button {
@@ -1710,6 +1711,11 @@ span.services__item-index {
   padding: 6px 1.5rem;
   margin-bottom: 0.5rem;
   border-radius: 32px;
+}
+
+.work-card__title-link{
+  text-decoration: none;
+  color: var(--bg-white);
 }
 
 .work-card__title {

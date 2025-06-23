@@ -1,4 +1,37 @@
+/*------------------------------------------------------------------
+Template Name: Maxfix – Digital Agency Portfolio HTML Template
+Template URL: [demo url]
+Description: Maxfix is a next-generation HTML template converted from a premium Figma design, crafted for digital agencies, design studios, digital marketing agencies, personal portfolios, and creative professionals. It includes 14+ well-structured pages based on a 1770px grid system, featuring 2+ beautifully designed home pages. The codebase is clean, customizable, and organized for seamless editing and scalability across various business and personal website needs.
+Author: UiBazar
+Author URL: https://themeforest.net/user/kitdokan
+Version: 1.0
+-------------------------------------------------------------------
 
+ANIMATION INDEX
+===================
+
+1. Preloader
+2. Dynamically set BG
+3. Services Toggle
+4. Testimonials One
+5. Testimonials Two
+6. Faq
+7. Back to Top
+8. Pricing Toggle Switch
+9. Services Tab
+10. Recent Work Filters
+11. Services Details Slider
+12. Desktop Menu
+13. Responsive Menu
+
+------------------------------------------------------------------*/
+
+
+"use strict";
+
+/* =============================
+* 1. Preloader
+============================= */
 
 
 // Hero One
@@ -14,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // All animations using the new pattern
   animateRepeatedly(".hero__image--left",
     { x: -120, opacity: 0 },
     { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
@@ -88,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { scaleY: 1, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.3 }
   );
 });
-
 
 // About Area
 document.addEventListener("DOMContentLoaded", function () {
@@ -177,7 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Helper function for repeatable scroll-based animation
   function animateRepeatedly(selector, fromVars, toVars) {
     ScrollTrigger.create({
       trigger: selector,
@@ -187,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Animate each fact__item individually with slight stagger
   document.querySelectorAll(".fact__item").forEach((item, i) => {
     animateRepeatedly(item, 
       { y: 80, opacity: 0 }, 
@@ -196,12 +225,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 // Services One Area
 document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Helper for reusable scroll-triggered animation
   function animateRepeatedly(selector, fromVars, toVars) {
     ScrollTrigger.create({
       trigger: selector,
@@ -214,16 +241,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const duration = 2.1;
   const ease = "expo.out";
 
-  // Title area animation
   animateRepeatedly(".services__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
   animateRepeatedly(".services__title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
   animateRepeatedly(".services__btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
 
-  // Content block animation
   animateRepeatedly(".services__desc", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
   animateRepeatedly(".services__image", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
 
-  // Services list items
   document.querySelectorAll(".services__item").forEach((item, i) => {
     animateRepeatedly(item, 
       { y: 100, opacity: 0 }, 
@@ -231,4 +255,150 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 });
+
+// Process Area
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
+
+  function animateRepeatedly(selector, fromVars, toVars) {
+    ScrollTrigger.create({
+      trigger: selector,
+      start: "top 90%",
+      onEnter: () => gsap.fromTo(selector, fromVars, toVars),
+      onEnterBack: () => gsap.fromTo(selector, fromVars, toVars)
+    });
+  }
+
+  const duration = 2.2;
+  const ease = "expo.out";
+
+  animateRepeatedly(".process__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+  animateRepeatedly(".process__title", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+  animateRepeatedly(".process__btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+
+  document.querySelectorAll(".process__step").forEach((step, i) => {
+    animateRepeatedly(step, 
+      { y: 100, opacity: 0 }, 
+      { y: 0, opacity: 1, duration, ease, delay: i * 0.1 }
+    );
+  });
+});
+
+// Recent Work Area
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const animateOnceOrRepeat = (selector, fromVars, toVars, delayEach = 0) => {
+    document.querySelectorAll(selector).forEach((el, i) => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 90%",
+        onEnter: () =>
+          gsap.fromTo(
+            el,
+            { ...fromVars },
+            { ...toVars, delay: i * delayEach }
+          ),
+        onEnterBack: () =>
+          gsap.fromTo(
+            el,
+            { ...fromVars },
+            { ...toVars, delay: i * delayEach }
+          ),
+      });
+    });
+  };
+
+  animateOnceOrRepeat(
+    ".recent-works__title-wrap",
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 2, ease: "expo.out" }
+  );
+
+  animateOnceOrRepeat(
+    ".work-card",
+    { y: 80, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1.8, ease: "power4.out" },
+    0.1
+  );
+
+  animateOnceOrRepeat(
+    ".recent-works__cta",
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 2, ease: "expo.out" }
+  );
+});
+
+// Follow Cursor for View Button
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".work-card__image-wrapper").forEach(wrapper => {
+    const button = wrapper.querySelector(".work-card__button");
+
+    wrapper.addEventListener("mousemove", (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      gsap.set(button, { x: x, y: y });
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+      gsap.set(button, { x: 0, y: 0 });
+    });
+  });
+});
+
+// 
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate Title
+  ScrollTrigger.create({
+    trigger: ".brand-logos__title",
+    start: "top 90%",
+    onEnter: () => {
+      gsap.fromTo(".brand-logos__title",
+        { y: -40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+      );
+    },
+    onEnterBack: () => {
+      gsap.fromTo(".brand-logos__title",
+        { y: -40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+      );
+    }
+  });
+
+  // Animate Logo Items with stagger
+  ScrollTrigger.create({
+    trigger: ".brand-logos__grid",
+    start: "top 90%",
+    onEnter: () => {
+      gsap.fromTo(".brand-logos__item",
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.6,
+          ease: "power4.out",
+          stagger: 0.2
+        }
+      );
+    },
+    onEnterBack: () => {
+      gsap.fromTo(".brand-logos__item",
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.6,
+          ease: "power4.out",
+          stagger: 0.2
+        }
+      );
+    }
+  });
+});
+
 

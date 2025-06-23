@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setTimeout(() => {
     preloader.style.display = "none";
-  }, 0);
+  }, 100);
 });
 
 /* =============================
