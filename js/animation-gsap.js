@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 });
 
-// Follow Cursor for View Button
+// Follow Cursor for View Button / On Recent Work Card
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".work-card__image-wrapper").forEach(wrapper => {
     const button = wrapper.querySelector(".work-card__button");
@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// 
+// Brand Logos Area
 document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -400,5 +400,52 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Testimonials One Area
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Fade-up animation for subtitle, title, and button
+  gsap.fromTo(
+    [".testimonials__label", ".testimonials__title", ".testimonials__button"],
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.6,
+      ease: "power4.out",
+      stagger: 0.25,
+      scrollTrigger: {
+        trigger: ".testimonials__title-wrap",
+        start: "top 90%",
+      },
+    }
+  );
+
+  // Zoom-in + fade animation for testimonial cards
+  document.querySelectorAll(".testimonial-card").forEach((card, index) => {
+    ScrollTrigger.create({
+      trigger: card,
+      start: "top 90%",
+      onEnter: () => {
+        gsap.fromTo(
+          card,
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out", delay: index * 0.2 }
+        );
+      },
+      onEnterBack: () => {
+        gsap.fromTo(
+          card,
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out", delay: index * 0.2 }
+        );
+      },
+    });
+  });
+});
+
+
+
 
 
