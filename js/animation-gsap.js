@@ -262,8 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { y: 30, opacity: 0 },
     { y: 0, opacity: 1, duration: 2, ease }
   );
-}
-
+  }
 
   // =============================
   // 7. Brand Logos Area
@@ -403,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
       repeat: -1,
       yoyo: true,
       duration: 1.6,
-      ease: "sine.inOut"
+      ease: "sine.inOut" 
     });
 
     ScrollTrigger.create({
@@ -718,11 +717,143 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Initialize All Sections
+  // Hero/About Area
   // =============================
+  function initAboutHeroAnimations() {
+    const ease = "power4.out";
+    const duration = 1.8;
+
+    animateOnScroll(".hero--about .hero__title", {
+      from: { y: 100, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease }
+    });
+
+    animateGroupItems(".hero--about .hero__btn", 
+      { y: 40, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1.6, ease }, 
+      0.1
+    );
+
+    animateOnScroll(".hero--about .hero__desc", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.6, ease }
+    });
+
+    animateOnScroll(".hero--about .hero__img", {
+      from: { y: 100, opacity: 0, scale: 0.95 },
+      to: { y: 0, opacity: 1, scale: 1, duration: 2, ease }
+    });
+  }  
   
+  // =============================
+  // About/About Area
+  // =============================
+  function initAboutAboutAnimation() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    animateOnScroll(".about--about .about__subtitle-wrap", {
+      from: { y: 40, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" },
+    });
+
+    animateOnScroll(".about--about .about__title-wrap", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
+    });
+
+    animateGroupItems(".about--about .about__image-wrap",
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
+      0.15
+    );
+
+    animateGroupItems(".about--about .about__item",
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" },
+      0.2
+    );
+  }
   
-  
+  // =============================
+  // Choose Area
+  // =============================
+  function initWhyChooseUsAnimation() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    animateOnScroll(".why-chosse__subtitle-wrap", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" }
+    });
+
+    animateOnScroll(".why-choose__title", {
+      from: { y: 70, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" }
+    });
+
+    animateOnScroll(".why-choose__btn", {
+      from: { y: 50, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
+    });
+
+    animateGroupItems(".why-choose__item",
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" },
+      0.15
+    );
+
+    animateOnScroll(".why-choose__image", {
+      from: { scale: 0.9, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
+    });
+  }
+
+  // =============================
+  // Awards Area
+  // =============================
+  function initAwardsAnimation() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    animateOnScroll(".awards__title", {
+      from: { y: 50, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" }
+    });
+
+    const rows = document.querySelectorAll(".awards__row");
+    rows.forEach((row, i) => {
+      gsap.fromTo(row, 
+        { y: 40, opacity: 0 }, 
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: row,
+            start: "top 90%",
+            toggleActions: "play none none reset"
+          }
+        }
+      );
+    });
+
+    gsap.fromTo(".awards__image img",
+      { scale: 0.9, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".awards__table",
+          start: "top 85%",
+          toggleActions: "play none none reset"
+        }
+      }
+    );
+  }
+
+
   
   // =============================
   // Initialize All Sections
@@ -748,6 +879,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initPricingAnimations();
   initInsightsAnimations();
   initBreadcrumbsAnimation();
+  initAboutHeroAnimations();
+  initAboutAboutAnimation();
+  initWhyChooseUsAnimation();
+  initAwardsAnimation();
 
 });
 

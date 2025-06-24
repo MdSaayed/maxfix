@@ -2967,6 +2967,7 @@ span.services__item-index {
   flex-wrap: wrap;
   border-right: 1px solid var(--color-primary);
   border-bottom: 1px solid var(--color-primary);
+  overflow: hidden;
 }
 
 .brands__item {
