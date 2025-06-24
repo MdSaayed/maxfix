@@ -230,10 +230,40 @@ document.addEventListener("DOMContentLoaded", function () {
   // 6. Recent Work Area
   // =============================
   function initRecentWorkAnimations() {
-    animateGroupItems(".recent-works__title-wrap", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "power4.out" });
-    animateGroupItems(".work-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1.8, ease: "power4.out" }, 0.1);
-    animateGroupItems(".recent-works__cta", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "power4.out" });
-  }
+  const ease = "power4.out";
+
+  animateGroupItems(
+    ".recent-works__title-wrap",
+    { y: 60, opacity: 0 },
+    { y: 0, opacity: 1, duration: 2, ease }
+  );
+
+  // 🔹 Animate filter section
+  animateOnScroll(".recent-work__filters", {
+    from: { y: 40, opacity: 0 },
+    to: { y: 0, opacity: 1, duration: 1.8, ease },
+  });
+
+  animateGroupItems(".recent-work__filter-item", 
+    { y: 40, opacity: 0 }, 
+    { y: 0, opacity: 1, duration: 1.5, ease }, 
+    0.1
+  );
+
+  animateGroupItems(
+    ".work-card",
+    { y: 80, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1.8, ease },
+    0.1
+  );
+
+  animateGroupItems(
+    ".recent-works__cta",
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 2, ease }
+  );
+}
+
 
   // =============================
   // 7. Brand Logos Area
@@ -564,7 +594,136 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // =============================
+  // Testimonials Two Area
+  // =============================
+  function initTestimonialsAnimations() {
+    const ease = "power4.out";
+    const duration = 2;
 
+    animateOnScroll(".testimonials--two .testimonials__subtitle-wrap", {
+      from: { y: -40, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".testimonials--two .testimonials__title", {
+      from: { y: 50, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateGroupItems(
+      ".testimonials--two .testimonials__item",
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease },
+      0.15
+    );
+  }
+
+  // =============================
+  // Team One Area
+  // =============================
+  function initTeamAnimations() {
+    const ease = "power4.out";
+    const duration = 1.8;
+
+    animateOnScroll(".team--one .team__title", {
+      from: { y: 100, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".team--one .team__text-group", {
+      from: { y: 120, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease, delay: 0.2 },
+    });
+
+    animateGroupItems(
+      ".team--one .team__member",
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease },
+      0.2
+    );
+  }
+
+  // =============================
+  // Pricing Area
+  // =============================
+  function initPricingAnimations() {
+    const ease = "power4.out";
+    const duration = 1.6;
+
+    animateOnScroll(".pricing .pricing__title", {
+      from: { y: 40, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".pricing .pricing__toggle", {
+      from: { y: 40, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease, delay: 0.1 },
+    });
+
+    animateGroupItems(
+      ".pricing .pricing__card",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease },
+      0.2
+    );
+  }
+
+  // =============================
+  // Insights Area
+  // =============================
+  function initInsightsAnimations() {
+    const ease = "power4.out";
+    const duration = 1.6;
+
+    animateOnScroll(".insights .insights__subtitle-wrap", {
+      from: { y: -60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".insights .insights__title", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease, delay: 0.1 },
+    });
+
+    animateGroupItems(
+      ".insights .insight-card",
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease },
+      0.2
+    );
+  }
+
+  // =============================
+  // Breadcrumbs Area
+  // =============================
+  function initBreadcrumbsAnimation() {
+    const ease = "power4.out";
+    const duration = 1.6;
+
+    animateOnScroll(".breadcrumbs .breadcrumbs__nav", {
+      from: { y: -30, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".breadcrumbs .breadcrumbs__title", {
+      from: { y: 30, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease, delay: 0.1 },
+    });
+
+    animateOnScroll(".breadcrumbs .breadcrumbs__container-custom", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease, delay: 0.2 },
+    });
+  }
+
+  // =============================
+  // Initialize All Sections
+  // =============================
+  
+  
+  
+  
   // =============================
   // Initialize All Sections
   // =============================
@@ -584,6 +743,12 @@ document.addEventListener("DOMContentLoaded", function () {
   initPortfolioOneAnimations();
   initServicesTwoAnimations();
   initBrandsAnimations();
+  initTestimonialsAnimations();
+  initTeamAnimations();
+  initPricingAnimations();
+  initInsightsAnimations();
+  initBreadcrumbsAnimation();
+
 });
 
 

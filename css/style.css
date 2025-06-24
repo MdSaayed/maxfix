@@ -40,7 +40,7 @@ CSS INDEX
 28. About/About Area
 29. Why Choose Area
 30. Awards Area
-31. Hero/Portfolio Area
+31. Breadcrumbs Area
 32. Video Area
 33. Blog Details
 34. Portfolio Details Hero
@@ -1703,6 +1703,7 @@ span.services__item-index {
   font-size: 20px;
   line-height: 1.5;
   pointer-events: none;
+  text-decoration: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 999;
 }
@@ -3950,10 +3951,14 @@ span.testimonials__item-index {
 }
 
 /* =============================
-* 31. Hero/Portfolio Area
+* 31. Breadcrumbs Area
 ============================= */
 
-.breadcrumb{
+.breadcrumbs{
+  overflow: hidden;
+}
+
+.breadcrumbs__nav{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3961,27 +3966,29 @@ span.testimonials__item-index {
   gap: 10px;
 }
 
-.breadcrumb-item{
+.breadcrumbs__item{
   font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
   color: var(--bg-white);
+  text-decoration: none;
 }
 
-.breadcrumb-item--active{
+.breadcrumbs__item--active{
   color: var(--color-secondary);
 }
 
-.hero--portfolio .hero__title{
+.breadcrumbs__title{
   text-align: center;
   margin-top: 1.5rem;
 }
 
-.hero--portfolio .hero__container-custom{
+.breadcrumbs__container-custom{
   min-height: 550px !important;
+  position: relative;
 }
 
-.hero--portfolio .avatar-card{
+.breadcrumbs__card .avatar-card{
   bottom: 0;
 }
 
