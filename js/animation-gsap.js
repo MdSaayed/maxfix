@@ -48,21 +48,27 @@ document.addEventListener("DOMContentLoaded", function () {
       onEnterBack: () => gsap.fromTo(target, vars.from, vars.to)
     });
   }
-
   function animateGroupItems(selector, fromVars, toVars, delayEach = 0) {
     document.querySelectorAll(selector).forEach((el, i) => {
+      // Set initial state to prevent jump
+      gsap.set(el, fromVars);
+
       ScrollTrigger.create({
         trigger: el,
         start: "top 90%",
-        onEnter: () =>
-          gsap.fromTo(el, fromVars, { ...toVars, delay: i * delayEach }),
-        onEnterBack: () =>
-          gsap.fromTo(el, fromVars, { ...toVars, delay: i * delayEach }),
+        onEnter: () => {
+          gsap.set(el, fromVars); // reset before animating again
+          gsap.to(el, { ...toVars, delay: i * delayEach });
+        },
+        onEnterBack: () => {
+          gsap.set(el, fromVars); // reset before animating again
+          gsap.to(el, { ...toVars, delay: i * delayEach });
+        },
       });
     });
   }
 
-  function fadeUpRepeat(selector, delay = 0, yValue = 60, duration = 1.6, ease = "expo.out") {
+  function fadeUpRepeat(selector, delay = 0, yValue = 60, duration = 1.6, ease = "power1.out") {
     ScrollTrigger.create({
       trigger: selector,
       start: "top 90%",
@@ -125,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 2. About One Area
   // =============================
   function initAboutAnimations() {
-    const ease = "expo.out";
+    const ease = "power4.out";
     const duration = 2.2;
 
     animateOnScroll(".about__subtitle-wrap", { from: { y: -30, opacity: 0 }, to: { y: 0, opacity: 1, duration, ease } });
@@ -174,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function initFactAnimations() {
     animateGroupItems(".fact__item",
       { y: 80, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "expo.out" },
+      { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
       0.1
     );
   }
@@ -184,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // =============================
   function initServicesAnimations() {
     const duration = 2.1;
-    const ease = "expo.out";
+    const ease = "power4.out";
 
     animateRepeatedly(".services__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
     animateRepeatedly(".services__title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
@@ -207,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // =============================
   function initProcessAnimations() {
     const duration = 2.2;
-    const ease = "expo.out";
+    const ease = "power4.out";
 
     animateRepeatedly(".process__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
     animateRepeatedly(".process__title", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
@@ -224,9 +230,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // 6. Recent Work Area
   // =============================
   function initRecentWorkAnimations() {
-    animateGroupItems(".recent-works__title-wrap", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "expo.out" });
+    animateGroupItems(".recent-works__title-wrap", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "power4.out" });
     animateGroupItems(".work-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1.8, ease: "power4.out" }, 0.1);
-    animateGroupItems(".recent-works__cta", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "expo.out" });
+    animateGroupItems(".recent-works__cta", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: "power4.out" });
   }
 
   // =============================
@@ -294,6 +300,254 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
+  // 10. FAQ Area
+  // =============================
+  function initFaqAnimations() {
+    gsap.fromTo(
+      [".faq__title", ".faq__subtitle", ".faq__button"],
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.6,
+        ease: "power4.out",
+        stagger: 0.25,
+        scrollTrigger: {
+          trigger: ".faq__sidebar",
+          start: "top 90%",
+          toggleActions: "play none none reset"
+        }
+      }
+    );
+
+    document.querySelectorAll(".faq__item").forEach((item, index) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: "top 95%",
+        onEnter: () => {
+          gsap.fromTo(
+            item,
+            { y: 70, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: "power4.out",
+              delay: index * 0.1
+            }
+          );
+        },
+        onEnterBack: () => {
+          gsap.fromTo(
+            item,
+            { y: 80, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: "power4.out",
+              delay: index * 0.1
+            }
+          );
+        }
+      });
+    });
+  }
+
+  // =============================
+  // 11. Hero Two Area
+  // =============================
+  function initHeroTwoAnimations() {
+    const ease = "power4.out";
+    const duration = 1.6;
+
+    animateRepeatedly(".hero__title-text", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    animateRepeatedly(".hero__image", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    animateRepeatedly(".hero__bg-img", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+
+    animateRepeatedly(".hero__video-thumb", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    animateRepeatedly(".hero__subtitle", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+
+    gsap.to(".hero__video-icon", {
+      scale: 1.2,
+      repeat: -1,
+      yoyo: true,
+      duration: 1.6,
+      ease: "sine.inOut"
+    });
+
+    ScrollTrigger.create({
+      trigger: ".hero__btn",
+      start: "top 90%",
+      onEnter: () => {
+        gsap.fromTo(".hero__btn",
+          { scale: 0.8, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration,
+            ease,
+            onComplete: () => {
+              gsap.to(".hero__btn", {
+                scale: 1.05,
+                repeat: -1,
+                yoyo: true,
+                duration: 1.8,
+                ease: "sine.inOut"
+              });
+            }
+          });
+      },
+      onEnterBack: () => {
+        gsap.fromTo(".hero__btn",
+          { scale: 0.8, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration,
+            ease,
+            onComplete: () => {
+              gsap.to(".hero__btn", {
+                scale: 1.05,
+                repeat: -1,
+                yoyo: true,
+                duration: 1.8,
+                ease: "sine.inOut"
+              });
+            }
+          });
+      }
+    });
+  }
+
+  // =============================
+  // Avatar Card Shared Animation
+  // =============================
+  function initAvatarCardAnimations() {
+    const duration = 1.6;
+    const ease = "power4.out";
+
+    animateRepeatedly(".avatar-card", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    animateRepeatedly(".avatars", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    animateRepeatedly(".avatar-stat", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    animateRepeatedly(".avatar-text", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+  }
+
+  // =============================
+  // About Two Area
+  // =============================
+  function initAboutTwoAnimations() {
+    const ease = "power4.out";
+    const duration = 2;
+
+    animateOnScroll(".about--two .about__title", {
+      from: { y: 50, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease }
+    });
+
+    animateGroupItems(".about--two .about__item", 
+      { y: 60, opacity: 0 }, 
+      { y: 0, opacity: 1, duration, ease },
+      0.15
+    );
+
+    animateGroupItems(".about--two .about__item-line", 
+      { scaleX: 0, opacity: 0, transformOrigin: "left" },
+      { scaleX: 1, opacity: 1, duration: 1.2, ease },
+      0.15
+    );
+
+    animateOnScroll(".about--two .about__image img", {
+      from: { x: 120, opacity: 0 },
+      to: { x: 0, opacity: 1, duration, ease }
+    });
+  }
+
+  // =============================
+  // Portfolio Area
+  // =============================
+  function initPortfolioOneAnimations() {
+    const ease = "power4.out";
+    const duration = 2;
+
+    animateOnScroll(".portfolio--one .portfolio__title", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease }
+    });
+
+    animateOnScroll(".portfolio--one .portfolio__year", {
+      from: { scale: 0.8, opacity: 0, y: 40 },
+      to: { scale: 1, opacity: 1, y: 0, duration: 1.6, ease }
+    });
+
+    animateGroupItems(".portfolio--one .portfolio__item", 
+      { y: 80, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1.6, ease }, 
+      0.15
+    );
+
+    animateOnScroll(".portfolio--one .portfolio__btn", {
+      from: { y: 40, opacity: 0, scale: 0.9 },
+      to: {
+        y: 0, opacity: 1, scale: 1, duration: 1.6, ease,
+        onComplete: () => {
+          gsap.to(".portfolio--one .portfolio__btn", {
+            y: 6,
+            repeat: -1,
+            yoyo: true,
+            duration: 2,
+            ease: "sine.inOut"
+          });
+        }
+      }
+    });
+  }
+
+  // =============================
+  // Services Two Area
+  // =============================
+  function initServicesTwoAnimations() {
+    const ease = "power4.out";
+    const duration = 1.8;
+
+    animateOnScroll(".services--two .services__text", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease }
+    });
+
+    gsap.to(".services--two .services__title", {
+      backgroundPosition: "200% center",
+      ease: "none",
+      duration: 20,
+      repeat: -1
+    });
+
+    animateGroupItems(".services--two .services__tab",
+      { x: -40, opacity: 0 },
+      { x: 0, opacity: 1, duration, ease },
+      0.1
+    );
+
+    animateOnScroll(".services--two .services__content img", {
+      from: { scale: 0.85, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration, ease }
+    });
+
+    animateOnScroll(".services--two .services__content.active .services__details-text", {
+      from: { y: 40, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease }
+    });
+
+    animateGroupItems(".services--two .services__content.active .services__tag",
+      { y: 40, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease },
+      0.05
+    );
+  }
+
+
+
+  // =============================
   // Initialize All Sections
   // =============================
   initHeroAnimations();
@@ -305,6 +559,12 @@ document.addEventListener("DOMContentLoaded", function () {
   initBrandLogoAnimations();
   initTestimonialAnimations();
   initBlogAnimations();
+  initFaqAnimations();
+  initHeroTwoAnimations();
+  initAvatarCardAnimations();
+  initAboutTwoAnimations();
+  initPortfolioOneAnimations();
+  initServicesTwoAnimations();
 });
 
 

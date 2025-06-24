@@ -184,13 +184,13 @@ html.lenis, html.lenis body {
 }
 
 .title-gradient{
-    font-size: 11.5rem;
-    font-weight: 700;
-    line-height: 1.4;
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(90deg, #FFFA00, #fff, #fff, #FFFA00);
-    -webkit-background-clip: text;
-    display: inline-block;
+  font-size: 11.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #FFFA00, #fff, #fff, #FFFA00);
+  -webkit-background-clip: text;
+  display: inline-block;
 }
 
 /* Button Arrow */
@@ -1459,6 +1459,7 @@ span.services__item-index {
 }
 
 .services__tab {
+  display: inline-block;
   background: transparent;
   border: none;
   font-size: 5rem;
@@ -2481,6 +2482,10 @@ span.services__item-index {
   max-width: 1130px;
 }
 
+.hero--two .hero__title span{
+  display: block;
+}
+
 .hero--two .hero__title-text-small{
   font-size: 5.6rem;
   font-weight: 500;
@@ -2542,6 +2547,7 @@ span.services__item-index {
 
 .hero__container-custom{
   position: relative;
+  overflow: hidden;
   min-height: 700px;
 }
 
@@ -2744,6 +2750,7 @@ span.services__item-index {
 .portfolio__item{
   padding: 4rem;
   border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .portfolio__thumb-wrap {
