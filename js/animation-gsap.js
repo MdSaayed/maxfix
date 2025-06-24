@@ -545,6 +545,24 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // =============================
+  // Brands Area
+  // =============================
+  function initBrandsAnimations() {
+    const ease = "power4.out";
+    const duration = 1.6;
+
+    animateOnScroll(".brands .brands__title", {
+      from: { y: 40, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease }
+    });
+
+    animateGroupItems(".brands .brands__item", 
+      { y: 30, scale: 0.9, opacity: 0 }, 
+      { y: 0, scale: 1, opacity: 1, duration, ease }, 
+      0.1
+    );
+  }
 
 
   // =============================
@@ -565,6 +583,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initAboutTwoAnimations();
   initPortfolioOneAnimations();
   initServicesTwoAnimations();
+  initBrandsAnimations();
 });
 
 
