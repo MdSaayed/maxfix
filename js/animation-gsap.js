@@ -1046,6 +1046,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
+  // Contact Area
+  // =============================
+  function initContactAreaAnimations(){
+    animateGroupItems(".contact-info__item",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" },
+      0.1
+    );
+    animateOnScroll(".map__location", {
+      from: { scale: 0.9, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
+    });
+
+  }
+
+
+  // =============================
   // Initialize All Sections
   // =============================
   initHeroAnimations();
@@ -1078,6 +1095,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initVideoAreaAnimation();
   heroServicesDetailsAnimation();
   initServicesDetailsAnimations();
+
+  initContactAreaAnimations();
 
 });
 
