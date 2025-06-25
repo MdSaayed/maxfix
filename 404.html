@@ -8,7 +8,9 @@
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="./css/all.min.css">
     <!-- Swiper CSS -->
-    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link  rel="stylesheet"  href="./css/swiper-bundle.min.css">
+    <!-- Glightbox -->
+     <link rel="stylesheet" href="./css/glightbox.min.css">
     <!-- Custom Theme CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -20,7 +22,7 @@
             <div class="header__content-area">
                 <div class="header__logo">
                     <a href="index.html" class="logo">
-                        <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" />
+                        <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" >
                     </a>
                 </div>
 
@@ -69,7 +71,7 @@
       <div class="mobile-menu__header">
         <div class="main-nav__logo">
             <a href="/" class="logo">
-                <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" />
+                <img src="./img/global/logo.png" alt="Maxfix Logo" class="logo__img" >
             </a>
         </div>
         <div class="mobile-menu__close" id="closeMobile">✕</div>
@@ -125,10 +127,10 @@
     <main class="main">
 
         <!-- Starting of the Error Area -->
-        <section class="error">
+        <div class="error">
             <div class="error__container container">
                 <div class="error__image">
-                    <img src="./img/global/404.png" alt="404 Error" class="error__image-img" />
+                    <img src="./img/global/404.png" alt="404 Error" class="error__image-img">
                 </div>
                 <p class="error__message title-lg">Page Not Found</p>
                 <a href="/" class="error__btn btn-arrow">
@@ -136,12 +138,14 @@
                     <span class="error__btn btn-arrow__text">Back To Home Page</span>
                 </a>
             </div>
-        </section>
+        </div>
         <!-- End of the Error Area -->
 
         <!-- Starting of the Keywords Area -->
         <section class="keywords keywords--error-page">
             <div class="keywords__container container">
+                <h2 class="keywords__title visually-hidden">Keywords</h2>
+
                 <div class="keywords__wrapper">
                     <div class="keywords__track">
                         <div class="keywords__group">
@@ -247,8 +251,18 @@
     </footer>
     <!-- End of the Footer One Area -->
 
+    <!-- GSAP JS -->
+    <script src="./js/gsap.min.js"></script>
+    <!-- ScrollTrigger JS -->
+    <script src="./js/ScrollTrigger.min.js"></script>
     <!-- Swiper JS -->
-     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <!-- Lenis JS -->
+    <script src="./js/lenis.min.js"></script>
+    <!--Glightbox  -->
+    <script src="./js/glightbox.min.js"></script>
+    <!-- Animation JS -->
+    <script src="./js/animation-gsap.js"></script>
     <!-- Custom Theme JS -->
     <script src="./js/script.js"></script>
 </body>

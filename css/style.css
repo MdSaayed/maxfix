@@ -143,6 +143,17 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Basic Style */
 .container{
   max-width: 1770px;
@@ -1151,7 +1162,7 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
-.fact__container {
+.fact__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 2rem;
@@ -5167,7 +5178,7 @@ span.testimonials__item-index {
   }
 
   /* Fact */
-  .fact__container {
+  .fact__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -5533,7 +5544,7 @@ span.testimonials__item-index {
   }
 
    /* Fact */
-  .fact__container {
+  .fact__grid {
     grid-template-columns: repeat(1, 1fr);
   }
 
