@@ -56,7 +56,6 @@ CSS INDEX
 
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-/* font-family: 'Outfit', sans-serif; */
 
 
 /* =============================
@@ -81,19 +80,12 @@ CSS INDEX
   margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
-}
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-primary);
   background-color: var(--color-primary);
   color: var(--bg-white);
-  /* scroll-behavior: smooth; */
   overscroll-behavior: none;
 }
 
@@ -1723,7 +1715,7 @@ span.services__item-index {
 .work-card:hover .work-card__button {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-  pointer-events: auto;
+  cursor: pointer;
 }
 
 .work-card__content {
@@ -2185,7 +2177,7 @@ span.services__item-index {
 
 .blog__meta-date{
   position: relative;
-  padding-left: 2.rem;
+  padding-left: 2rem;
   margin-left: 3rem;
 }
 
@@ -4287,7 +4279,7 @@ span.testimonials__item-index {
 
 .blog--details .blog__author-bio{
   color: var(--bg-white);
-  font-style: 20px;
+  font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
   margin-top: 20px;
@@ -4364,7 +4356,7 @@ span.testimonials__item-index {
 
 .blog__input::placeholder,
 .blog__textarea::placeholder{
-  font-style: 1rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 20px;
   color: #AAA;
@@ -5248,7 +5240,7 @@ span.testimonials__item-index {
 
   /* Brand Logos / Home One */
   .brand-logos__title{
-    font-size: 1.5;
+    font-size: 1.5rem;
   }
 
   .brand-logos__grid {
