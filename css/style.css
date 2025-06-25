@@ -2812,6 +2812,10 @@ span.services__item-index {
   color: var(--bg-white);
 }
 
+.portfolio__item-link{
+  text-decoration: none;
+}
+
 .portfolio__item-title{
   font-size: 2.2rem;
   font-weight: 700;
