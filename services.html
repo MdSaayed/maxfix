@@ -7,10 +7,20 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="./css/all.min.css">
+    <!-- Swiper CSS -->
+    <link  rel="stylesheet"  href="./css/swiper-bundle.min.css"/>
+    <!-- Glightbox -->
+     <link rel="stylesheet" href="./css/glightbox.min.css">
     <!-- Custom Theme CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+
+    <!-- Starting of the Preloader -->
+    <div class="preloader">
+        <img src="./img/global/preloader.gif" alt="Loading..." class="preloader__img">
+    </div>
+    <!-- End of the Preloader -->
 
     <!-- Starting of the Header Two Area -->
     <header id="header" class="header header--two">
@@ -123,32 +133,32 @@
     <main class="main">
 
         <!-- Starting of the Breadcrumbs Area -->
-        <section class="hero breadcrumbs" data-bg-img="./img/shape/portfolio-hero-bg.jpg">
-            <div class="hero__container container">
-                <div class="breadcrumb">
-                    <span class="breadcrumb-item">Home</span>
-                    <span class="breadcrumb-separator">//</span>
-                    <span class="breadcrumb-item breadcrumb-item--active">Services</span>
+        <section class="breadcrumbs" data-bg-img="./img/shape/portfolio-hero-bg.jpg">
+            <div class="breadcrumbs__container container">
+                <div class="breadcrumbs__nav">
+                    <a href="/" class="breadcrumbs__item">Home</a>
+                    <span class="breadcrumbs__separator">//</span>
+                    <a href="./services.html" class="breadcrumbs__item breadcrumbs__item--active">Services</a>
                 </div>
-                <h1 class="hero__title title-lg">Tailored Services</h1>
+                <h1 class="breadcrumbs__title title-lg">Services</h1>
             </div>
 
-            <div class="hero__container-custom container" data-bg-img="./img/portfolio/portfolio-hero.png">
-                <div class="hero__card avatar-card">
-                    <div class="hero__avatars avatars">
-                        <img src="./img/global/avatar-2.png" alt="User" class="hero__avatar avatar">
-                        <img src="./img/global/avatar-3.png" class="hero__avatar avatar">
-                        <img src="./img/global/avatar-4.png" class="hero__avatar avatar">
-                        <img src="./img/global/avatar-5.png" alt="Icon" class="hero__avatar avatar hero__avatar--icon">
+            <div class="breadcrumbs__container-custom container" data-bg-img="./img/portfolio/portfolio-hero.png">
+                <div class="breadcrumbs__card avatar-card">
+                    <div class="breadcrumbs__avatars avatars">
+                        <img src="./img/global/avatar-2.png" alt="User" class="breadcrumbs__avatar avatar">
+                        <img src="./img/global/avatar-3.png" class="breadcrumbs__avatar avatar">
+                        <img src="./img/global/avatar-4.png" class="breadcrumbs__avatar avatar">
+                        <img src="./img/global/avatar-5.png" alt="Icon" class="breadcrumbs__avatar avatar breadcrumbs__avatar--icon">
                     </div>
 
-                    <div class="hero__fact">
-                        <span class="hero__stat avatar-stat">19k+</span>
-                        <span class="hero__text avatar-text">Trusted customers world-wide</span>
+                    <div class="breadcrumbs__fact">
+                        <span class="breadcrumbs__stat avatar-stat">19k+</span>
+                        <span class="breadcrumbs__text avatar-text">Trusted customers world-wide</span>
 
-                        <a class="hero__btn avatar-btn">
-                            <span class="hero__btn-icon avatar-btn-icon"></span> 
-                            <span class="hero__btn-text avatar-btn-text">GET SERVICES</span>
+                        <a class="breadcrumbs__btn avatar-btn">
+                        <span class="breadcrumbs__btn-icon avatar-btn-icon"></span> 
+                        <span class="breadcrumbs__btn-text avatar-btn-text">GET SERVICES</span>
                         </a>
                     </div>
                 </div>
@@ -731,12 +741,18 @@
     </footer>
     <!-- End of the Footer One Area -->
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
-
+    <!-- GSAP JS -->
+    <script src="./js/gsap.min.js"></script>
+    <!-- ScrollTrigger JS -->
+    <script src="./js/ScrollTrigger.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="./js/swiper-bundle.min.js"></script>
+    <!-- Lenis JS -->
+    <script src="./js/lenis.min.js"></script>
+    <!--Glightbox  -->
+    <script src="./js/glightbox.min.js"></script>
+    <!-- Animation JS -->
+    <script src="./js/animation-gsap.js"></script>
     <!-- Custom Theme JS -->
     <script src="./js/script.js"></script>
 </body>

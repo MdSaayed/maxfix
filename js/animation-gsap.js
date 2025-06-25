@@ -954,8 +954,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  //
+  // Video Area
   //==============================
+  function initVideoAreaAnimation() {
+    const section = document.querySelector(".video-area");
+    if (!section) return;
+
+    animateOnScroll(".video-area__thumb-wrapper", {
+      from: { scale: 0.92, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.2, ease: "power3.out" },
+    });
+
+    gsap.fromTo(
+      ".video-area__play-btn",
+      { scale: 1 },
+      {
+        scale: 1.15,
+        duration: 1.2,
+        ease: "power1.inOut",
+        repeat: -1,
+        yoyo: true,
+      }
+    );
+  }
 
   
   // =============================
@@ -988,6 +1009,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initAwardsAnimation();
   initPortfolioHeroDetailsAnimation();
   initPortfolioDetailsAnimation();
+  initVideoAreaAnimation();
 
 });
 
