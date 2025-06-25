@@ -853,6 +853,109 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
+  // =============================
+  // Portfolio Details Hero
+  // =============================
+  function initPortfolioHeroDetailsAnimation() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    animateOnScroll(".portfolio-hero--details .portfolio-hero__title", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.3, ease: "power4.out" }
+    });
+
+    animateOnScroll(".portfolio-hero--details .portfolio-hero__desc", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out", delay: 0.1 }
+    });
+
+    gsap.fromTo(".portfolio-hero--details .portfolio-hero__info-item",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.1,
+        ease: "power2.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".portfolio-hero--details .portfolio-hero__info-list",
+          start: "top 90%",
+          toggleActions: "play none none reset"
+        }
+      }
+    );
+
+    animateOnScroll(".portfolio-hero--details .portfolio-hero__image", {
+      from: { scale: 0.94, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.3, ease: "power3.out", delay: 0.2 }
+    });
+  }
+  
+  // =============================
+  // Portfolio Details
+  // =============================
+  function initPortfolioDetailsAnimation() {
+    const section = document.querySelector(".portfolio-details");
+    if (!section) return;
+
+    animateOnScroll(".portfolio-details__author-desc", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.1, ease: "power3.out" },
+    });
+
+    animateOnScroll(".portfolio-details__author", {
+      from: { y: 50, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.1, delay: 0.1, ease: "power3.out" },
+    });
+
+    animateOnScroll(".portfolio-details__summary", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.2, delay: 0.15, ease: "power3.out" },
+    });
+
+    animateOnScroll(".portfolio-details__cover-image", {
+      from: { scale: 0.8, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.3, ease: "power4.out" },
+    });
+
+    gsap.utils.toArray(".portfolio-details__text-block").forEach((block, i) => {
+      const subtitle = block.querySelector(".portfolio-details__subtitle-wrap");
+      const title = block.querySelector(".portfolio-details__title");
+      const paragraphs = block.querySelectorAll(".portfolio-details__text");
+
+      animateOnScroll(subtitle, {
+        from: { y: 60, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1, delay: 0.1 * i, ease: "power2.out" },
+      });
+
+      animateOnScroll(title, {
+        from: { y: 60, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1, delay: 0.15 + 0.1 * i, ease: "power2.out" },
+      });
+
+      paragraphs.forEach((p, j) => {
+        animateOnScroll(p, {
+          from: { y: 60, opacity: 0 },
+          to: { y: 0, opacity: 1, duration: 1, delay: 0.2 + 0.1 * j, ease: "power2.out" },
+        });
+      });
+    });
+
+    gsap.utils.toArray(".portfolio-details__image-group").forEach((group, i) => {
+      const images = group.querySelectorAll(".portfolio-details__image");
+
+      images.forEach((img, j) => {
+        animateOnScroll(img, {
+          from: { y: 40, opacity: 0 },
+          to: { y: 0, opacity: 1, duration: 1.3, delay: 0.1 * j, ease: "power2.out" },
+        });
+      });
+    });
+  }
+
+  // =============================
+  //
+  //==============================
 
   
   // =============================
@@ -883,6 +986,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initAboutAboutAnimation();
   initWhyChooseUsAnimation();
   initAwardsAnimation();
+  initPortfolioHeroDetailsAnimation();
+  initPortfolioDetailsAnimation();
 
 });
 
