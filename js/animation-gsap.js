@@ -977,8 +977,63 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
   }
-
   
+  // =============================
+  // Services Details Hero
+  // =============================
+  function heroServicesDetailsAnimation() {
+    animateOnScroll(".hero--services-details .hero__content", {
+      from: { opacity: 0, y: 40 },
+      to: { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" },
+    });
+
+    gsap.utils.toArray(".hero--services-details .hero__tag").forEach((tag, index) => {
+      gsap.from(tag, {
+        scrollTrigger: {
+          trigger: tag,
+          start: "top 90%",
+        },
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: "power3.out",
+      });
+    });
+
+    animateOnScroll(".hero--services-details .hero__slider", {
+      from: { scale: 0.95, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.2, ease: "power3.out" },
+    });
+  }
+
+  // =============================
+  // Services Details
+  // =============================
+  function initServicesDetailsAnimations(){
+    animateOnScroll(".service-details__title", {
+      from: { y: 60, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.2, delay: 0.15, ease: "power4.out" },
+    });
+
+    animateOnScroll(".service-details__desc", {
+      from: { y: 50, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.2, delay: 0.15, ease: "power4.out" },
+    });
+
+    animateOnScroll(".service-details__list", {
+      from: { y: 40, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.2, delay: 0.15, ease: "power4.out" },
+    });
+
+    animateGroupItems(".service-details__list-item",
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" },
+      0.1
+    );
+
+  }
+
   // =============================
   // Initialize All Sections
   // =============================
@@ -1010,6 +1065,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initPortfolioHeroDetailsAnimation();
   initPortfolioDetailsAnimation();
   initVideoAreaAnimation();
+  heroServicesDetailsAnimation();
+  initServicesDetailsAnimations();
 
 });
 
