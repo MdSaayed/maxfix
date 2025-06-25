@@ -691,6 +691,17 @@ document.addEventListener("DOMContentLoaded", function () {
       { y: 0, opacity: 1, duration, ease },
       0.2
     );
+
+    animateOnScroll(".insights__pagination", {
+      from: { y: 70, opacity: 0 },
+      to: { y: 0, opacity: 1, duration: 1.2, delay: 0.30, ease: "power4.out" },
+    });
+
+    animateGroupItems(".pagination__list",
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" },
+      0.1
+    );
   }
 
   // =============================
