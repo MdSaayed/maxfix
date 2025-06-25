@@ -50,6 +50,7 @@ CSS INDEX
 38. Contact Area
 39. Video Slider
 40. Error Area
+41. Responsive Design
 
 ------------------------------------------------------------------*/
 
@@ -4762,11 +4763,11 @@ span.testimonials__item-index {
   width: 100%;
   min-height: 650px;
   border-radius: 10px;
+  filter: grayscale(160%) brightness(100%) contrast(100%);
 }
 
-
 /* =============================
-* 39. Slider / Services Details
+* 39. Video Slider
 ============================= */
 
 
@@ -4782,19 +4783,8 @@ span.testimonials__item-index {
 }
 
 
-
-
 /* =============================
-* 30. Portfolio
-============================= */
-
-
-
-
-
-
-/* =============================
-* 30. Responsive
+ * 41. Responsive Design
 ============================= */
 
 @media (max-width:1730px) {

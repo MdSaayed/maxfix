@@ -1058,7 +1058,6 @@ document.addEventListener("DOMContentLoaded", function () {
       from: { scale: 0.9, opacity: 0 },
       to: { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
     });
-
   }
 
 
