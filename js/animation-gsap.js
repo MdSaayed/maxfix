@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------
 Template Name: Maxfix – Digital Agency Portfolio HTML Template
-Template URL: [demo url]
+Template URL: https://extraordinary-fairy-c25c85.netlify.app
 Description: Maxfix is a next-generation HTML template converted from a premium Figma design, crafted for digital agencies, design studios, digital marketing agencies, personal portfolios, and creative professionals. It includes 14+ well-structured pages based on a 1770px grid system, featuring 2+ beautifully designed home pages. The codebase is clean, customizable, and organized for seamless editing and scalability across various business and personal website needs.
 Author: UiBazar
 Author URL: https://themeforest.net/user/kitdokan
@@ -10,15 +10,40 @@ Version: 1.0
 ANIMATION INDEX
 ===================
 
-1. Header One Area
-2. About One Area
-3. Fact Area
-4. Services One Area
-5. Process Area
-6. Recent Work Area
-7. Brand Logos Area
-8. Testimonials One Area
-9. Blog Area
+1. Shared Helper Functions
+2. Header One Area
+3. About One Area
+4. Fact Area
+5. Services One Area
+6. Process Area
+7. Recent Work Area
+8. Brand Logos Area
+9. Testimonials One Area
+10. Blog Area
+11. FAQ Area
+12. Hero Two Area
+13. Avatar Card Shared Animation
+14. About Two Area
+15. Portfolio Area
+16. Services Two Area
+17. Brands Area
+18. Testimonials Two Area
+19. Team One Area
+20. Pricing Area
+21. Insights Area
+22. Breadcrumbs Area
+23. Hero/About Area
+24. About/About Area
+25. Why Choose Area
+26. Awards Area
+27. Portfolio Details Hero
+28. Portfolio Details
+29. Video Area
+30. Services Details Hero
+31. Services Details
+32. Contact Area
+33. Initialize All Sections
+34. Smooth Scroll / Lenis
 
 ------------------------------------------------------------------*/
 
@@ -29,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger);
 
   // =============================
-  // Shared Helper Functions
+  // 1. Shared Helper Functions
   // =============================
   function animateRepeatedly(selector, fromVars, toVars) {
     ScrollTrigger.create({
@@ -80,9 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // 1. Header One Area
+  // 2. Header One Area
   // =============================
   function initHeroAnimations() {
+    const section = document.querySelector(".hero--one");
+    if (!section) return;
+
     animateRepeatedly(".hero__image--left", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" });
     animateRepeatedly(".hero__brand", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" });
     animateRepeatedly(".hero__video-icon-wrap", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" });
@@ -128,57 +156,113 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // 2. About One Area
+  // 3. About One Area
   // =============================
   function initAboutAnimations() {
     const ease = "power4.out";
     const duration = 2.2;
 
-    animateOnScroll(".about__subtitle-wrap", { from: { y: -30, opacity: 0 }, to: { y: 0, opacity: 1, duration, ease } });
-    animateOnScroll(".about__title", { from: { y: 50, opacity: 0 }, to: { y: 0, opacity: 1, duration, ease } });
-    animateOnScroll(".about__desc", { from: { x: -100, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
-    animateOnScroll(".about__testimonial", { from: { x: -60, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
-    animateOnScroll(".about__image--left", { from: { x: -150, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
-    animateOnScroll(".about__image--right", { from: { x: 150, opacity: 0 }, to: { x: 0, opacity: 1, duration, ease } });
+    const section = document.querySelector(".about--one");
+    if (!section) return;
 
-    animateOnScroll(".about__button", {
-      from: { y: 40, scale: 0.8, opacity: 0 },
-      to: {
-        y: 0, scale: 1, opacity: 1, duration, ease,
-        onComplete: () => {
-          gsap.to(".about__button", {
-            scale: 1.05,
-            repeat: -1,
-            yoyo: true,
-            duration: 1.8,
-            ease: "sine.inOut"
-          });
-        }
-      }
-    });
+    if (document.querySelector(".about__subtitle-wrap")) {
+      animateOnScroll(".about__subtitle-wrap", {
+        from: { y: -30, opacity: 0 },
+        to: { y: 0, opacity: 1, duration, ease }
+      });
+    }
 
-    animateOnScroll(".about__hand", {
-      from: { y: 30, opacity: 0 },
-      to: {
-        y: 0, opacity: 1, duration, ease,
-        onComplete: () => {
-          gsap.to(".about__hand", {
-            y: 10,
-            repeat: -1,
-            yoyo: true,
-            duration: 2.4,
-            ease: "sine.inOut"
-          });
+    if (document.querySelector(".about__title")) {
+      animateOnScroll(".about__title", {
+        from: { y: 50, opacity: 0 },
+        to: { y: 0, opacity: 1, duration, ease }
+      });
+    }
+
+    if (document.querySelector(".about__desc")) {
+      animateOnScroll(".about__desc", {
+        from: { x: -100, opacity: 0 },
+        to: { x: 0, opacity: 1, duration, ease }
+      });
+    }
+
+    if (document.querySelector(".about__testimonial")) {
+      animateOnScroll(".about__testimonial", {
+        from: { x: -60, opacity: 0 },
+        to: { x: 0, opacity: 1, duration, ease }
+      });
+    }
+
+    if (document.querySelector(".about__image--left")) {
+      animateOnScroll(".about__image--left", {
+        from: { x: -150, opacity: 0 },
+        to: { x: 0, opacity: 1, duration, ease }
+      });
+    }
+
+    if (document.querySelector(".about__image--right")) {
+      animateOnScroll(".about__image--right", {
+        from: { x: 150, opacity: 0 },
+        to: { x: 0, opacity: 1, duration, ease }
+      });
+    }
+
+    if (document.querySelector(".about__button")) {
+      animateOnScroll(".about__button", {
+        from: { y: 40, scale: 0.8, opacity: 0 },
+        to: {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration,
+          ease,
+          onComplete: () => {
+            gsap.to(".about__button", {
+              scale: 1.05,
+              repeat: -1,
+              yoyo: true,
+              duration: 1.8,
+              ease: "sine.inOut"
+            });
+          }
         }
-      }
-    });
+      });
+    }
+
+    if (document.querySelector(".about__hand")) {
+      animateOnScroll(".about__hand", {
+        from: { y: 30, opacity: 0 },
+        to: {
+          y: 0,
+          opacity: 1,
+          duration,
+          ease,
+          onComplete: () => {
+            gsap.to(".about__hand", {
+              y: 10,
+              repeat: -1,
+              yoyo: true,
+              duration: 2.4,
+              ease: "sine.inOut"
+            });
+          }
+        }
+      });
+    }
   }
 
   // =============================
-  // 3. Fact Area
+  // 4. Fact Area
   // =============================
   function initFactAnimations() {
-    animateGroupItems(".fact__item",
+    const section = document.querySelector(".fact");
+    if (!section) return;
+
+    const factItems = document.querySelectorAll(".fact__item");
+    if (factItems.length === 0) return;
+
+    animateGroupItems(
+      ".fact__item",
       { y: 80, opacity: 0 },
       { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
       0.1
@@ -186,275 +270,386 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // 4. Services One Area
+  // 5. Services One Area
   // =============================
   function initServicesAnimations() {
     const duration = 2.1;
     const ease = "power4.out";
 
-    animateRepeatedly(".services__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
-    animateRepeatedly(".services__title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    const section = document.querySelector(".services--one");
+    if (!section) return;
 
-    // fixed: prevent scaling down, just fade-in
-    animateRepeatedly(".services__btn", { opacity: 0 }, { opacity: 1, duration, ease });
+    if (document.querySelector(".services__subtitle-wrap")) {
+      animateRepeatedly(".services__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    }
 
-    animateRepeatedly(".services__desc", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
-    animateRepeatedly(".services__image", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
+    if (document.querySelector(".services__title")) {
+      animateRepeatedly(".services__title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    }
 
-    animateGroupItems(".services__item",
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration, ease },
-      0.05
-    );
+    if (document.querySelector(".services__btn")) {
+      animateRepeatedly(".services__btn", { opacity: 0 }, { opacity: 1, duration, ease });
+    }
+
+    if (document.querySelector(".services__desc")) {
+      animateRepeatedly(".services__desc", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
+    }
+
+    if (document.querySelector(".services__image")) {
+      animateRepeatedly(".services__image", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration, ease });
+    }
+
+    const serviceItems = document.querySelectorAll(".services__item");
+    if (serviceItems.length) {
+      animateGroupItems(".services__item",
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration, ease },
+        0.05
+      );
+    }
   }
 
   // =============================
-  // 5. Process Area
+  // 6. Process Area
   // =============================
   function initProcessAnimations() {
     const duration = 2.2;
     const ease = "power4.out";
 
-    animateRepeatedly(".process__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
-    animateRepeatedly(".process__title", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
-    animateRepeatedly(".process__btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    const section = document.querySelector(".process");
+    if (!section) return;
 
-    animateGroupItems(".process__step",
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration, ease },
-      0.1
-    );
+    if (document.querySelector(".process__subtitle-wrap")) {
+      animateRepeatedly(".process__subtitle-wrap", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    }
+
+    if (document.querySelector(".process__title")) {
+      animateRepeatedly(".process__title", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    }
+
+    if (document.querySelector(".process__btn")) {
+      animateRepeatedly(".process__btn", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    }
+
+    const steps = document.querySelectorAll(".process__step");
+    if (steps.length) {
+      animateGroupItems(
+        ".process__step",
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration, ease },
+        0.1
+      );
+    }
   }
 
   // =============================
-  // 6. Recent Work Area
+  // 7. Recent Work Area
   // =============================
   function initRecentWorkAnimations() {
-  const ease = "power4.out";
+    const ease = "power4.out";
 
-  animateGroupItems(
-    ".recent-works__title-wrap",
-    { y: 60, opacity: 0 },
-    { y: 0, opacity: 1, duration: 2, ease }
-  );
+    const section = document.querySelector(".recent-works");
+    if (!section) return;
 
-  // 🔹 Animate filter section
-  animateOnScroll(".recent-work__filters", {
-    from: { y: 40, opacity: 0 },
-    to: { y: 0, opacity: 1, duration: 1.8, ease },
-  });
+    if (document.querySelector(".recent-works__title-wrap")) {
+      animateGroupItems(
+        ".recent-works__title-wrap",
+        { y: 60, opacity: 0 },
+        { y: 0, opacity: 1, duration: 2, ease }
+      );
+    }
 
-  animateGroupItems(".recent-work__filter-item", 
-    { y: 40, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 1.5, ease }, 
-    0.1
-  );
+    if (document.querySelector(".recent-work__filters")) {
+      animateOnScroll(".recent-work__filters", {
+        from: { y: 40, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1.8, ease },
+      });
+    }
 
-  animateGroupItems(
-    ".work-card",
-    { y: 80, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1.8, ease },
-    0.1
-  );
+    if (document.querySelector(".recent-work__filter-item")) {
+      animateGroupItems(
+        ".recent-work__filter-item",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.5, ease },
+        0.1
+      );
+    }
 
-  animateGroupItems(
-    ".recent-works__cta",
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 2, ease }
-  );
+    if (document.querySelector(".work-card")) {
+      animateGroupItems(
+        ".work-card",
+        { y: 80, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.8, ease },
+        0.1
+      );
+    }
+
+    if (document.querySelector(".recent-works__cta")) {
+      animateGroupItems(
+        ".recent-works__cta",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 2, ease }
+      );
+    }
   }
 
   // =============================
-  // 7. Brand Logos Area
+  // 8. Brand Logos Area
   // =============================
   function initBrandLogoAnimations() {
-    animateRepeatedly(".brand-logos__title", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" });
+    const section = document.querySelector(".brand-logos");
+    if (!section) return;
 
-    ScrollTrigger.create({
-      trigger: ".brand-logos__grid",
-      start: "top 90%",
-      onEnter: () => {
-        gsap.fromTo(".brand-logos__item", { y: 60, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2
-        });
-      },
-      onEnterBack: () => {
-        gsap.fromTo(".brand-logos__item", { y: 60, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2
-        });
-      }
-    });
-  }
-
-  // =============================
-  // 8. Testimonials One Area
-  // =============================
-  function initTestimonialAnimations() {
-    gsap.fromTo(
-      [".testimonials__label", ".testimonials__title", ".testimonials__button"],
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.6,
-        ease: "power4.out",
-        stagger: 0.25,
-        scrollTrigger: {
-          trigger: ".testimonials__title-wrap",
-          start: "top 90%",
-          toggleActions: "play none none reset"
-        }
-      }
-    );
-
-    document.querySelectorAll(".testimonial-card").forEach((card, i) => {
-      animateRepeatedly(card,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out", delay: i * 0.2 }
+    if (document.querySelector(".brand-logos__title")) {
+      animateRepeatedly(
+        ".brand-logos__title",
+        { y: -40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
       );
-    });
-  }
+    }
 
-  // =============================
-  // 9. Blog Area
-  // =============================
-  function initBlogAnimations() {
-    fadeUpRepeat(".blog__subtitle-wrap", 0);
-    fadeUpRepeat(".blog__heading", 0.1);
-    fadeUpRepeat(".blog__btn", 0.2);
+    const grid = document.querySelector(".brand-logos__grid");
+    const items = document.querySelectorAll(".brand-logos__item");
 
-    document.querySelectorAll(".blog__item").forEach((item, index) => {
-      fadeUpRepeat(item, index * 0.15);
-    });
-  }
-
-  // =============================
-  // 10. FAQ Area
-  // =============================
-  function initFaqAnimations() {
-    gsap.fromTo(
-      [".faq__title", ".faq__subtitle", ".faq__button"],
-      { y: 60, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.6,
-        ease: "power4.out",
-        stagger: 0.25,
-        scrollTrigger: {
-          trigger: ".faq__sidebar",
-          start: "top 90%",
-          toggleActions: "play none none reset"
-        }
-      }
-    );
-
-    document.querySelectorAll(".faq__item").forEach((item, index) => {
+    if (grid && items.length) {
       ScrollTrigger.create({
-        trigger: item,
-        start: "top 95%",
+        trigger: grid,
+        start: "top 90%",
         onEnter: () => {
           gsap.fromTo(
-            item,
-            { y: 70, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.5,
-              ease: "power4.out",
-              delay: index * 0.1
-            }
+            ".brand-logos__item",
+            { y: 60, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2 }
           );
         },
         onEnterBack: () => {
           gsap.fromTo(
-            item,
-            { y: 80, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.5,
-              ease: "power4.out",
-              delay: index * 0.1
-            }
+            ".brand-logos__item",
+            { y: 60, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2 }
           );
         }
       });
-    });
+    }
   }
 
   // =============================
-  // 11. Hero Two Area
+  // 9. Testimonials One Area
+  // =============================
+  function initTestimonialAnimations() {
+    const section = document.querySelector(".testimonials--one");
+    if (!section) return;
+
+    const titleWrap = document.querySelector(".testimonials__title-wrap");
+    const label = document.querySelector(".testimonials__label");
+    const title = document.querySelector(".testimonials__title");
+    const button = document.querySelector(".testimonials__button");
+
+    if (titleWrap && (label || title || button)) {
+      gsap.fromTo(
+        [label, title, button].filter(Boolean),
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.6,
+          ease: "power4.out",
+          stagger: 0.25,
+          scrollTrigger: {
+            trigger: titleWrap,
+            start: "top 90%",
+            toggleActions: "play none none reset"
+          }
+        }
+      );
+    }
+
+    const cards = document.querySelectorAll(".testimonial-card");
+    if (cards.length) {
+      cards.forEach((card, i) => {
+        animateRepeatedly(
+          card,
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out", delay: i * 0.2 }
+        );
+      });
+    }
+  }
+
+  // =============================
+  // 10. Blog Area
+  // =============================
+  function initBlogAnimations() {
+    const section = document.querySelector(".blog");
+    if (!section) return;
+
+    if (document.querySelector(".blog__subtitle-wrap")) {
+      fadeUpRepeat(".blog__subtitle-wrap", 0);
+    }
+
+    if (document.querySelector(".blog__heading")) {
+      fadeUpRepeat(".blog__heading", 0.1);
+    }
+
+    if (document.querySelector(".blog__btn")) {
+      fadeUpRepeat(".blog__btn", 0.2);
+    }
+
+    const blogItems = document.querySelectorAll(".blog__item");
+    if (blogItems.length) {
+      blogItems.forEach((item, index) => {
+        fadeUpRepeat(item, index * 0.15);
+      });
+    }
+  }
+
+  // =============================
+  // 11. FAQ Area
+  // =============================
+  function initFaqAnimations() {
+    const section = document.querySelector(".faq");
+    if (!section) return;
+
+    const title = document.querySelector(".faq__title");
+    const subtitle = document.querySelector(".faq__subtitle");
+    const button = document.querySelector(".faq__button");
+    const sidebar = document.querySelector(".faq__sidebar");
+
+    if (sidebar && (title || subtitle || button)) {
+      gsap.fromTo(
+        [title, subtitle, button].filter(Boolean),
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.6,
+          ease: "power4.out",
+          stagger: 0.25,
+          scrollTrigger: {
+            trigger: sidebar,
+            start: "top 90%",
+            toggleActions: "play none none reset"
+          }
+        }
+      );
+    }
+
+    const faqItems = document.querySelectorAll(".faq__item");
+    if (faqItems.length) {
+      faqItems.forEach((item, index) => {
+        ScrollTrigger.create({
+          trigger: item,
+          start: "top 95%",
+          onEnter: () => {
+            gsap.fromTo(
+              item,
+              { y: 70, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power4.out",
+                delay: index * 0.1
+              }
+            );
+          },
+          onEnterBack: () => {
+            gsap.fromTo(
+              item,
+              { y: 80, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power4.out",
+                delay: index * 0.1
+              }
+            );
+          }
+        });
+      });
+    }
+  }
+
+  // =============================
+  // 12. Hero Two Area
   // =============================
   function initHeroTwoAnimations() {
     const ease = "power4.out";
     const duration = 1.6;
 
-    animateRepeatedly(".hero__title-text", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
-    animateRepeatedly(".hero__image", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
-    animateRepeatedly(".hero__bg-img", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    const section = document.querySelector(".hero--two");
+    if (!section) return;
 
-    animateRepeatedly(".hero__video-thumb", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
-    animateRepeatedly(".hero__subtitle", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
-
-    gsap.to(".hero__video-icon", {
-      scale: 1.2,
-      repeat: -1,
-      yoyo: true,
-      duration: 1.6,
-      ease: "sine.inOut" 
-    });
-
-    ScrollTrigger.create({
-      trigger: ".hero__btn",
-      start: "top 90%",
-      onEnter: () => {
-        gsap.fromTo(".hero__btn",
-          { scale: 0.8, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration,
-            ease,
-            onComplete: () => {
-              gsap.to(".hero__btn", {
-                scale: 1.05,
-                repeat: -1,
-                yoyo: true,
-                duration: 1.8,
-                ease: "sine.inOut"
-              });
-            }
-          });
-      },
-      onEnterBack: () => {
-        gsap.fromTo(".hero__btn",
-          { scale: 0.8, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration,
-            ease,
-            onComplete: () => {
-              gsap.to(".hero__btn", {
-                scale: 1.05,
-                repeat: -1,
-                yoyo: true,
-                duration: 1.8,
-                ease: "sine.inOut"
-              });
-            }
-          });
+    const animateIfExists = (selector, from, to) => {
+      if (document.querySelector(selector)) {
+        animateRepeatedly(selector, from, to);
       }
-    });
+    };
+
+    animateIfExists(".hero__title-text", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+    animateIfExists(".hero__image", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    animateIfExists(".hero__bg-img", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    animateIfExists(".hero__video-thumb", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration, ease });
+    animateIfExists(".hero__subtitle", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
+
+    const videoIcon = document.querySelector(".hero__video-icon");
+    if (videoIcon) {
+      gsap.to(videoIcon, {
+        scale: 1.2,
+        repeat: -1,
+        yoyo: true,
+        duration: 1.6,
+        ease: "sine.inOut"
+      });
+    }
+
+    const btn = document.querySelector(".hero__btn");
+    if (btn) {
+      ScrollTrigger.create({
+        trigger: btn,
+        start: "top 90%",
+        onEnter: () => animateHeroBtn(btn),
+        onEnterBack: () => animateHeroBtn(btn)
+      });
+    }
+
+    function animateHeroBtn(target) {
+      gsap.fromTo(target,
+        { scale: 0.8, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration,
+          ease,
+          onComplete: () => {
+            gsap.to(target, {
+              scale: 1.05,
+              repeat: -1,
+              yoyo: true,
+              duration: 1.8,
+              ease: "sine.inOut"
+            });
+          }
+        }
+      );
+    }
   }
 
+
+
+
+
+
   // =============================
-  // Avatar Card Shared Animation
+  // 13. Avatar Card Shared Animation
   // =============================
   function initAvatarCardAnimations() {
     const duration = 1.6;
     const ease = "power4.out";
+
+    const section = document.querySelector(".avatar-card");
+    if (!section) return;
 
     animateRepeatedly(".avatar-card", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
     animateRepeatedly(".avatars", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration, ease });
@@ -463,11 +658,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // About Two Area
+  // 14. About Two Area
   // =============================
   function initAboutTwoAnimations() {
     const ease = "power4.out";
     const duration = 2;
+
+    const section = document.querySelector(".about--two");
+    if (!section) return;
 
     animateOnScroll(".about--two .about__title", {
       from: { y: 50, opacity: 0 },
@@ -493,11 +691,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Portfolio Area
+  // 15. Portfolio Area
   // =============================
   function initPortfolioOneAnimations() {
     const ease = "power4.out";
     const duration = 2;
+
+    const section = document.querySelector(".portfolio--one");
+    if (!section) return;
 
     animateOnScroll(".portfolio--one .portfolio__title", {
       from: { y: 60, opacity: 0 },
@@ -533,11 +734,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Services Two Area
+  // 16. Services Two Area
   // =============================
   function initServicesTwoAnimations() {
     const ease = "power4.out";
     const duration = 1.8;
+
+    const section = document.querySelector(".services--two");
+    if (!section) return;
 
     animateOnScroll(".services--two .services__text", {
       from: { y: 60, opacity: 0 },
@@ -575,11 +779,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Brands Area
+  // 17. Brands Area
   // =============================
   function initBrandsAnimations() {
     const ease = "power4.out";
     const duration = 1.6;
+
+    const section = document.querySelector(".brands");
+    if (!section) return;
 
     animateOnScroll(".brands .brands__title", {
       from: { y: 40, opacity: 0 },
@@ -594,11 +801,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Testimonials Two Area
+  // 18. Testimonials Two Area
   // =============================
   function initTestimonialsAnimations() {
     const ease = "power4.out";
     const duration = 2;
+
+    const section = document.querySelector(".testimonials--two");
+    if (!section) return;
 
     animateOnScroll(".testimonials--two .testimonials__subtitle-wrap", {
       from: { y: -40, opacity: 0 },
@@ -619,11 +829,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Team One Area
+  // 19. Team One Area
   // =============================
   function initTeamAnimations() {
     const ease = "power4.out";
     const duration = 1.8;
+
+    const section = document.querySelector(".team--one");
+    if (!section) return;
 
     animateOnScroll(".team--one .team__title", {
       from: { y: 100, opacity: 0 },
@@ -644,11 +857,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Pricing Area
+  // 20. Pricing Area
   // =============================
   function initPricingAnimations() {
     const ease = "power4.out";
     const duration = 1.6;
+
+    const section = document.querySelector(".pricing");
+    if (!section) return;
 
     animateOnScroll(".pricing .pricing__title", {
       from: { y: 40, opacity: 0 },
@@ -669,11 +885,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Insights Area
+  // 21. Insights Area
   // =============================
   function initInsightsAnimations() {
     const ease = "power4.out";
     const duration = 1.6;
+
+    const section = document.querySelector(".insights");
+    if (!section) return;
 
     animateOnScroll(".insights .insights__subtitle-wrap", {
       from: { y: -60, opacity: 0 },
@@ -692,6 +911,9 @@ document.addEventListener("DOMContentLoaded", function () {
       0.2
     );
 
+    const element = document.querySelector(".insights__pagination");
+    if (!element) return;
+
     animateOnScroll(".insights__pagination", {
       from: { y: 70, opacity: 0 },
       to: { y: 0, opacity: 1, duration: 1.2, delay: 0.30, ease: "power4.out" },
@@ -705,11 +927,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Breadcrumbs Area
+  // 22. Breadcrumbs Area
   // =============================
   function initBreadcrumbsAnimation() {
     const ease = "power4.out";
     const duration = 1.6;
+
+    const section = document.querySelector(".breadcrumbs");
+    if (!section) return;
 
     animateOnScroll(".breadcrumbs .breadcrumbs__nav", {
       from: { y: -30, opacity: 0 },
@@ -728,11 +953,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Hero/About Area
+  // 23. Hero/About Area
   // =============================
   function initAboutHeroAnimations() {
     const ease = "power4.out";
     const duration = 1.8;
+
+    const section = document.querySelector(".hero--about");
+    if (!section) return;
 
     animateOnScroll(".hero--about .hero__title", {
       from: { y: 100, opacity: 0 },
@@ -757,9 +985,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }  
   
   // =============================
-  // About/About Area
+  // 24. About/About Area
   // =============================
   function initAboutAboutAnimation() {
+    const section = document.querySelector(".about--about");
+    if (!section) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     animateOnScroll(".about--about .about__subtitle-wrap", {
@@ -786,9 +1017,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   // =============================
-  // Choose Area
+  // 25. Why Choose Area
   // =============================
   function initWhyChooseUsAnimation() {
+    const section = document.querySelector(".why-chosse");
+    if (!section) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     animateOnScroll(".why-chosse__subtitle-wrap", {
@@ -819,9 +1053,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Awards Area
+  // 26. Awards Area
   // =============================
   function initAwardsAnimation() {
+    const section = document.querySelector(".awards");
+    if (!section) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     animateOnScroll(".awards__title", {
@@ -865,9 +1102,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Portfolio Details Hero
+  // 27. Portfolio Details Hero
   // =============================
   function initPortfolioHeroDetailsAnimation() {
+    const section = document.querySelector(".portfolio-hero--details");
+    if (!section) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     animateOnScroll(".portfolio-hero--details .portfolio-hero__title", {
@@ -903,7 +1143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   // =============================
-  // Portfolio Details
+  // 28. Portfolio Details
   // =============================
   function initPortfolioDetailsAnimation() {
     const section = document.querySelector(".portfolio-details");
@@ -965,7 +1205,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Video Area
+  // 29. Video Area
   //==============================
   function initVideoAreaAnimation() {
     const section = document.querySelector(".video-area");
@@ -990,9 +1230,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   // =============================
-  // Services Details Hero
+  // 30. Services Details Hero
   // =============================
   function heroServicesDetailsAnimation() {
+    const section = document.querySelector(".hero--services-details");
+    if (!section) return;
+
     animateOnScroll(".hero--services-details .hero__content", {
       from: { opacity: 0, y: 40 },
       to: { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" },
@@ -1019,9 +1262,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Services Details
+  // 31. Services Details
   // =============================
   function initServicesDetailsAnimations(){
+    const section = document.querySelector(".service-details");
+    if (!section) return;
+
     animateOnScroll(".service-details__title", {
       from: { y: 60, opacity: 0 },
       to: { y: 0, opacity: 1, duration: 1.2, delay: 0.15, ease: "power4.out" },
@@ -1046,9 +1292,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =============================
-  // Contact Area
+  // 32. Contact Area
   // =============================
   function initContactAreaAnimations(){
+    const section = document.querySelector(".contact-info");
+    if (!section) return;
+
     animateGroupItems(".contact-info__item",
       { y: 60, opacity: 0 },
       { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" },
@@ -1062,7 +1311,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // =============================
-  // Initialize All Sections
+  // 33. Initialize All Sections
   // =============================
   initHeroAnimations();
   initAboutAnimations();
@@ -1102,20 +1351,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =============================
-* 9. Smooth Scroll / Lenis
+* 34. Smooth Scroll / Lenis
 ============================= */
 const lenis = new Lenis()
-
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
-
 lenis.on('scroll', ScrollTrigger.update)
 
 gsap.ticker.add((time)=>{
   lenis.raf(time * 1000)
 })
-
 gsap.ticker.lagSmoothing(0);
 
 

@@ -1,6 +1,6 @@
 /*------------------------------------------------------------------
 Template Name: Maxfix – Digital Agency Portfolio HTML Template
-Template URL: [demo url]
+Template URL: https://extraordinary-fairy-c25c85.netlify.app
 Description: Maxfix is a next-generation HTML template converted from a premium Figma design, crafted for digital agencies, design studios, digital marketing agencies, personal portfolios, and creative professionals. It includes 14+ well-structured pages based on a 1770px grid system, featuring 2+ beautifully designed home pages. The codebase is clean, customizable, and organized for seamless editing and scalability across various business and personal website needs.
 Author: UiBazar
 Author URL: https://themeforest.net/user/kitdokan
