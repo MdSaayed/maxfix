@@ -69,6 +69,7 @@ CSS INDEX
   --bg-light-gray: #f1f1f1; 
   --bg-white: #ffffff; 
   --font-primary: 'Outfit', sans-serif;
+  --gray-base: #999;
   --border-color: rgba(255, 255, 255, 0.10);
 }
 
@@ -1035,7 +1036,7 @@ html.lenis, html.lenis body {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
-  color: #999;
+  color: var(--gray-base);
 }
 
 .about--one .about__image-wrap{
@@ -1108,7 +1109,7 @@ html.lenis, html.lenis body {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.6;
-  color: #999;
+  color: var(--gray-base);
   margin-top: 10px;
 }
 
@@ -1394,7 +1395,7 @@ span.services__item-index {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
-  color: #999;
+  color: var(--gray-base);
 }
 
 .services--one .services__item-tags{
@@ -1590,7 +1591,7 @@ span.services__item-index {
   font-weight: bold;
   margin-bottom: 1rem;
   font-size: 1rem;
-  color: #111;
+  color: var(--bg-dark);
 }
 
 .process__step-image{
@@ -1760,7 +1761,7 @@ span.services__item-index {
 .work-card__year {
   display: inline-block;
   background: #f8ff00;
-  color: #000;
+  color: var(--color-primary);
   padding: 6px 25px;
   font-size: 18px;
   line-height: 1.5;
@@ -1913,7 +1914,7 @@ span.services__item-index {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
-  color: #999;
+  color: var(--gray-base);
   margin-top: 8px;
 }
 
@@ -2023,7 +2024,7 @@ span.services__item-index {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
-  color: #999;
+  color: var(--gray-base);
   -webkit-text-stroke-color: var(--border-color);
 }
 
@@ -2447,7 +2448,7 @@ span.services__item-index {
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: #999999;
+  color: var(--gray-base)999;
   margin-top: 2.8rem;
 }
 
@@ -2458,7 +2459,7 @@ span.services__item-index {
 
 .footer--two  .footer__link ,.footer--two .footer__text{
   text-decoration: none;
-  color: #999999;
+  color: var(--gray-base)999;
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -2573,7 +2574,7 @@ span.services__item-index {
   position: absolute;
   bottom: 20px;
   right: 75px;
-  background: #111;
+  background: var(--bg-dark);
   padding: 3.75rem;
   text-align: left;
   max-width: 415px;
@@ -3049,7 +3050,7 @@ span.services__item-index {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
-  color: #999999;
+  color: var(--gray-base)999;
 }
 
 span.testimonials__item-index {
@@ -3486,7 +3487,7 @@ span.testimonials__item-index {
 .pricing__btn--featured {
   background-color: var(--color-secondary);
   color: var(--color-primary);
-  border: 1px solid #000;
+  border: 1px solid var(--color-primary);
 }
 
 .pricing__features {
@@ -3506,7 +3507,7 @@ span.testimonials__item-index {
   content: '●';
   position: absolute;
   left: 0;
-  color: #000;
+  color: var(--color-primary);
   font-size: 12px;
 }
 
@@ -3649,7 +3650,7 @@ span.testimonials__item-index {
 
 .insight-card__readtime {
   font-size: 1rem;
-  color: #999;
+  color: var(--gray-base);
   line-height: 1.5;
   font-weight: 500;
 }
@@ -3802,7 +3803,7 @@ span.testimonials__item-index {
 }
 
 .about--about .about__item-text {
-  color: #999999;
+  color: var(--gray-base)999;
 }
 
 .about--about .about__rating{
@@ -3886,7 +3887,7 @@ span.testimonials__item-index {
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: #999999;
+  color: var(--gray-base)999;
   margin-top: 1.5rem;
   max-width: 850px;
 }
@@ -4125,7 +4126,7 @@ span.testimonials__item-index {
   display: block;
   font-size: 18px;
   text-align: left;
-  color: #999;
+  color: var(--gray-base);
   margin-bottom: 5px;
   font-weight: 400;
 }
@@ -4145,7 +4146,7 @@ span.testimonials__item-index {
 .blog--details .blog__text {
   margin-bottom:2.2rem;
   line-height: 1.8;
-  color: #999;
+  color: var(--gray-base);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
@@ -4494,7 +4495,7 @@ span.testimonials__item-index {
   font-size: 20px;
   line-height: 1.5;
   font-weight: 400;
-  color: #999;
+  color: var(--gray-base);
   margin-bottom: 2rem;
 }
 
@@ -4546,7 +4547,7 @@ span.testimonials__item-index {
 }
 
 .portfolio-details__text{
-  color: #999;
+  color: var(--gray-base);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
@@ -4709,7 +4710,7 @@ span.testimonials__item-index {
   line-height: 1.5;
   font-weight: 400;
   margin-bottom: 16px;
-  color: #999;
+  color: var(--gray-base);
 }
 
 .service-details__list {
