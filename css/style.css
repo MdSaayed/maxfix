@@ -5179,6 +5179,11 @@ span.testimonials__item-index {
 }
 
 @media (max-width:1190px) {
+  /* Testimonials Area One */
+  .testimonials__title-wrap{
+    margin-bottom: 10rem;
+  }
+
   .testimonials--one .testimonials__list{
     grid-template-columns: repeat(3,1fr);
   }
@@ -5781,7 +5786,7 @@ span.testimonials__item-index {
     padding: 2rem;
   }
 
-  /* Testimonials One */
+  /* Testimonials Area One */
   .testimonials__list {
     grid-template-columns: 1fr;
   }
