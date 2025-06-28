@@ -839,15 +839,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const section = document.querySelector(".team--one");
     if (!section) return;
 
-    animateOnScroll(".team--one .team__title", {
-      from: { y: 100, opacity: 0 },
-      to: { y: 0, opacity: 1, duration, ease },
-    });
+    if(document.querySelector(".team--one .team__title")){
+      animateOnScroll(".team--one .team__title", {
+        from: { y: 100, opacity: 0 },
+        to: { y: 0, opacity: 1, duration, ease },
+      });
+    }
 
-    animateOnScroll(".team--one .team__text-group", {
-      from: { y: 120, opacity: 0 },
-      to: { y: 0, opacity: 1, duration, ease, delay: 0.2 },
-    });
+    if(document.querySelector(".team--one .team__text-group")){
+      animateOnScroll(".team--one .team__text-group", {
+        from: { y: 120, opacity: 0 },
+        to: { y: 0, opacity: 1, duration, ease, delay: 0.2 },
+      });
+    }
 
     animateGroupItems(
       ".team--one .team__member",
@@ -895,10 +899,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const section = document.querySelector(".insights");
     if (!section) return;
 
-    animateOnScroll(".insights .insights__subtitle-wrap", {
-      from: { y: -60, opacity: 0 },
-      to: { y: 0, opacity: 1, duration, ease },
-    });
+    if(document.querySelector(".insights .insights__subtitle-wrap")){
+      animateOnScroll(".insights .insights__subtitle-wrap", {
+        from: { y: -60, opacity: 0 },
+        to: { y: 0, opacity: 1, duration, ease },
+      });
+    }
 
     animateOnScroll(".insights .insights__title", {
       from: { y: 60, opacity: 0 },
@@ -1026,10 +1032,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    animateOnScroll(".why-choose__subtitle-wrap", {
-      from: { y: 60, opacity: 0 },
-      to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" }
-    });
+    if(document.querySelector(".why-choose__subtitle-wrap")){
+      animateOnScroll(".why-choose__subtitle-wrap", {
+        from: { y: 60, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" }
+      });
+    }
 
     animateOnScroll(".why-choose__title", {
       from: { y: 70, opacity: 0 },
@@ -1316,8 +1324,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function initBlogDetailsAnimations() {
     const section = document.querySelector(".blog--details");
     if (!section) return;
-
-    console.log("Blog section found. Initializing animations...");
 
     fadeUpRepeat(".blog__category", 0);
     fadeUpRepeat(".blog__info", 0.1);

@@ -38,6 +38,8 @@ JS INDEX
 document.addEventListener('DOMContentLoaded', function () {
   var preloader = document.querySelector(".preloader");
 
+  if (!preloader) return;
+
   setTimeout(() => {
     preloader.style.display = "none";
   }, 500);
@@ -360,16 +362,18 @@ document.addEventListener("DOMContentLoaded", function () {
 /* =============================
 * 12. Desktop Menu
 ============================= */
-const menuToggle = document.getElementById('menuToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMobile = document.getElementById('closeMobile');
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMobile = document.getElementById('closeMobile');
 
-menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.add('mobile-menu--open');
-});
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.add('mobile-menu--open');
+  });
 
-closeMobile.addEventListener('click', () => {
-  mobileMenu.classList.remove('mobile-menu--open');
+  closeMobile.addEventListener('click', () => {
+    mobileMenu.classList.remove('mobile-menu--open');
+  });
 });
 
 /* =============================
@@ -405,12 +409,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     effect: 'fade',
     fadeEffect: { crossFade: true },
-  });
-
-  videoSlider.on('slideChange', () => {
-    document.querySelectorAll('.swiper-slide video').forEach((vid) => {
-      vid.pause();
-    });
   });
 });
 
