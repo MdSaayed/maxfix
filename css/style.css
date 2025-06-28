@@ -4787,8 +4787,105 @@ span.testimonials__item-index {
 /* =============================
 * 39. Video Slider
 ============================= */
+.video-slider {
+  max-width: 100%;
+}
 
+.video-slider .swiper {
+  width: 100%;
+  max-height: 700px;
+  position: relative;
+  overflow: hidden;
+}
 
+.video-slider__wrapper,
+.video-slider__slide {
+  width: 100%;
+}
+
+.video-slider__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.video-slider__inner {
+  width: 100%;
+  max-height: 700px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-slider__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play Button */
+.video-slider__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+}
+
+.video-slider__nav {
+  margin-top: 3.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  z-index: 5;
+}
+
+.video-slider__nav-btn {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  transition: 0.3s ease-in;
+}
+
+.video-slider__nav-btn--prev {
+  color: var(--bg-white);
+  background-color: transparent;
+  border: 1px solid var(--bg-white);
+}
+
+.video-slider__nav-btn--next {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.video-slider__nav-btn:hover {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border: none;
+}
+
+.video-slider__nav-btn:hover svg path {
+  stroke: var(--color-primary);
+}
 
 /* =============================
 * 40. Error Area
@@ -5101,6 +5198,16 @@ span.testimonials__item-index {
 @media (max-width: 1024px) {
   .awards__image img {
     width: 150px;
+  }
+
+  /* Video Slider */
+  .video-slider .swiper {
+    max-height: 400px;
+  }
+
+  .custom-nav button {
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -5860,6 +5967,17 @@ span.testimonials__item-index {
     padding: 1.5rem;
   }
 
+  /* Video Slider */
+  .video-slider .swiper {
+    max-height: 400px;
+  }
+
+  .video-slider__nav-btn {
+    width: 100px;
+    height: 100px;
+    font-size: 10px;
+  }
+
   /* Footer */
   .footer__form{
     padding: 2rem;
@@ -6048,6 +6166,13 @@ span.testimonials__item-index {
 
   .portfolio-hero--details .portfolio-hero__image-wrap {
     padding: 2rem 1rem;
+  }
+
+  /* Video Slider */
+  .video-slider__nav-btn {
+    width: 90px;
+    height: 90px;
+    font-size: 10px;
   }
 }
 

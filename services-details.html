@@ -212,24 +212,51 @@
         <!-- Starting of the Video Slider -->
         <div class="video-slider">
             <div class="video-slider__container container">
-                <div class="video-slider__wrapper" data-bg-img="">
-                    <div class="video-slider__track">
-                        <div class="video-slider__slide video-slider__slide--active">
-                            <button class="video-slider__play-button">Play</button>
-                        </div>
-                    </div> 
-
-                    <div class="video-slider__nav">
-                        <button class="video-slider__nav-btn video-slider__nav-btn--prev">
-                            <span>Prev Services</span>
-                        </button>
-                        <button class="video-slider__nav-btn video-slider__nav-btn--next">
-                            <span>Next Services</span>
-                        </button>
+                <div class="swiper custom-slider">
+                <div class="swiper-wrapper video-slider__wrapper">
+                    <div class="swiper-slide video-slider__slide">
+                    <div class="video-slider__inner">
+                        <img src="./img/services/video-thumb.png" alt="" class="video-slider__thumb">
+                        <a href="https://www.w3schools.com/html/mov_bbb.mp4" class="video-slider__play-btn glightbox">
+                            <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="90" cy="90" r="80" fill="white" />
+                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-size="20" font-weight="bold">Play</text>
+                            </svg>
+                        </a>
                     </div>
-                </div>  
-            </div> 
-        </div>  
+                    </div>
+
+                    <div class="swiper-slide video-slider__slide">
+                    <div class="video-slider__inner">
+                        <img src="./img/services/video-thumb-2.jpg" alt="" class="video-slider__thumb">
+                        <a href="https://www.w3schools.com/html/movie.mp4" class="video-slider__play-btn glightbox">
+                            <svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="90" cy="90" r="80" fill="white" />
+                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-size="20" font-weight="bold">Play</text>
+                            </svg>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="video-slider__nav">
+                <button class="video-slider__nav-btn video-slider__nav-btn--prev prev">
+                    Prev Services
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="25" viewBox="0 0 17 25" fill="none">
+                    <path d="M16.1771 24.2467L1 0.716797C1.94495 2.33995 2.89024 9.19256 1.37829 12.3726" stroke="white"/>
+                    </svg>
+                </button>
+                <button class="video-slider__nav-btn video-slider__nav-btn--next next">
+                    Next Services
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="25" viewBox="0 0 17 25" fill="none">
+                    <path d="M0.822893 24.2467L16 0.716797C15.0551 2.33995 14.1098 9.19256 15.6217 12.3726" stroke="black"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+        </div>
         <!-- End of the Video Slider -->
 
     </main>

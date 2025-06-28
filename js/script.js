@@ -24,6 +24,7 @@ JS INDEX
 12. Desktop Menu
 13. Responsive Menu
 14. Video Area
+15. Video Slider
 
 ------------------------------------------------------------------*/
 
@@ -387,10 +388,39 @@ document.querySelectorAll('.mobile-menu__list .menu-item-has-children > a').forE
 * 14. Video Area
 ============================= */
 const lightbox = GLightbox({
-    type: 'video',
-    source: 'youtube',  
-    autoplayVideos: true,
+  type: 'video',
+  source: 'youtube',  
+  autoplayVideos: true,
+});
+
+/* =============================
+* 15. Video Slider
+============================= */
+document.addEventListener("DOMContentLoaded", function () {
+  const videoSlider = new Swiper('.custom-slider', {
+    loop: true,
+    navigation: {
+      nextEl: '.next',
+      prevEl: '.prev',
+    },
+    effect: 'fade',
+    fadeEffect: { crossFade: true },
   });
+
+  videoSlider.on('slideChange', () => {
+    document.querySelectorAll('.swiper-slide video').forEach((vid) => {
+      vid.pause();
+    });
+  });
+});
+
+
+
+
+
+
+
+
 
 
 

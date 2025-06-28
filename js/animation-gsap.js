@@ -42,7 +42,7 @@ ANIMATION INDEX
 30. Services Details Hero
 31. Services Details
 32. Contact Area
-33. Initialize All Sections
+33. Blog Details
 34. Smooth Scroll / Lenis
 
 ------------------------------------------------------------------*/
@@ -335,8 +335,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (steps.length) {
       animateGroupItems(
         ".process__step",
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration, ease },
+        { y: 150, opacity: 0 },
+        { y: 0, opacity: 1, duration:1.5, ease },
         0.1
       );
     }
@@ -419,14 +419,14 @@ document.addEventListener("DOMContentLoaded", function () {
           gsap.fromTo(
             ".brand-logos__item",
             { y: 60, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2 }
+            { y: 0, opacity: 1, duration: 1.5, ease: "power4.out", stagger: 0.2 }
           );
         },
         onEnterBack: () => {
           gsap.fromTo(
             ".brand-logos__item",
             { y: 60, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.6, ease: "power4.out", stagger: 0.2 }
+            { y: 0, opacity: 1, duration: 1.5, ease: "power4.out", stagger: 0.2 }
           );
         }
       });
@@ -480,6 +480,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // 10. Blog Area
   // =============================
   function initBlogAnimations() {
+    const duration = 2.2;
+    const ease = "power4.out";
+
     const section = document.querySelector(".blog");
     if (!section) return;
 
@@ -497,9 +500,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const blogItems = document.querySelectorAll(".blog__item");
     if (blogItems.length) {
-      blogItems.forEach((item, index) => {
-        fadeUpRepeat(item, index * 0.15);
-      });
+      animateGroupItems(
+        ".blog__item",
+        { y: 150, opacity: 0 },
+        { y: 0, opacity: 1, duration:1.5, ease },
+        0.1
+      );
     }
   }
 
@@ -635,11 +641,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
   }
-
-
-
-
-
 
   // =============================
   // 13. Avatar Card Shared Animation
@@ -1309,9 +1310,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // =============================
+  // 33. Blog Details
+  // =============================
+  function initBlogDetailsAnimations() {
+    const section = document.querySelector(".blog--details");
+    if (!section) return;
+
+    console.log("Blog section found. Initializing animations...");
+
+    fadeUpRepeat(".blog__category", 0);
+    fadeUpRepeat(".blog__info", 0.1);
+    fadeUpRepeat(".blog__title", 0.2);
+    fadeUpRepeat(".blog__meta", 0.3);
+
+    animateOnScroll(".blog__image img", {
+      from: { scale: 0.5, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" },
+    });
+
+    animateGroupItems(".blog__text", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }, 0.05);
+
+    animateGroupItems(".blog__subtitle", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" }, 0.1);
+
+    animateOnScroll(".blog__quote", {
+      from: { x: -60, opacity: 0 },
+      to: { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
+    });
+
+    animateGroupItems(".blog__gallery-item", { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }, 0.1);
+    animateOnScroll(".blog__gallery--wide img", {
+      from: { scale: 1.5, opacity: 0 },
+      to: { scale: 1, opacity: 1, duration: 1.8, ease: "power4.out" },
+    });
+
+    fadeUpRepeat(".blog__tags-share", 0.2);
+    fadeUpRepeat(".blog__author-box", 0.3);
+
+    fadeUpRepeat(".blog__navigation", 0.3);
+    fadeUpRepeat(".blog__comment-form", 0.4);
+  }
 
   // =============================
-  // 33. Initialize All Sections
+  // Initialize All Sections
   // =============================
   initHeroAnimations();
   initAboutAnimations();
@@ -1343,12 +1384,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initVideoAreaAnimation();
   heroServicesDetailsAnimation();
   initServicesDetailsAnimations();
-
   initContactAreaAnimations();
-
+  initBlogDetailsAnimations();
 });
-
-
 
 /* =============================
 * 34. Smooth Scroll / Lenis
