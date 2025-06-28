@@ -1020,12 +1020,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // 25. Why Choose Area
   // =============================
   function initWhyChooseUsAnimation() {
-    const section = document.querySelector(".why-chosse");
+    const section = document.querySelector(".why-choose");
     if (!section) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
-    animateOnScroll(".why-chosse__subtitle-wrap", {
+    animateOnScroll(".why-choose__subtitle-wrap", {
       from: { y: 60, opacity: 0 },
       to: { y: 0, opacity: 1, duration: 1.4, ease: "power4.out" }
     });
