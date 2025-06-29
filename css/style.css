@@ -673,6 +673,10 @@ html.lenis, html.lenis body {
 * 4. Mobile Offcanvas
 ============================= */
 
+.main-nav__logo{
+  max-width: 150px;
+}
+
 .mobile-menu {
   position: fixed;
   top: 0;
