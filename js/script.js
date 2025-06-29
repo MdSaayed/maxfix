@@ -34,7 +34,6 @@ JS INDEX
 /* =============================
 * 1. Preloader
 ============================= */
-
 document.addEventListener('DOMContentLoaded', function () {
   var preloader = document.querySelector(".preloader");
 

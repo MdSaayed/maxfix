@@ -348,6 +348,7 @@ html.lenis, html.lenis body {
 /* Preloader */
 .preloader{
   position: fixed;
+  top: 0;
   height: 100vh;
   width: 100%;
   background-color: var(--bg-dark);
@@ -592,7 +593,7 @@ html.lenis, html.lenis body {
 .header--two.header {
   margin-top: 1.8rem;
   border-bottom:0;
-  z-index: 9999 !important;
+  z-index: 888 !important;
 }
 
 .header__content-area{
