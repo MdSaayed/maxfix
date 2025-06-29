@@ -73,43 +73,69 @@ document.addEventListener("DOMContentLoaded", function () {
     const item = icon.closest(".services__item");
     const content = item.querySelector(".services__item-content");
 
+    // Initialize state if already active
     if (item.classList.contains("services__item--active")) {
       icon.classList.remove("fa-plus");
-      icon.classList.add("fa-minus");
-      icon.classList.add("rotate");
-
+      icon.classList.add("fa-minus", "rotate");
       content.style.visibility = "visible";
       content.style.transform = "scaleY(1)";
       content.style.opacity = "1";
       content.style.height = "auto";
       content.style.padding = "2rem";
-      content.style.marginBottom = "2rem";  
+      content.style.marginBottom = "2rem";
     }
 
     icon.addEventListener("click", function () {
       const isActive = item.classList.contains("services__item--active");
 
-      icon.classList.toggle("fa-plus", isActive);
-      icon.classList.toggle("fa-minus", !isActive);
-      icon.classList.toggle("rotate");
+      // Close all other items
+      document.querySelectorAll(".services__item").forEach((otherItem) => {
+        if (otherItem !== item && otherItem.classList.contains("services__item--active")) {
+          const otherIcon = otherItem.querySelector(".services__item-toggle-icon");
+          const otherContent = otherItem.querySelector(".services__item-content");
+
+          otherIcon.classList.add("fa-plus");
+          otherIcon.classList.remove("fa-minus", "rotate");
+
+          otherContent.style.transform = "scaleY(0)";
+          otherContent.style.opacity = "0";
+          otherContent.style.height = "0";
+          otherContent.style.padding = "0 2rem";
+          otherContent.style.marginBottom = "0";
+
+          setTimeout(() => {
+            otherItem.classList.remove("services__item--active");
+            otherContent.style.visibility = "hidden";
+          }, 500);
+        }
+      });
 
       if (isActive) {
+        // Close current
+        icon.classList.add("fa-plus");
+        icon.classList.remove("fa-minus", "rotate");
+
         content.style.transform = "scaleY(0)";
         content.style.opacity = "0";
         content.style.height = "0";
         content.style.padding = "0 2rem";
-        content.style.marginBottom = "0"; 
+        content.style.marginBottom = "0";
 
         setTimeout(() => {
           item.classList.remove("services__item--active");
           content.style.visibility = "hidden";
         }, 500);
       } else {
+        // Open current
         item.classList.add("services__item--active");
+
+        icon.classList.remove("fa-plus");
+        icon.classList.add("fa-minus", "rotate");
+
         content.style.visibility = "visible";
         content.style.height = "auto";
         content.style.padding = "2rem";
-        content.style.marginBottom = "2rem";  
+        content.style.marginBottom = "2rem";
 
         void content.offsetWidth;
 
@@ -178,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const item = icon.closest(".testimonials__item");
     const content = item.querySelector(".testimonials__item-content");
 
+    // Initialize active state
     if (item.classList.contains("testimonials__item--active")) {
       icon.classList.add("rotate");
 
@@ -192,9 +219,30 @@ document.addEventListener("DOMContentLoaded", function () {
     icon.addEventListener("click", function () {
       const isActive = item.classList.contains("testimonials__item--active");
 
-      icon.classList.toggle("rotate");
+      // Close all other active items
+      document.querySelectorAll(".testimonials__item").forEach((otherItem) => {
+        if (otherItem !== item && otherItem.classList.contains("testimonials__item--active")) {
+          const otherIcon = otherItem.querySelector(".testimonials__item-toggle-icon");
+          const otherContent = otherItem.querySelector(".testimonials__item-content");
+
+          otherIcon.classList.remove("rotate");
+
+          otherContent.style.transform = "scaleY(0)";
+          otherContent.style.opacity = "0";
+          otherContent.style.height = "0";
+          otherContent.style.padding = "0 2rem";
+          otherContent.style.marginBottom = "0";
+
+          setTimeout(() => {
+            otherItem.classList.remove("testimonials__item--active");
+            otherContent.style.visibility = "hidden";
+          }, 500);
+        }
+      });
 
       if (isActive) {
+        icon.classList.remove("rotate");
+
         content.style.transform = "scaleY(0)";
         content.style.opacity = "0";
         content.style.height = "0";
@@ -207,12 +255,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
       } else {
         item.classList.add("testimonials__item--active");
+        icon.classList.add("rotate");
+
         content.style.visibility = "visible";
         content.style.height = "auto";
         content.style.padding = "2rem";
         content.style.marginBottom = "2rem";
 
-        // Force reflow before transition
         void content.offsetWidth;
 
         content.style.transform = "scaleY(1)";

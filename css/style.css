@@ -331,18 +331,18 @@ html.lenis, html.lenis body {
 }
 
 .btn__bluet .bluet {
-    font-weight: 600;
-    height: 8px;
-    width: 8px;
-    background-color: var(--color-primary);
-    border-radius: 50%;
+  font-weight: 600;
+  height: 8px;
+  width: 8px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
 }
 
 .btn__bluet .btn-text {
-    width: auto;
-    height: auto;
-    color: var(--color-primary);
-    padding-left: 10px;
+  width: auto;
+  height: auto;
+  color: var(--color-primary);
+  padding-left: 10px;
 }
 
 /* Preloader */
@@ -359,6 +359,16 @@ html.lenis, html.lenis body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* Title Wrap Flex */
+.title-wrap__flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 /* =============================
@@ -1248,15 +1258,6 @@ html.lenis, html.lenis body {
 * 9. Services One Area
 ============================= */
 
-.services--one .services__title-wrap{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  column-gap: 2rem;
-  row-gap: 1rem;
-}
-
 .services--one .services__subtitle-wrap{
   margin-bottom: 0;
 }
@@ -1857,10 +1858,6 @@ span.services__item-index {
 }
 
 .testimonials__title-wrap{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 15rem;
 
@@ -2073,14 +2070,6 @@ span.services__item-index {
 /* =============================
 * 15. Blog Area
 ============================= */
-
-.blog__title-wrap{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
 
 .blog__heading{
   color: var(--color-primary);
@@ -3847,11 +3836,6 @@ span.testimonials__item-index {
 ============================= */
 
 .why-choose__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
   margin-bottom: 6rem;
 }
 
@@ -5013,9 +4997,20 @@ span.testimonials__item-index {
 }
 
 @media (max-width: 1350px) {
+   /* Title Wrap Flex */
+  .title-wrap__flex{
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .title-wrap__flex .btn-arrow{
+    margin-top: 1rem;
+  }
+
   /* Blog */
   .blog__grid {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 5rem;
   }
 
   .blog__item:last-child {
@@ -5258,7 +5253,6 @@ span.testimonials__item-index {
   .title {
     text-indent: 200px;
     font-size: 2.5rem;
-
   }
 
   /* Header Home One */
@@ -5878,6 +5872,7 @@ span.testimonials__item-index {
   /* Faq */
   .blog__grid {
     grid-template-columns: 1fr;
+    margin-top: 4rem;
   }
 
   .blog__item:last-child {
