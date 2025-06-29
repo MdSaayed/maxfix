@@ -4964,7 +4964,7 @@ span.testimonials__item-index {
   }
 
   /* Recent Work / Home One */
-  .title-gradient{
+  .title-gradient,.footer__brand-text{
     font-size: 8rem;
   }
 
@@ -5128,7 +5128,7 @@ span.testimonials__item-index {
   }
 
   /* Recent Work / Home One */
-  .title-gradient{
+  .title-gradient, .footer__brand-text{
     font-size: 6rem;
   }
 
@@ -5373,7 +5373,7 @@ span.testimonials__item-index {
   }
   
   /* Recent Work / Home One */
-  .title-gradient{
+  .title-gradient,.footer__brand-text{
     font-size: 5rem;
   }
 
@@ -6020,6 +6020,10 @@ span.testimonials__item-index {
   .footer--two .footer__columns {
     grid-template-columns: repeat(2,1fr);
   }
+
+  .footer__brand-text{
+    font-size: 4rem;
+  }
 }
 
 @media (max-width:600px) {
@@ -6180,6 +6184,7 @@ span.testimonials__item-index {
 
   .footer__brand-text{
     margin-bottom: 1rem;
+    font-size: 3rem;
   }
 
   /* Footer / Home Two */
