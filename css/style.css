@@ -731,6 +731,8 @@ html.lenis, html.lenis body {
 }
 
 .mobile-menu__list .menu-item > a {
+  font-size: 1.2rem;
+  font-weight: 600;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
