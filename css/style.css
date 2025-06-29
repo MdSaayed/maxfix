@@ -2449,7 +2449,7 @@ span.services__item-index {
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: var(--gray-base)999;
+  color: var(--gray-base);
   margin-top: 2.8rem;
 }
 
@@ -2460,7 +2460,7 @@ span.services__item-index {
 
 .footer--two  .footer__link ,.footer--two .footer__text{
   text-decoration: none;
-  color: var(--gray-base)999;
+  color: var(--gray-base);
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
@@ -3051,7 +3051,7 @@ span.services__item-index {
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--gray-base)999;
+  color: var(--gray-base);
 }
 
 span.testimonials__item-index {
@@ -3804,7 +3804,7 @@ span.testimonials__item-index {
 }
 
 .about--about .about__item-text {
-  color: var(--gray-base)999;
+  color: var(--gray-base);
 }
 
 .about--about .about__rating{
@@ -3883,7 +3883,7 @@ span.testimonials__item-index {
   font-size: 18px;
   line-height: 1.5;
   font-weight: 400;
-  color: var(--gray-base)999;
+  color: var(--gray-base);
   margin-top: 1.5rem;
   max-width: 850px;
 }
