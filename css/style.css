@@ -189,7 +189,7 @@ html.lenis, html.lenis body {
   font-weight: 700;
   line-height: 1.4;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, #FFFA00, #fff, #fff, #FFFA00);
+  background: linear-gradient(90deg, #FFFA00, #fff, #FFFA00);
   -webkit-background-clip: text;
   display: inline-block;
 }
@@ -2378,8 +2378,8 @@ span.services__item-index {
   text-align: center;
   width: 100%;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, #FFFA00, var(--bg-white), var(--bg-white), #FFFA00);
-  -webkit-background-clip: text;
+  background: linear-gradient(230deg, #FFFB1F 30%, #ffffff 50%, #FFFB1F 75%) !important;
+  -webkit-background-clip: text !important;
   display: inline-block;
   margin-top: -4rem;
 }
@@ -5199,6 +5199,15 @@ span.testimonials__item-index {
 }
 
 @media (max-width:1190px) {
+  /* Header One */
+  .header__logo {
+    max-width: 170px;
+  }
+
+  .menu {
+    gap: 20px;
+  }
+
   /* Testimonials Area One */
   .testimonials__title-wrap{
     margin-bottom: 10rem;
@@ -5611,6 +5620,10 @@ span.testimonials__item-index {
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  .header__logo {
+    max-width: 130px;
   }
 
   /* Header / Two */

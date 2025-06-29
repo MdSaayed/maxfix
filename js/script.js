@@ -12,7 +12,7 @@ JS INDEX
 
 1. Preloader
 2. Dynamically set BG
-3. Services Toggle
+3. Services One Area
 4. Testimonials One
 5. Testimonials Two
 6. Faq
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* =============================
-* 3. Services Toggle
+* 3. Services One Area
 ============================= */
 document.addEventListener("DOMContentLoaded", function () {
   const toggleIcons = document.querySelectorAll(".services__item-toggle-icon");
@@ -126,6 +126,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll('.testimonial-card');
   const cardList = document.querySelector('.testimonials__list');
+
+  if(!cardList || cards) return;
 
   cards.forEach((card, index) => {
     const isLastCard = index === cards.length - 1;
