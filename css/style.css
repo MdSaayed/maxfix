@@ -4016,6 +4016,11 @@ span.testimonials__item-index {
   bottom: 0;
 }
 
+.avatar-btn{
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
 /* =============================
 * 32. Video Area
 ============================= */
@@ -6243,6 +6248,12 @@ span.testimonials__item-index {
 
   .testimonials--two .testimonials__item-image{
     height: 220px;
+  }
+
+  /* Pricing */
+  .pricing__btn {
+    font-size: 16px;
+    padding: 8px 20px;
   }
 }
 
