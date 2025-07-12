@@ -4110,6 +4110,7 @@ span.testimonials__item-index {
   flex-wrap: wrap;
   gap: 1.5rem;
   font-size: 0.9rem;
+  margin: 0 auto;
 }
 
 .blog--details .blog__author-img-wrapper {
